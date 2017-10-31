@@ -18,7 +18,10 @@ window.onload = function () {
     }
 }
 window.onload = function () {
-    $('.payMsg').on('touchstart', function () {
-        $('.transaction_detail').slideToggle()
+    $.each($('.payMsg'),function (i,it) {
+        $('.payMsg').eq(i).on('touchstart', function () {
+            $('.transaction_detail').eq(i).toggle('show')
+        })
     })
+   
 }

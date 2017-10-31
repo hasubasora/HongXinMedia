@@ -308,6 +308,10 @@ section section .lately .pays > section > span {
   color: #f1690d;
 }
 
+.greens {
+  color: #65bd1d;
+}
+
 .txt26 {
   font-size: 26px !important;
 }
@@ -321,12 +325,14 @@ section section .lately .pays > section > span {
 .detail .payUp .jdates img {
   margin-top: 2px !important;
 }
-.detail .payUp .payMsg span .gt {
+.detail .payUp .payMsg span img {
+  width: 10px;
   margin-left: 10px;
 }
 .detail .payUp .transaction_detail {
   font-size: 0.8rem;
   padding: 20px;
+  display: none;
 }
 .detail .payUp .transaction_detail aside {
   display: flex;
