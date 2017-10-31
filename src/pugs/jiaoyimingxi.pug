@@ -18,7 +18,7 @@ html(lang="en")
            select.selected
             option(value="7天") 7天
             option(value="今天") 今天
-            //- 列表开头
+         <!--列表开头-->
          .payUp.tet
           .jdates.dates 2017-10-30
            img(src="../images/dade.png", alt="")
@@ -26,7 +26,7 @@ html(lang="en")
            span 16:31开奖
            span.oranges 盈利
            span 盈利:30000
-            img(src="../images/right.png", alt="")
+            img.rightPic(src="../images/right.png", alt="")
           .transaction_detail 
            aside
             span 订单号：2017101911138625891
@@ -37,8 +37,8 @@ html(lang="en")
            aside
             span 下单金额：10元
             span 中奖金额：300%   
-             //- 列表开头   
-            //- 列表开头
+         <!--列表结尾-->            
+         <!--列表开头-->   
          .payUp.tet
           .jdates.dates 2017-10-30
            img(src="../images/dade.png", alt="")
@@ -46,7 +46,7 @@ html(lang="en")
            span 16:31开奖
            span.oranges 盈利
            span 盈利:30000
-            img(src="../images/right.png", alt="")
+            img.rightPic(src="../images/right.png", alt="")
           .transaction_detail 
            aside
             span 订单号：2017101911138625891
@@ -61,7 +61,7 @@ html(lang="en")
            span 16:31开奖
            span.greens 亏损
            span 盈利:30000
-            img(src="../images/right.png", alt="")
+            img.rightPic(src="../images/right.png", alt="")
           .transaction_detail   
            aside
             span 订单号：2017101911138625891
@@ -72,7 +72,10 @@ html(lang="en")
            aside
             span 下单金额：10元
             span 中奖金额：300%                       
-             //- 列表开头                   
+          <!--列表结尾-->                   
           .btm -数据加载完毕- 
     script(src="../framework/jq/zepto.min.js")      
-    script(src="../javascripts/f.js")          
+    script(src="../javascripts/f.js") 
+    script.
+     payMsgs.init();
+

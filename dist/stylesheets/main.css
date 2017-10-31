@@ -395,3 +395,143 @@ section section .lately .pays > section > span {
   -ms-flex: 1;
   flex: 1;
 }
+
+.transform90 {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.nav_fooer {
+  padding: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.nav_fooer a {
+  text-decoration: none;
+  color: #5432ce;
+}
+
+.faq_text {
+  padding: 20px;
+}
+
+.ran_header {
+  *zoom: 1;
+}
+.ran_header:before, .ran_header:after {
+  content: "";
+  display: table;
+}
+.ran_header:after {
+  clear: both;
+  overflow: hidden;
+}
+
+.leftPay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #eecc82;
+  font-size: 0.875rem;
+}
+.leftPay img {
+  float: left;
+  vertical-align: middle;
+  width: 0.875rem;
+}
+
+.rightPay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #eecc82;
+  font-size: 0.875rem;
+}
+.rightPay img {
+  float: left;
+  vertical-align: middle;
+  width: 0.875rem;
+}
+
+.ran_tab {
+  padding: 0 3px;
+}
+.ran_tab nav {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.ran_tab nav span {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin: 2px;
+  padding: 1.125rem 0 1.125rem 0.9375rem;
+}
+.ran_tab nav span img {
+  width: 0.9375rem;
+  float: left;
+}
+
+.ran_list article {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  margin-bottom: 0.1875rem;
+}
+.ran_list article aside img {
+  width: 0.9375rem;
+  float: left;
+  margin-right: 5px;
+}
+.ran_list article aside:nth-child(2) {
+  text-indent: 20px;
+  padding-top: 6px;
+}
+.ran_list article aside span:nth-child(2) {
+  float: right;
+  color: dimgray;
+}
+
+.padd5, section .faqPic, .ran_headerPic, .ran_list {
+  padding: 5px;
+}
+
+.bordery, .ran_tab nav span, .ran_list article {
+  border: 1px solid #b4b4b4;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.act {
+  color: #e67812;
+  background: #310a65;
+}
+
+.reds {
+  color: red;
+}

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 //交易流水
 section {
     .nav_header {
@@ -119,9 +120,11 @@ section {
 .oranges {
     color: #f1690d;
 }
-.greens{
+
+.greens {
     color: #65bd1d;
 }
+
 .txt26 {
     font-size: 26px !important;
 }
@@ -139,7 +142,7 @@ section {
         }
         .payMsg {
             span {
-                img{
+                img {
                     width: 10px;
                     margin-left: 10px;
                 }
@@ -161,4 +164,128 @@ section {
             }
         }
     }
+}
+
+//小箭头
+.transform90 {
+    transform: rotate(90deg);
+}
+
+//FAQ
+.nav_fooer {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    a {
+        text-decoration: none;
+        color: #5432ce;
+    }
+}
+
+section {
+    .faqPic {
+        @extend .padd5;
+    }
+}
+
+.faq_text {
+    padding: 20px;
+}
+
+//排行榜
+.ran_header {
+    @include clearfix;
+}
+
+.ran_headerPic {
+    @extend .padd5;
+}
+
+.leftPay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #eecc82;
+    font-size: rem(14);
+    img {
+        float: left;
+        vertical-align: middle;
+        width: rem(14);
+    }
+}
+
+.rightPay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #eecc82;
+    font-size: rem(14);
+    img {
+        float: left;
+        vertical-align: middle;
+        width: rem(14);
+    }
+}
+
+.ran_tab {
+    padding: 0 3px;
+    nav {
+        display: flex;
+        span {
+            flex: 1;
+            @extend .bordery;
+            margin: 2px;
+            padding: rem(18) 0 rem(18) rem(15);
+            img {
+                width: rem(15);
+                float: left;
+            }
+        }
+    }
+}
+
+.ran_list {
+    @extend .padd5;
+    article {
+        @extend .bordery;
+        display: flex;
+        flex-direction: column;
+        padding: rem(12);
+        font-size:rem(14);
+        margin-bottom: rem(3);
+        aside {
+            img{
+                width: rem(15);
+                float: left;
+                margin-right: 5px;
+            }
+            &:nth-child(2){
+                text-indent: 20px;
+                padding-top: 6px;
+            }
+            span{
+                &:nth-child(2){
+                    float: right;
+                    color: rgb(105, 105, 105);
+                }
+            }
+        }
+    }
+}
+
+.padd5 {
+    padding: 5px;
+}
+
+.bordery {
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 5px;
+}
+
+.act {
+    color: #e67812;
+    background: rgb(49, 10, 101);
+}
+.reds{
+    color: red;
 }
