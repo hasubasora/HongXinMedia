@@ -1,3 +1,4 @@
+//交易流水
 section {
     .nav_header {
         // border: 1px solid red;
@@ -69,7 +70,7 @@ section {
                 @extend .borders;
                 >section {
                     flex: 1;
-                    text-align: center;
+                   padding: 0 20px;
                     >span {
                         font-size: 18px;
                     }
@@ -88,16 +89,68 @@ section {
 
 .h30 {
     @include height(40px);
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
 .selecteds {
     outline: none;
     height: 30px;
-    width: 70px;
+    width: 80px;
     border-radius: 30px;
     padding: 0 10px;
 }
 .none{
     display: none;
+}
+
+//交易明细
+.transaction{
+    background: rgb(10, 33, 101);
+    @include height(40px);
+    text-align: center;
+    color: #f2f2f2;
+}
+.tet{
+    font-size: 14px;
+}
+.oranges{
+    color: #f1690d;
+    
+}
+.txt26{
+    font-size: 26px !important;
+}
+.detail{
+    .payUp{
+        .jdates{
+            height: 25px !important;
+            line-height: 25px !important;
+            padding: 0 20px;
+            img{
+                margin-top: 2px !important;
+            }
+        }
+        .payMsg{
+            span{
+                .gt{
+                    margin-left: 10px;
+                }
+            }
+        }
+        .transaction_detail{
+            font-size: 0.8rem;
+            padding: 20px;
+            aside{
+                display: flex;
+                span{
+                    line-height: 1.2;
+                   &:nth-child(1){
+                    flex: 1;
+                   }
+                }
+            }
+        }
+    }
+    
+
 }
