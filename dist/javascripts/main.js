@@ -265,6 +265,11 @@ window.onload = function () {
         });
     }
 };
+window.onload = function () {
+    $('.payMsg').on('touchstart', function () {
+        $('.transaction_detail').slideToggle();
+    });
+};
 'use strict';
 
 var filter = {

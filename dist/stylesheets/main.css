@@ -312,7 +312,7 @@ section section .lately .pays > section > span {
   font-size: 18px;
 }
 
-.borders, section section .lately ul, section section .lately .payUp .dates, section section .lately .payUp .payMsg, section section .lately .pays {
+.borders, section section .lately ul, section section .lately .payUp .dates, section section .lately .payUp .payMsg, section section .lately .pays, .detail .payUp .transaction_detail {
   border-bottom: 1px solid #ccc;
 }
 
@@ -329,6 +329,7 @@ section section .lately .pays > section > span {
   -webkit-border-radius: 30px;
   border-radius: 30px;
   padding: 0 10px;
+  margin-top: 5px;
 }
 
 .none {
@@ -359,6 +360,7 @@ section section .lately .pays > section > span {
   height: 25px !important;
   line-height: 25px !important;
   padding: 0 20px;
+  background: #f3f3f3;
 }
 .detail .payUp .jdates img {
   margin-top: 2px !important;
