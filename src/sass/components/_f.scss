@@ -418,14 +418,14 @@ section {
     @include span(10);
     right: 7%;
     font-size: rem(14);
-
     color: aliceblue;
     height: rem(200);
     overflow-y: scroll;
     .introduce_text {
-        line-height: 1;
+        line-height: 1.2;
+        letter-spacing: 1px;
     }
-    .introduceImg{
+    .introduceImg {
         padding: 5px 0;
     }
     .table_list {
@@ -433,23 +433,26 @@ section {
             display: flex;
             li {
                 color: #fff;
-                 outline: 1px solid rgb(122, 122, 122);
-                 padding: 2px;
+                outline: 1px solid rgb(122, 122, 122);
+                padding: 4px;
                 &:nth-child(2) {
                     @extend %wwbw;
                     flex: 1;
                 }
                 @include span(2);
                 margin-bottom: 5px;
+                letter-spacing:1px;
             }
         }
     }
 }
-.okImg{
+
+.okImg {
     margin: -60px auto;
     width: rem(200) !important;
     display: block;
 }
+
 %wwbw {
     @include span(8);
     word-wrap: break-word

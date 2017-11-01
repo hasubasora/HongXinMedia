@@ -599,7 +599,8 @@ section section .lately .pays > section > span {
   overflow-y: scroll;
 }
 .introduce .introduce_text {
-  line-height: 1;
+  line-height: 1.2;
+  letter-spacing: 1px;
 }
 .introduce .introduceImg {
   padding: 5px 0;
@@ -610,12 +611,13 @@ section section .lately .pays > section > span {
 .introduce .table_list ul li {
   color: #fff;
   outline: 1px solid #7a7a7a;
-  padding: 2px;
+  padding: 4px;
   width: 16.66667%;
   float: left;
   padding-left: 0.83333%;
   padding-right: 0.83333%;
   margin-bottom: 5px;
+  letter-spacing: 1px;
 }
 .introduce .table_list ul li:nth-child(2) {
   flex: 1;
