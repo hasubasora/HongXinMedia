@@ -411,9 +411,21 @@ section {
             padding:  rem(20) rem(70);
         }
     }
-    %btnQuiz {
-        // border: 1px solid red;
-        display: block;
-        position: absolute;
-    }
+}
+
+.introduce{
+    border: 1px solid red;
+    position: absolute;
+    top: 110px;
+    width: 60%;
+    right: 20px;
+    font-size: 14px;
+    line-height: 14px;
+    color: aliceblue;
+}
+
+%btnQuiz {
+    border: 1px solid red;
+    display: block;
+    position: absolute;
 }

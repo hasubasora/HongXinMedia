@@ -684,7 +684,20 @@ section section .lately .pays > section > span {
   right: 0.9375rem;
   padding: 1.25rem 4.375rem;
 }
+
+.introduce {
+  border: 1px solid red;
+  position: absolute;
+  top: 110px;
+  width: 60%;
+  right: 20px;
+  font-size: 14px;
+  line-height: 14px;
+  color: aliceblue;
+}
+
 .strategy .strBox .strClose, .strategy .strBox .toRecharge, .strategy .strBox .startQuiz {
+  border: 1px solid red;
   display: block;
   position: absolute;
 }
