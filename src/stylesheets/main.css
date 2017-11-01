@@ -236,7 +236,7 @@ section section .lately ul {
 }
 section section .lately ul li {
   flex: 1;
-  padding: 10px 0;
+  padding: 15px 0;
   line-height: 1.2;
 }
 section section .lately ul li > span {
