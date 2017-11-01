@@ -226,9 +226,13 @@ section .nav_header > span.active {
   background: #0a2165;
   color: #f2f2f2;
 }
+section section .lately {
+  background: #fff;
+}
 section section .lately ul {
-  text-align: center;
+  text-align: left;
   display: flex;
+  padding-left: 20px;
 }
 section section .lately ul li {
   flex: 1;
@@ -237,6 +241,9 @@ section section .lately ul li {
 }
 section section .lately ul li > span {
   font-size: 18px;
+}
+section section .lately ul li p {
+  font-size: 14px;
 }
 section section .lately .payUp .dates img {
   height: 20px;

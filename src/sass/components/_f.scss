@@ -17,10 +17,12 @@ section {
     section {
         // border: 1px solid red;
         .lately {
+            background: #fff;
             ul {
-                text-align: center;
+                text-align: left;
                 display: flex;
                 @extend .borders;
+                padding-left: 20px;
                 li {
                     // border: 1px solid blue;
                     flex: 1;
@@ -31,6 +33,9 @@ section {
                     }
                     .selected {
                         @extend .selecteds;
+                    }
+                    p{
+                        font-size: 14px;
                     }
                 }
             }
@@ -281,6 +286,7 @@ section {
     color: #e67812;
     background: rgb(49, 10, 101);
 }
+
 
 .reds {
     color: red;
