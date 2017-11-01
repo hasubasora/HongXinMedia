@@ -553,13 +553,13 @@ section section .lately .pays > section > span {
   top: 0;
   color: #fff;
   width: 100%;
-  padding-top: 3.125rem;
+  padding-top: 2.5rem;
 }
 .centerPay .lotteryBtn {
   width: 6.25rem;
   margin: auto;
 }
-.centerPay span {
+.centerPay > span {
   text-align: center;
   font-size: 2.5rem;
 }
