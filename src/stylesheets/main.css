@@ -360,6 +360,7 @@ section section .lately .pays > section > span {
 
 .faq_text {
   padding: 20px;
+  letter-spacing: 2px;
 }
 
 .ran_header {
@@ -407,6 +408,7 @@ section section .lately .pays > section > span {
   display: flex;
 }
 .ran_tab nav span {
+  background: #fff;
   flex: 1;
   margin: 2px;
   padding: 1.125rem 0 1.125rem 0.9375rem;
@@ -417,6 +419,7 @@ section section .lately .pays > section > span {
 }
 
 .ran_list article {
+  background: #fff;
   display: flex;
   flex-direction: column;
   padding: 0.75rem;
@@ -558,7 +561,7 @@ section section .lately .pays > section > span {
   position: absolute;
   height: 100%;
   width: 100%;
-  padding: 15% auto 0;
+  padding: 15%  0;
   background: rgba(0, 0, 0, 0.77);
 }
 .strategy .strBox {
@@ -640,4 +643,38 @@ section section .lately .pays > section > span {
 .strategy .strBox .strClose, .strategy .strBox .toRecharge, .strategy .strBox .startQuiz {
   display: block;
   position: absolute;
+}
+
+.menu_rules > a {
+  display: flex;
+  position: relative;
+  height: 2.4375rem;
+}
+.menu_rules > a li {
+  list-style-type: none;
+  height: 2.5rem;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  line-height: 2.5rem;
+  padding: 0 10px;
+}
+.menu_rules > a li:nth-child(1) {
+  flex: 1;
+}
+.menu_rules > a li img {
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+}
+
+.rules_footer {
+  position: absolute;
+  bottom: 2.1875rem;
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+}
+.rules_footer a {
+  padding: 10px;
 }

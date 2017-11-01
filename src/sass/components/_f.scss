@@ -183,6 +183,7 @@ section {
 
 .faq_text {
     padding: 20px;
+    letter-spacing:2px;
 } //排行榜
 .ran_header {
     @include clearfix;
@@ -223,6 +224,7 @@ section {
     nav {
         display: flex;
         span {
+            background: #fff;
             flex: 1;
             @extend .bordery;
             margin: 2px;
@@ -236,8 +238,10 @@ section {
 }
 
 .ran_list {
+
     @extend .padd5;
     article {
+        background: #fff;
         @extend .bordery;
         display: flex;
         flex-direction: column;
@@ -381,7 +385,7 @@ section {
     position: absolute;
     height: 100%;
     width: 100%;
-    padding: 15% auto 0;
+    padding: 15%  0;
     background: rgba(0, 0, 0, 0.77);
     .strBox {
         position: absolute;
@@ -462,4 +466,38 @@ section {
     // border: 1px solid red;
     display: block;
     position: absolute;
+}
+
+//交易规则
+.menu_rules {
+    >a {
+        display: flex;
+        position: relative;
+        height: rem(39);
+        li {
+            list-style-type: none;
+            &:nth-child(1) {
+                flex: 1;
+            }
+            height: rem(40);
+            border-top:1px solid rgb(235, 235, 235);
+            border-bottom:1px solid rgb(235, 235, 235);
+            line-height: rem(40);
+            padding: 0 10px;
+            img {
+                width: 10px;
+                height: 10px;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+.rules_footer {
+    position: absolute;
+    bottom: rem(35);
+    @include span(12);
+    a{
+       padding: 10px;
+    }
 }
