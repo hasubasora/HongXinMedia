@@ -730,7 +730,7 @@ section section .lately .pays > section > span {
 }
 
 .okImg {
-  margin: 0 auto;
+  margin: -40px auto;
   width: 6.25rem !important;
   display: block;
 }
