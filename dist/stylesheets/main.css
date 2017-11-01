@@ -675,19 +675,16 @@ section section .lately .pays > section > span {
   right: 0;
 }
 .strategy .strBox .toRecharge {
-  width: 6.25rem;
-  height: 2.5rem;
-  bottom: 6.25rem;
+  bottom: 6.875rem;
   right: 0.9375rem;
+  padding: 1.875rem 4.375rem;
 }
 .strategy .strBox .startQuiz {
-  width: 6.25rem;
-  height: 2.5rem;
   bottom: 0;
   right: 0.9375rem;
+  padding: 1.25rem 4.375rem;
 }
 .strategy .strBox .strClose, .strategy .strBox .toRecharge, .strategy .strBox .startQuiz {
-  border: 1px solid red;
   display: block;
   position: absolute;
 }

@@ -398,21 +398,21 @@ section {
         }
         .toRecharge {
             @extend %btnQuiz;
-            width: rem(100);
-            height: rem(40);
-            bottom: rem(100);
+
+            bottom: rem(110);
             right: rem(15);
+            padding:  rem(30) rem(70);
         }
         .startQuiz {
             @extend %btnQuiz;
-            width: rem(100);
-            height: rem(40);
+
             bottom: 0;
             right: rem(15);
+            padding:  rem(20) rem(70);
         }
     }
     %btnQuiz {
-        border: 1px solid red;
+        // border: 1px solid red;
         display: block;
         position: absolute;
     }
