@@ -110,6 +110,9 @@ $legacy-support-for-ie:true;
     white-space: $wrap;
     text-overflow: $ellipsis;
 }
+@mixin toText(){
+    word-wrap:break-word;
+}
 
 @function rem($se, $base:16) {
     @return ($se/$base)*1rem;

@@ -398,32 +398,70 @@ section {
         }
         .toRecharge {
             @extend %btnQuiz;
-
             bottom: rem(110);
             right: rem(15);
-            padding:  rem(30) rem(70);
+            padding: rem(30) rem(70);
         }
         .startQuiz {
             @extend %btnQuiz;
-
             bottom: 0;
             right: rem(15);
-            padding:  rem(20) rem(70);
+            padding: rem(20) rem(70);
         }
     }
 }
 
-.introduce{
+.introduce {
     border: 1px solid red;
     position: absolute;
-    top: 110px;
-    width: 60%;
+    top: rem(120);
+    @include span(7);
     right: 20px;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 14px;
     color: aliceblue;
+    height: rem(170);
+    overflow-y: scroll;
+    .introduce_text {
+        line-height: 1;
+    }
+    .table_list {
+     ul{
+         display: flex;
+         li {
+            color: #fff; 
+            &:nth-child(2) {
+               @extend %wwbw; flex: 1;
+            }
+            // &:nth-child(5) {
+            //     @extend %wwbw;
+            // }
+            // &:nth-child(8) {
+            //    @extend %wwbw;
+            // }
+            // &:nth-child(8) {
+            //    @extend %wwbw;
+            // }
+            // &:nth-child(10) {
+            //    @extend %wwbw;
+            // }
+            // &:nth-child(12) {
+            //    @extend %wwbw;
+            // }            
+            // &:nth-child(14) {
+            //    @extend %wwbw;
+            // }
+            @include span(2); 
+            // border: 1px solid red;
+        }
+     }
+       
+    }
 }
-
+%wwbw{
+    @include span(8);
+    word-wrap:break-word
+}
 %btnQuiz {
     border: 1px solid red;
     display: block;
