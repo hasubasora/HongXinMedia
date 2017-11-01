@@ -551,7 +551,6 @@ section section .lately .pays > section > span {
   flex-direction: column;
   position: absolute;
   top: 0;
-  font-size: 2.5rem;
   color: #fff;
   width: 100%;
   padding-top: 3.125rem;
@@ -563,6 +562,10 @@ section section .lately .pays > section > span {
 .centerPay span {
   text-align: center;
   padding-bottom: 0.75rem;
+  font-size: 2.5rem;
+}
+.centerPay p {
+  margin: auto;
 }
 
 .tit {
