@@ -587,6 +587,7 @@ section section .lately .pays > section > span {
   right: 0.9375rem;
 }
 .strategy .strBox .strClose, .strategy .strBox .toRecharge, .strategy .strBox .startQuiz {
+  border: 1px solid red;
   display: block;
   position: absolute;
 }
