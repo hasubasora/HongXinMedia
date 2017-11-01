@@ -454,3 +454,93 @@ section section .lately .pays > section > span {
 .reds {
   color: red;
 }
+
+.centerPay {
+  position: absolute;
+  top: 1.875rem;
+  right: 45%;
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.tit {
+  margin: 5px;
+  font-size: 0.75rem;
+}
+
+.backgrounds {
+  background: #fafafa !important;
+}
+
+.drawRecordList {
+  border: 1px solid #e4e3e3;
+  background: #fff;
+  font-size: 0.875rem;
+  display: flex;
+  margin: 2px 5px;
+  padding: 10px;
+}
+.drawRecordList span {
+  flex: 1;
+  text-align: center;
+}
+
+.lotteryBtn {
+  width: 5.625rem;
+  position: absolute;
+  left: 7.625rem;
+  top: 5rem;
+}
+
+.openBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.671);
+}
+.openBox section {
+  width: 16.0625rem;
+  height: 14.375rem;
+  background: url(../images/choujbj.png) no-repeat;
+  background-size: contain;
+  margin: 4.6875rem 1.875rem 0;
+}
+.openBox section .boxList {
+  padding-top: 5.3125rem;
+  width: 12.6875rem;
+  margin-left: 1.625rem;
+}
+.openBox section .boxList li {
+  width: 33.33333%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  height: 3rem;
+  background: url(../images/bao1.png) no-repeat;
+  background-size: contain;
+  background-position-x: 9px;
+}
+.openBox section .boxList li.open {
+  background: url(../images/bao2.png) no-repeat;
+  background-size: contain;
+  background-position-x: 9px;
+}
+.openBox section p {
+  width: 12.5rem;
+  text-align: center;
+  margin: 6.875rem auto;
+  border: 1px solid #882e2e;
+  line-height: 1.125rem;
+  font-size: 14px;
+  border-radius: 10px;
+  background: brown;
+  color: antiquewhite;
+}
+.openBox section .close {
+  position: absolute;
+  top: 5.3125rem;
+  right: 1.25rem;
+  height: 1.5625rem;
+  width: 1.5625rem;
+}

@@ -1,13 +1,12 @@
-
-const capital={
-    init(){
+const capital = {
+    init() {
         ranking.tabs(".sub", ".lately", 'active');
     }
 }
 
+
 const ranking = {
     init() {
-        _this = this;
         this.tabs(".sub", ".ran_list", 'act');
     },
     tabs(c1, c2, c3) {
@@ -41,6 +40,37 @@ const payMsgs = {
                 }
 
             })
+        })
+    }
+}
+
+//宝箱抽奖
+const lotteries = {
+    init() {
+        var _this=this;
+        this.opens(1); //抽奖次数
+        $('.lotteryBtn').on('touchstart', function () {
+            $('.openBox').removeClass('none');
+        })
+        $('.close').on('touchstart', function () {
+            $('.openBox').addClass('none');
+            _this.closes();
+        })
+    },
+    opens(num) {
+        $.each($('.boxList li'), function (i, it) {
+            $('.boxList li').eq(i).on('touchstart', function () {
+                if (num > 0) {
+                    $('.boxList li').eq(i).addClass('open');
+                } else {
+                    alert('您没有抽奖的机会！')
+                }
+            })
+        })
+    },
+    closes() {
+        $.each($('.boxList li'), function (i, it) {
+            $('.boxList li').eq(i).removeClass('open');
         })
     }
 }
