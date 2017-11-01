@@ -561,11 +561,11 @@ section section .lately .pays > section > span {
 }
 .centerPay span {
   text-align: center;
-  padding-bottom: 0.75rem;
   font-size: 2.5rem;
 }
-.centerPay p {
+.centerPay > p {
   margin: auto;
+  font-size: 0.875rem;
 }
 
 .tit {

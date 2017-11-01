@@ -307,13 +307,13 @@ section {
         width: rem(100);
         margin:  auto;
     }
-    span{
+    >span{
         text-align: center;
-        padding-bottom: rem(12);
         font-size: rem(40);
     }
-    p{
+    >p{
         margin:  auto;
+        font-size: rem(14);
     }
 }
 
