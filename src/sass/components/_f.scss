@@ -34,7 +34,7 @@ section {
                     .selected {
                         @extend .selecteds;
                     }
-                    p{
+                    p {
                         font-size: 14px;
                     }
                 }
@@ -188,7 +188,7 @@ section {
 
 .faq_text {
     padding: 20px;
-    letter-spacing:2px;
+    letter-spacing: 2px;
 } //排行榜
 .ran_header {
     @include clearfix;
@@ -243,7 +243,6 @@ section {
 }
 
 .ran_list {
-
     @extend .padd5;
     article {
         background: #fff;
@@ -286,7 +285,6 @@ section {
     color: #e67812;
     background: rgb(49, 10, 101);
 }
-
 
 .reds {
     color: red;
@@ -391,7 +389,7 @@ section {
     position: absolute;
     height: 100%;
     width: 100%;
-    padding: 15%  0;
+    padding: 15% 0;
     background: rgba(0, 0, 0, 0.77);
     .strBox {
         position: absolute;
@@ -503,7 +501,45 @@ section {
     position: absolute;
     bottom: rem(35);
     @include span(12);
-    a{
-       padding: 10px;
+    a {
+        padding: 10px;
+    }
+}
+
+.alter_name {
+    background: #fff;
+    border: 1px solid rgb(199, 199, 199);
+    margin: 20px 10px;
+    border-radius: 3px;
+    height: 200px;
+    padding: 20px;
+    .name_container {
+        border-bottom: 1px solid rgb(124, 124, 124);
+        label {
+            input {
+                border: none;
+                outline: none;
+                height: 35px;
+            }
+        }
+    }
+    >input {
+        margin: 10px auto;
+        color: #fff;
+        height: 35px;
+        font-size: 16px;
+        @include span(12);
+        border-radius: 50px;
+        background: rgb(13, 182, 248);
+    }
+    >p{
+        span{
+            font-size: 12px;
+        }
+        a{
+            font-size: 12px;
+            float: right;
+            color: #5432ce;
+        }
     }
 }

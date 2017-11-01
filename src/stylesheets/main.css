@@ -568,7 +568,7 @@ section section .lately .pays > section > span {
   position: absolute;
   height: 100%;
   width: 100%;
-  padding: 15%  0;
+  padding: 15% 0;
   background: rgba(0, 0, 0, 0.77);
 }
 .strategy .strBox {
@@ -684,4 +684,41 @@ section section .lately .pays > section > span {
 }
 .rules_footer a {
   padding: 10px;
+}
+
+.alter_name {
+  background: #fff;
+  border: 1px solid #c7c7c7;
+  margin: 20px 10px;
+  border-radius: 3px;
+  height: 200px;
+  padding: 20px;
+}
+.alter_name .name_container {
+  border-bottom: 1px solid #7c7c7c;
+}
+.alter_name .name_container label input {
+  border: none;
+  outline: none;
+  height: 35px;
+}
+.alter_name > input {
+  margin: 10px auto;
+  color: #fff;
+  height: 35px;
+  font-size: 16px;
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  border-radius: 50px;
+  background: #0db6f8;
+}
+.alter_name > p span {
+  font-size: 12px;
+}
+.alter_name > p a {
+  font-size: 12px;
+  float: right;
+  color: #5432ce;
 }
