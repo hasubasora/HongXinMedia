@@ -636,7 +636,6 @@ section section .lately .pays > section > span {
 }
 
 .strategy .strBox .strClose, .strategy .strBox .toRecharge, .strategy .strBox .startQuiz {
-  border: 1px solid red;
   display: block;
   position: absolute;
 }
