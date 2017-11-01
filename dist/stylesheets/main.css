@@ -658,7 +658,7 @@ section section .lately .pays > section > span {
   position: absolute;
   height: 100%;
   width: 100%;
-  padding: 20% 5px 0;
+  padding: 15% auto 0;
   background: rgba(0, 0, 0, 0.77);
 }
 .strategy .strBox {
@@ -688,20 +688,22 @@ section section .lately .pays > section > span {
 .introduce {
   border: 1px solid red;
   position: absolute;
-  top: 7.5rem;
-  width: 58.33333%;
+  top: 12.5rem;
+  width: 83.33333%;
   float: left;
   padding-left: 0.83333%;
   padding-right: 0.83333%;
-  right: 20px;
-  font-size: 12px;
-  line-height: 14px;
+  right: 7%;
+  font-size: 0.875rem;
   color: aliceblue;
-  height: 10.625rem;
+  height: 12.5rem;
   overflow-y: scroll;
 }
 .introduce .introduce_text {
   line-height: 1;
+}
+.introduce .introduceImg {
+  padding: 5px 0;
 }
 .introduce .table_list ul {
   display: -webkit-box;
@@ -712,6 +714,8 @@ section section .lately .pays > section > span {
 }
 .introduce .table_list ul li {
   color: #fff;
+  outline: 1px solid #7a7a7a;
+  padding: 2px;
   width: 16.66667%;
   float: left;
   padding-left: 0.83333%;
