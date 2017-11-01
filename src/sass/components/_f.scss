@@ -1,5 +1,4 @@
-@charset "UTF-8";
-//交易流水
+@charset "UTF-8"; //交易流水
 section {
     .nav_header {
         // border: 1px solid red;
@@ -103,9 +102,7 @@ section {
 
 .none {
     display: none;
-}
-
-//交易明细
+} //交易明细
 .transaction {
     background: rgb(10, 33, 101);
     @include height(40px);
@@ -164,14 +161,10 @@ section {
             }
         }
     }
-}
-
-//小箭头
+} //小箭头
 .transform90 {
     transform: rotate(90deg);
-}
-
-//FAQ
+} //FAQ
 .nav_fooer {
     padding: 20px;
     display: flex;
@@ -190,9 +183,7 @@ section {
 
 .faq_text {
     padding: 20px;
-}
-
-//排行榜
+} //排行榜
 .ran_header {
     @include clearfix;
 }
@@ -289,34 +280,29 @@ section {
 
 .reds {
     color: red;
-}
-
-//宝箱抽奖
+} //宝箱抽奖
 .centerPay {
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 0;
-   
-    color: #fff;
-    // border: 1px solid red;
+    color: #fff; // border: 1px solid red;
     width: 100%;
+    height: auto;
     padding-top: rem(40);
     .lotteryBtn {
         width: rem(100);
-        margin:  auto;
+        margin: auto;
     }
-    >span{
+    >span {
         text-align: center;
         font-size: rem(40);
     }
-    >p{
-        margin:  auto;
+    >p {
+        margin: auto;
         font-size: rem(12);
     }
-}
-
-//抽奖记录
+} //抽奖记录
 .tit {
     margin: 5px;
     font-size: rem(12);
@@ -338,8 +324,6 @@ section {
         text-align: center;
     }
 }
-
-
 
 .openBox {
     position: absolute;
@@ -391,5 +375,45 @@ section {
             height: rem(25);
             width: rem(25);
         }
+    }
+} //攻略
+.strategy {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 20% 5px 0;
+    background: rgba(0, 0, 0, 0.77);
+    .strBox {
+        position: absolute;
+        img {
+            width: 100%;
+            height: auto;
+        }
+        .strClose {
+            @extend %btnQuiz;
+            width: rem(40);
+            height: rem(40);
+            top: rem(7);
+            right: 0;
+        }
+        .toRecharge {
+            @extend %btnQuiz;
+            width: rem(100);
+            height: rem(40);
+            bottom: rem(100);
+            right: rem(15);
+        }
+        .startQuiz {
+            @extend %btnQuiz;
+            width: rem(100);
+            height: rem(40);
+            bottom: 0;
+            right: rem(15);
+        }
+    }
+    %btnQuiz {
+        // border: 1px solid red;
+        display: block;
+        position: absolute;
     }
 }

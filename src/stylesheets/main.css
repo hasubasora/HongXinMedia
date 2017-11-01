@@ -462,6 +462,7 @@ section section .lately .pays > section > span {
   top: 0;
   color: #fff;
   width: 100%;
+  height: auto;
   padding-top: 2.5rem;
 }
 .centerPay .lotteryBtn {
@@ -551,4 +552,41 @@ section section .lately .pays > section > span {
   right: 0;
   height: 1.5625rem;
   width: 1.5625rem;
+}
+
+.strategy {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 20% 5px 0;
+  background: rgba(0, 0, 0, 0.77);
+}
+.strategy .strBox {
+  position: absolute;
+}
+.strategy .strBox img {
+  width: 100%;
+  height: auto;
+}
+.strategy .strBox .strClose {
+  width: 2.5rem;
+  height: 2.5rem;
+  top: 0.4375rem;
+  right: 0;
+}
+.strategy .strBox .toRecharge {
+  width: 6.25rem;
+  height: 2.5rem;
+  bottom: 6.25rem;
+  right: 0.9375rem;
+}
+.strategy .strBox .startQuiz {
+  width: 6.25rem;
+  height: 2.5rem;
+  bottom: 0;
+  right: 0.9375rem;
+}
+.strategy .strBox .strClose, .strategy .strBox .toRecharge, .strategy .strBox .startQuiz {
+  display: block;
+  position: absolute;
 }

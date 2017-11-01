@@ -73,6 +73,8 @@ var lotteries = {
         });
     }
 };
+
+//攻略的功能
 "use strict";
 
 ;

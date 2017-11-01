@@ -74,3 +74,5 @@ const lotteries = {
         })
     }
 }
+
+//攻略的功能
