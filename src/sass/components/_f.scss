@@ -293,11 +293,24 @@ section {
 
 //宝箱抽奖
 .centerPay {
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    top: rem(30);
-    right: 45%;
+    top: 0;
     font-size: rem(40);
     color: #fff;
+    // border: 1px solid red;
+    width: 100%;
+    padding-top: rem(50);
+
+    .lotteryBtn {
+        width: rem(100);
+        margin:  auto;
+    }
+    span{
+        text-align: center;
+        padding-bottom: rem(12);
+    }
 }
 
 //抽奖记录
@@ -323,14 +336,7 @@ section {
     }
 }
 
-.lotteryBtn {
-    width: rem(90);
-    position: absolute;
-    // left: rem(122);
-    left: rem(150);
-    top: rem(100);
-    // top: rem(80);
-}
+
 
 .openBox {
     position: absolute;
@@ -339,11 +345,12 @@ section {
     z-index: 99;
     background: rgba(0, 0, 0, 0.671);
     section {
+        position: relative;
         width: rem(257);
         height: rem(230);
         background: url(../images/choujbj.png) no-repeat;
         background-size: contain;
-        margin: rem(75) rem(30) 0;
+        margin: rem(75) auto 0;
         .boxList {
             // border: 1px solid blue;
             padding-top: rem(85);
@@ -376,8 +383,8 @@ section {
         }
         .close {
             position: absolute;
-            top: rem(85);
-            right: rem(20);
+            top: 0;
+            right: 0;
             height: rem(25);
             width: rem(25);
         }
