@@ -703,9 +703,9 @@ section section .lately .pays > section > span {
   height: 35px;
 }
 .alter_name > input {
-  margin: 10px auto;
+  margin: 20px auto;
   color: #fff;
-  height: 35px;
+  height: 60px;
   font-size: 16px;
   width: 100%;
   float: left;
