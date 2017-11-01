@@ -412,9 +412,9 @@ section {
 }
 
 .introduce {
-    border: 1px solid red;
+    // border: 1px solid red;
     position: absolute;
-    top: rem(200);
+    top: rem(190);
     @include span(10);
     right: 7%;
     font-size: rem(14);
@@ -440,11 +440,16 @@ section {
                     flex: 1;
                 }
                 @include span(2);
+                margin-bottom: 5px;
             }
         }
     }
 }
-
+.okImg{
+    margin: 0 auto;
+    width: rem(100) !important;
+    display: block;
+}
 %wwbw {
     @include span(8);
     word-wrap: break-word

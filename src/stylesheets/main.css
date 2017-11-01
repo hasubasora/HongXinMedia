@@ -586,9 +586,8 @@ section section .lately .pays > section > span {
 }
 
 .introduce {
-  border: 1px solid red;
   position: absolute;
-  top: 12.5rem;
+  top: 11.875rem;
   width: 83.33333%;
   float: left;
   padding-left: 0.83333%;
@@ -616,9 +615,16 @@ section section .lately .pays > section > span {
   float: left;
   padding-left: 0.83333%;
   padding-right: 0.83333%;
+  margin-bottom: 5px;
 }
 .introduce .table_list ul li:nth-child(2) {
   flex: 1;
+}
+
+.okImg {
+  margin: 0 auto;
+  width: 6.25rem !important;
+  display: block;
 }
 
 .introduce .table_list ul li:nth-child(2) {
