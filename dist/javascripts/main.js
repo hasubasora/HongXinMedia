@@ -178,12 +178,12 @@ var filter = {
         var times = 10;
         timer = setInterval(function () {
             if (times > 0) {
-                btn.setAttribute('disabled', 'disabled');
+                btn.setAttribute('style', 'pointer-events: none');
                 btn.value = times + 's';
                 times--;
             } else {
                 clearInterval(timer);
-                btn.removeAttribute('disabled');
+                btn.removeAttribute('style');
                 btn.value = '获取验证码';
                 times = 60;
             }
@@ -211,17 +211,25 @@ var logins = {
                     alert('请输入正确手机号!');
                 }
             } else {
-                alert('请输入手机号!');
+
+                //提示
+                layer.open({
+                    content: '请输入手机号',
+                    skin: 'msg',
+                    time: 2 //2秒后自动关闭
+                });
             }
             return false;
         });
         //点击登陆
         this.login_btn.addEventListener('touchstart', function () {
-            if (!_this.cq_Msg.value && !_this.tel.value) {
+            if (_this.cq_Msg.value && _this.tel.value) {
+                if (filter.verificationPhone(_this.tel.value)) {
+                    //验证码验证
+                    //登陆请求
+                }
+            } else {
                 alert('请输入登陆信息！');
-            }
-            if (!_this.cq_Msg.value) {
-                alert('请输入验证码');
             }
             if (!_this.cq_Msg.value) {
                 alert('请输入验证码');

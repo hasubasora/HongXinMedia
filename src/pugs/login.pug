@@ -3,7 +3,8 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        link(rel="stylesheet", href="../stylesheets/main.min.css")        
+        link(rel="stylesheet", href="../stylesheets/main.min.css")      
+        link(rel="stylesheet", href="../framework/layer_mobile/need/layer.css")      
         title 登陆
     body
      section.login 
@@ -22,6 +23,7 @@ html(lang="en")
          input.login_btn(type="button",value="确认登陆")
        i.login_close ×
     script(src="../javascripts/filters.js")   
+    script(src="../framework/layer_mobile/layer.js")   
     script(src="../javascripts/login.js")   
     script.
      logins.init();

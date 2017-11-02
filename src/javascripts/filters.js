@@ -98,12 +98,12 @@ const filter = {
         let times = 10;
         timer = setInterval(() => {
             if (times > 0) {
-                btn.setAttribute('disabled','disabled');
+                btn.setAttribute('style','pointer-events: none');
                 btn.value=`${times}s`;
                 times--;
             }else{
                 clearInterval(timer);
-                btn.removeAttribute('disabled');
+                btn.removeAttribute('style');
                 btn.value='获取验证码';
                 times=60;
             }

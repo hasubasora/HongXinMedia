@@ -11,27 +11,36 @@ const logins = {
                     //发送验证码
                     alert('发送验证码!')
                     filter.countDowns(this.cq_Btn);
-                   
+
                 } else {
                     alert('请输入正确手机号!')
                 }
 
             } else {
-                alert('请输入手机号!')
+
+                //提示
+                layer.open({
+                    content: '请输入手机号',
+                    skin: 'msg',
+                    time: 2 //2秒后自动关闭
+                });
             }
             return false;
         });
         //点击登陆
         this.login_btn.addEventListener('touchstart', () => {
-            if (!this.cq_Msg.value&&!this.tel.value) {
+            if (this.cq_Msg.value && this.tel.value) {
+                if (filter.verificationPhone(this.tel.value)) {
+                    //验证码验证
+                    //登陆请求
+                }
+            } else {
                 alert('请输入登陆信息！')
             }
             if (!this.cq_Msg.value) {
                 alert('请输入验证码')
             }
-            if (!this.cq_Msg.value) {
-                alert('请输入验证码')
-            }
+
         })
 
 
