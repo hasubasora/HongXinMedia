@@ -82,7 +82,7 @@ const filter = {
      */
     countDown(codebtn) {
         let a = 60;
-        timer = setInterval(function() {
+        timer = setInterval(function () {
             if (a > 0) {
                 codebtn.attr("disabled", true).val("(" + a + ")倒计时").css("background", "#ccc");
                 a--;
@@ -93,5 +93,20 @@ const filter = {
             }
         }, 1000);
 
+    },
+    countDowns(btn) {
+        let times = 10;
+        timer = setInterval(() => {
+            if (times > 0) {
+                btn.setAttribute('disabled','disabled');
+                btn.value=`${times}s`;
+                times--;
+            }else{
+                clearInterval(timer);
+                btn.removeAttribute('disabled');
+                btn.value='获取验证码';
+                times=60;
+            }
+        }, 1000)
     }
 }

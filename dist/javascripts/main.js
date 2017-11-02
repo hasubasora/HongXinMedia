@@ -173,6 +173,60 @@ var filter = {
                 a = 60;
             }
         }, 1000);
+    },
+    countDowns: function countDowns(btn) {
+        var times = 10;
+        timer = setInterval(function () {
+            if (times > 0) {
+                btn.setAttribute('disabled', 'disabled');
+                btn.value = times + 's';
+                times--;
+            } else {
+                clearInterval(timer);
+                btn.removeAttribute('disabled');
+                btn.value = '获取验证码';
+                times = 60;
+            }
+        }, 1000);
+    }
+};
+'use strict';
+
+var logins = {
+    tel: document.querySelector('#tel'), //电话
+    cq_Btn: document.querySelector('.cq_Btn'), //验证码按钮
+    cq_Msg: document.querySelector('.cq_Msg'), //验证码
+    login_btn: document.querySelector('.login_btn'), //登陆按钮
+    init: function init() {
+        var _this = this;
+
+        //点击获取
+        this.cq_Btn.addEventListener('touchstart', function () {
+            if (_this.tel.value) {
+                if (filter.verificationPhone(_this.tel.value)) {
+                    //发送验证码
+                    alert('发送验证码!');
+                    filter.countDowns(_this.cq_Btn);
+                } else {
+                    alert('请输入正确手机号!');
+                }
+            } else {
+                alert('请输入手机号!');
+            }
+            return false;
+        });
+        //点击登陆
+        this.login_btn.addEventListener('touchstart', function () {
+            if (!_this.cq_Msg.value && !_this.tel.value) {
+                alert('请输入登陆信息！');
+            }
+            if (!_this.cq_Msg.value) {
+                alert('请输入验证码');
+            }
+            if (!_this.cq_Msg.value) {
+                alert('请输入验证码');
+            }
+        });
     }
 };
 "use strict";
