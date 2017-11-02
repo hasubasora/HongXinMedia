@@ -94,19 +94,26 @@ const filter = {
         }, 1000);
 
     },
-    countDowns(btn) {
-        let times = 10;
+    countdowns(btn) {
+        let times = 60;
         timer = setInterval(() => {
             if (times > 0) {
-                btn.setAttribute('style','pointer-events: none');
-                btn.value=`${times}s`;
+                btn.setAttribute('style', 'pointer-events: none');
+                filter.inputs(btn,`${times}s`);
                 times--;
-            }else{
+            } else {
                 clearInterval(timer);
                 btn.removeAttribute('style');
-                btn.value='获取验证码';
-                times=60;
+                filter.inputs(btn,'获取验证码');
+                times = 60;
             }
         }, 1000)
+    },
+    inputs(btn,v1){
+        if (btn.tagName == 'INPUT') {
+            btn.value = v1;
+        } else if (btn.tagName == 'BUTTON') {
+            btn.innerText = v1;
+        }
     }
 }

@@ -174,20 +174,27 @@ var filter = {
             }
         }, 1000);
     },
-    countDowns: function countDowns(btn) {
-        var times = 10;
+    countdowns: function countdowns(btn) {
+        var times = 60;
         timer = setInterval(function () {
             if (times > 0) {
                 btn.setAttribute('style', 'pointer-events: none');
-                btn.value = times + 's';
+                filter.inputs(btn, times + 's');
                 times--;
             } else {
                 clearInterval(timer);
                 btn.removeAttribute('style');
-                btn.value = '获取验证码';
+                filter.inputs(btn, '获取验证码');
                 times = 60;
             }
         }, 1000);
+    },
+    inputs: function inputs(btn, v1) {
+        if (btn.tagName == 'INPUT') {
+            btn.value = v1;
+        } else if (btn.tagName == 'BUTTON') {
+            btn.innerText = v1;
+        }
     }
 };
 'use strict';
@@ -197,6 +204,7 @@ var logins = {
     cq_Btn: document.querySelector('.cq_Btn'), //验证码按钮
     cq_Msg: document.querySelector('.cq_Msg'), //验证码
     login_btn: document.querySelector('.login_btn'), //登陆按钮
+    login_close: document.querySelector('.login_close'), //关闭登陆X
     init: function init() {
         var _this = this;
 
@@ -206,7 +214,7 @@ var logins = {
                 if (filter.verificationPhone(_this.tel.value)) {
                     //发送验证码
 
-                    filter.countDowns(_this.cq_Btn);
+                    filter.countdowns(_this.cq_Btn);
                     //提示
                     layer.open({
                         content: '验证码已发送',
@@ -258,6 +266,9 @@ var logins = {
                     time: 2 //2秒后自动关闭
                 });
             }
+        });
+        this.login_close.addEventListener('touchstart', function () {
+            //关闭登陆窗口
         });
     }
 };

@@ -3,6 +3,7 @@ const logins = {
     cq_Btn: document.querySelector('.cq_Btn'), //验证码按钮
     cq_Msg: document.querySelector('.cq_Msg'), //验证码
     login_btn: document.querySelector('.login_btn'), //登陆按钮
+    login_close: document.querySelector('.login_close'), //关闭登陆X
     init() {
         //点击获取
         this.cq_Btn.addEventListener('touchstart', () => {
@@ -10,7 +11,7 @@ const logins = {
                 if (filter.verificationPhone(this.tel.value)) {
                     //发送验证码
 
-                    filter.countDowns(this.cq_Btn);
+                    filter.countdowns(this.cq_Btn);
                     //提示
                     layer.open({
                         content: '验证码已发送',
@@ -64,6 +65,9 @@ const logins = {
                 });
             }
 
+        })
+        this.login_close.addEventListener('touchstart', () => {
+            //关闭登陆窗口
         })
 
 
