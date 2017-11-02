@@ -1,0 +1,25 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="../stylesheets/main.min.css")        
+        title 登陆
+    body
+     section.login 
+      .login_box
+       ul
+        li 手机登陆验证
+         img(src="../images/ss.png", alt="")
+        li
+         label(for="tel")
+          input#tel(type="tel",placeholder="手机号码",maxLength="11")
+        li 
+         label(for="cq")
+          input.cq_Msg(type="text",placeholder="验证码")
+          input.cq_Btn(type="button",value="获取验证码") 
+        li
+         input.login_btn(type="button",value="确认登陆")
+       i.login_close ×
+
+    
