@@ -307,8 +307,8 @@ input[type=button] {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background-color: #fab102;
-  -webkit-box-shadow: 2.5px 4.33px 0px 0px #e18400;
-  box-shadow: 2.5px 4.33px 0px 0px #e18400;
+  -webkit-box-shadow: 0 4.33px 0px 0px #e18400;
+  box-shadow: 0 4.33px 0px 0px #e18400;
   color: white;
   -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
   -ms-transform: matrix(1, 0, 0, 1, 0, 0);
