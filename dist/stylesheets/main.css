@@ -240,7 +240,7 @@ input[type=button] {
   padding: 0;
 }
 .login .login_box ul li {
-  height: 55px;
+  height: 70px;
 }
 .login .login_box ul li img {
   width: 30px;
@@ -263,7 +263,7 @@ input[type=button] {
   padding: 0 14px;
 }
 .login .login_box ul li label input {
-  height: 40px;
+  height: 45px;
   width: 100%;
   padding: 0 20px;
   -webkit-border-radius: 10px;
@@ -282,7 +282,7 @@ input[type=button] {
   flex: 1;
 }
 .login .login_box ul li .login_btn {
-  height: 40px;
+  height: 45px;
   width: 90%;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -293,7 +293,7 @@ input[type=button] {
   position: absolute;
   top: -10px;
   right: -10px;
-  line-height: 21px;
+  line-height: 25px;
   width: 25px;
   height: 25px;
   display: block;
