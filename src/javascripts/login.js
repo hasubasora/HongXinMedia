@@ -47,23 +47,23 @@ const logins = {
                     //登陆请求
                 }
             } else {
-
-                //提示
-                layer.open({
-                    content: '请输入登陆信息！',
-                    skin: 'msg',
-                    time: 2 //2秒后自动关闭
-                });
+                if (!this.tel.value) {
+                    //提示
+                    layer.open({
+                        content: '请输入手机号',
+                        skin: 'msg',
+                        time: 2 //2秒后自动关闭
+                    });
+                } else if (!this.cq_Msg.value) {
+                    //提示
+                    layer.open({
+                        content: '请输入验证码',
+                        skin: 'msg',
+                        time: 2 //2秒后自动关闭
+                    });
+                }
             }
-            if (!this.cq_Msg.value) {
 
-                //提示
-                layer.open({
-                    content: '请输入验证码',
-                    skin: 'msg',
-                    time: 2 //2秒后自动关闭
-                });
-            }
 
         })
         this.login_close.addEventListener('touchstart', () => {
