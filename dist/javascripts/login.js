@@ -9,11 +9,22 @@ const logins = {
             if (this.tel.value) {
                 if (filter.verificationPhone(this.tel.value)) {
                     //发送验证码
-                    alert('发送验证码!')
-                    filter.countDowns(this.cq_Btn);
 
+                    filter.countDowns(this.cq_Btn);
+                    //提示
+                    layer.open({
+                        content: '验证码已发送',
+                        skin: 'msg',
+                        time: 2 //2秒后自动关闭
+                    });
                 } else {
-                    alert('请输入正确手机号!')
+
+                    //提示
+                    layer.open({
+                        content: '请输入正确手机号',
+                        skin: 'msg',
+                        time: 2 //2秒后自动关闭
+                    });
                 }
 
             } else {
@@ -35,10 +46,22 @@ const logins = {
                     //登陆请求
                 }
             } else {
-                alert('请输入登陆信息！')
+
+                //提示
+                layer.open({
+                    content: '请输入登陆信息！',
+                    skin: 'msg',
+                    time: 2 //2秒后自动关闭
+                });
             }
             if (!this.cq_Msg.value) {
-                alert('请输入验证码')
+
+                //提示
+                layer.open({
+                    content: '请输入验证码',
+                    skin: 'msg',
+                    time: 2 //2秒后自动关闭
+                });
             }
 
         })
