@@ -212,79 +212,111 @@ input[type=button] {
 }
 
 /*! Component 组件*/
-.login {
-  background: rgba(1, 1, 1, 0.8);
-  height: inherit;
-  padding-top: 25%;
+.menu-pal dt {
+  font-size: 0.75rem;
 }
-.login .login_box {
-  border-radius: 3px;
-  background: #fff;
-  width: 90%;
-  margin: 0 auto;
-  position: relative;
-}
-.login .login_box ul {
-  padding: 0;
-}
-.login .login_box ul li {
-  height: 70px;
-}
-.login .login_box ul li img {
-  width: 30px;
-  height: 30px;
+.menu-pal dt img {
+  width: 10px;
   float: left;
+  margin-right: 5px;
 }
-.login .login_box ul li:nth-child(1) {
-  height: 70px;
-  padding: 16px 66px;
-  line-height: 32px;
-  text-align: center;
-  font-size: 18px;
-}
-.login .login_box ul li label {
+.menu-pal dd ul {
   display: flex;
-  padding: 0 14px;
+  padding: 10px 20px;
+  margin: 10px 0;
+  background: #f7f7f7;
 }
-.login .login_box ul li label input {
-  height: 45px;
-  width: 100%;
-  padding: 0 20px;
-  border-radius: 10px;
-  border: 1px solid #919191;
-  outline: none;
-  margin: 0 auto;
-}
-.login .login_box ul li label input.cq_Btn {
-  border: none;
-  margin-left: 5px;
+.menu-pal dd ul li {
   flex: 1;
+  margin: auto;
 }
-.login .login_box ul li .login_btn {
-  height: 45px;
-  width: 90%;
-  border-radius: 10px;
-  margin: 0 auto;
-  display: -webkit-box;
-  font-size: 16px;
+.menu-pal dd ul li > img {
+  width: 30px;
 }
-.login .login_box .login_close {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  line-height: 25px;
-  width: 25px;
-  height: 25px;
-  display: block;
+.menu-pal dd ul li label {
+  font-weight: 600;
+  color: #23acfc;
+  border: 1px solid #23acfc;
   border-radius: 20px;
+  width: 20px;
+  height: 20px;
+  display: block;
   text-align: center;
-  background-color: #fab102;
+  float: right;
+}
+.menu-pal dd ul li label input {
+  display: none;
 }
 
-.login .login_box ul li label input.cq_Btn, .login .login_box ul li .login_btn {
-  border-radius: 10px;
-  background-color: #fab102;
-  box-shadow: 0 4.33px 0px 0px #e18400;
-  color: white;
-  transform: matrix(1, 0, 0, 1, 0, 0);
+.menu-m dt {
+  font-size: 0.75rem;
+}
+.menu-m dt img {
+  width: 10px;
+  float: left;
+  margin-right: 5px;
+}
+.menu-m dt span {
+  color: #aaaaaa;
+  margin-left: 10px;
+}
+.menu-m dd .money {
+  margin: 5px 0;
+  padding: 10px 0;
+  *zoom: 1;
+  border-bottom: 1px solid #b9b9b9;
+  border-top: 1px solid #b9b9b9;
+}
+.menu-m dd .money li {
+  width: 30%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  margin: 5px;
+  height: 50px;
+  font-size: 1.5rem;
+  line-height: 3.125rem;
+  text-align: center;
+  border: 1px solid #9e9e9e;
+  border-radius: 5px;
+  color: #6e6e6e;
+}
+.menu-m dd .money:before, .menu-m dd .money:after {
+  content: "";
+  display: table;
+}
+.menu-m dd .money:after {
+  clear: both;
+  overflow: hidden;
+}
+
+.play-btn {
+  padding: 10px 0;
+}
+.play-btn dt {
+  *zoom: 1;
+}
+.play-btn dt img {
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  display: block;
+}
+.play-btn dt:before, .play-btn dt:after {
+  content: "";
+  display: table;
+}
+.play-btn dt:after {
+  clear: both;
+  overflow: hidden;
+}
+.play-btn dd {
+  font-size: 0.75rem;
+  color: #afafaf;
+  margin: 10px;
+}
+
+.playbody {
+  padding: 10px;
 }

@@ -1,0 +1,50 @@
+
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="../stylesheets/main.min.css")  
+        title 充值
+    body.playbody
+     dl.menu-pal
+      dt 选着充值方式
+       img(src="../images/anquan.png", alt="")
+      dd
+       ul.wx
+        li
+         img(src="../images/weixinlogo.png", alt="")
+        li 微信直充
+        li 
+         label(for="rad")
+          input(type="radio",id="rad",name="pay")
+       ul.zfb   
+        li
+         img(src="../images/zhifubao.png", alt="")
+        li 支付宝直充
+        li 
+         label(for="rad") √
+          input(type="radio",id="rad",name="pay")
+       ul.cft   
+        li
+         img(src="../images/qqchongzhi.png", alt="")
+        li QQ直充
+        li 
+         label(for="rad")
+          input(type="radio",id="rad",name="pay")          
+     dl.menu-m
+      dt 快速充值选项
+       img(src="../images/anquan.png", alt="")
+       span 充值金额￥16.3元
+      dd
+       ul.money
+        li 12.0
+        li 123.0
+        li 1234.0
+        li 1230.0
+        li 0
+        li 2
+     dl.play-btn
+      dt
+       img(src="../images/lijichongzhi.png", alt="")   
+      dd 温馨提示：充值收取1%手续费    
