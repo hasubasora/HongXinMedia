@@ -7,41 +7,45 @@ html(lang="en")
         link(rel="stylesheet", href="../stylesheets/main.min.css")  
         title 充值
     body.playbody
-     dl.menu-pal
+     dl.menu-pal#menu-pal
       dt 选着充值方式
        img(src="../images/anquan.png", alt="")
       dd
-       ul.wx
+       ul.wx.plays
         li 微信直充
          img(src="../images/weixinlogo.png", alt="") 
         li 
          label(for="rad")
-          input(type="radio",id="rad",name="pay")
-       ul.zfb   
+          input(type="radio",id="rad1",name="pay")
+       ul.zfb.plays   
         li 支付宝直充
          img(src="../images/zhifubao.png", alt="")
         li 
-         label(for="rad") √
-          input(type="radio",id="rad",name="pay")
-       ul.cft   
+         label(for="rad")
+          input(type="radio",id="rad2",name="pay")
+       ul.cft.plays   
         li QQ直充
          img(src="../images/qqchongzhi.png", alt="")
         li 
          label(for="rad")
-          input(type="radio",id="rad",name="pay")          
+          input(type="radio",id="rad3",name="pay")          
      dl.menu-m
       dt 快速充值选项
        img(src="../images/anquan.png", alt="")
-       span 充值金额￥16.3元
+       span.dets 充值金额￥16.3元
       dd
        ul.money
-        li 12.0
-        li 123.0
-        li 1234.0
-        li 1230.0
-        li 0
-        li 2
+        li.active(data-mo='12') 12.0
+        li(data-mo='12') 12.0
+        li(data-mo='13') 13.0
+        li(data-mo='14') 14.0
+        li(data-mo='15') 15
+        li(data-mo='16') 16
      dl.play-btn
       dt
-       img(src="../images/lijichongzhi.png", alt="")   
+       img#play-payer(src="../images/lijichongzhi.png", alt="")   
       dd 温馨提示：充值收取1%手续费    
+    script(src="../javascripts/p.js")
+
+
+     

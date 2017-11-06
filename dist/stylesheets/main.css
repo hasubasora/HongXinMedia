@@ -268,6 +268,11 @@ input[type=button] {
   text-align: center;
   float: right;
 }
+.menu-pal dd ul li label.act {
+  background: url(../images/paydui.png) no-repeat;
+  background-size: 134%;
+  background-position: -3px;
+}
 .menu-pal dd ul li label input {
   display: none;
 }
@@ -305,6 +310,11 @@ input[type=button] {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   color: #6e6e6e;
+}
+.menu-m dd .money li.active {
+  color: #fff;
+  background: #ec5c5c;
+  border: 1px solid #ec5c5c;
 }
 .menu-m dd .money:before, .menu-m dd .money:after {
   content: "";
