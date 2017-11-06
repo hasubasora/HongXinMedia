@@ -34,7 +34,7 @@
                     display: block;
                     text-align: center;
                     float: right;
-                    &.act{
+                    &.act {
                         background: url(../images/paydui.png)no-repeat;
                         background-size: 134%;
                         background-position: -3px;
@@ -106,4 +106,109 @@
 
 .playbody {
     padding: 10px;
+}
+
+
+/**-tikuan---*/
+.huise{
+    background: rgb(231, 231, 231);
+}
+.withdrawDeposit {
+    padding: 20px;
+    ul {
+        display: flex;
+        padding:  20px 10px;
+        background: rgb(240, 240, 240);
+        li {
+            img {
+                width: 20px;
+                &.withdrawDeposit-img {
+                    width: 65px;
+                }
+            }
+            &:nth-child(3) {
+                padding-top: 20px;
+            }
+            &:nth-child(2) {
+                flex: 1;
+                padding: 15px 10px;
+                h1 {
+                    font-weight: 600;
+                    font-size: rem(18);
+                    margin-bottom: 5px;
+                }
+                p {
+                    color: rgb(134, 134, 134);
+                    font-size: rem(12);
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}
+
+.withdrawDeposit-money {
+    background: rgb(252, 252, 252) !important;
+    display: flex;
+    flex-direction: column;
+    li {
+        &:nth-child(1) {
+            font-weight: 600;
+            font-size: rem(12);
+        }
+        input {
+            &.moneys {
+                height: 60px;
+                width: 100%;
+                font-size: 47px;
+                font-weight: 600;
+                text-indent: 30px;
+                outline: none;
+                border: none;
+                background: rgb(252, 252, 252) !important;
+                border-bottom: 1px solid rgb(143, 143, 143);
+            }
+        }
+        &:nth-child(2) {
+            position: relative;
+        }
+        &:nth-child(3) {
+            padding-top: 0 !important;
+            color: rgb(172, 172, 172);
+            font-size: rem(12);
+            padding: 10px;
+        }
+        sub {
+            font-weight: 600;
+            font-size: 34px;
+            text-indent: 20px;
+            position: absolute;
+            left: -18px;
+            top: 24px;
+        }
+        &:nth-child(4) {
+            color: rgb(172, 172, 172);
+            font-size: rem(12);
+            padding: 20px 10px;
+            >input {
+                width: 100%;
+                height: rem(50);
+                font-size: rem(18);
+                background: rgb(57, 199, 74);
+                color: #fff;
+            }
+            >p {
+                text-align: center;
+                padding-top: 20px;
+                color: #b4b4b4;
+            }
+        }
+    }
+}
+
+.goIndex {
+    font-size: rem(12);
+    float: right;
+    color: #1f9df1;
+    padding-right: 20px;
 }
