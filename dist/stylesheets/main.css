@@ -248,11 +248,15 @@ input[type=button] {
   -ms-flex: 1;
   flex: 1;
   margin: auto;
+  line-height: 30px;
 }
 .menu-pal dd ul li > img {
   width: 30px;
+  float: left;
+  margin-right: 10px;
 }
 .menu-pal dd ul li label {
+  line-height: 20px;
   font-weight: 600;
   color: #23acfc;
   border: 1px solid #23acfc;
