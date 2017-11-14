@@ -21,14 +21,16 @@
 /*！layout 布局*/
 
 @import "layout/main" //
-// ,
+// , 
 // "layout/fontface" // "layout/flex"
 ;
 
 /*! Component 组件*/
 
-@import "components/home",
-"components/f",
-"components/login",
-"components/kiner",
-"components/playpal";
+@import 
+"components/home"
+,"components/f"
+,"components/login"
+,"components/kiner"
+,"components/playpal"
+;  

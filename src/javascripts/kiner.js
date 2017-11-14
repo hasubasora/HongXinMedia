@@ -19,7 +19,7 @@
 
    var KinerLottery = new KinerLottery({
        rotateNum: 8, //转盘转动圈数
-       body: "#box", //大转盘整体的选择符或zepto对象
+       body: "#hbbox", //大转盘整体的选择符或zepto对象
        direction: 0, //0为顺时针转动,1为逆时针转动
 
        disabledHandler: function (key) {

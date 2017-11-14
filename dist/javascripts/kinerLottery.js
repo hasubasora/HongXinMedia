@@ -52,7 +52,7 @@
         // alert(this.defNum);
 
         //点击抽奖
-        $('body').on('touchstart', ".KinerLotteryBtn", function() {
+        $('.redz').on('click', ".KinerLotteryBtn", function() {
             
 
 
