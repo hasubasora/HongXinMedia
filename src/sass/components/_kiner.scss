@@ -1,0 +1,117 @@
+.box {
+    width: 15rem;
+    height: 15rem;
+    position: relative;
+    margin: 0 auto;
+    position: absolute;
+    overflow: hidden;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    /* background: url(../imgs/lotteryContent.png)no-repeat;
+    background-size: contain; */
+    
+}
+
+.box .outer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+}
+
+.box .outer img {
+    width: 100%;
+    height: auto;
+    /* padding: 1.5rem; */
+}
+
+.box .inner {
+    position: relative;
+    width: 3.4rem;
+    height: 7rem;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background-image: url(../images/lotteryBtn.png);
+    background-size: auto 5rem;
+    background-repeat: no-repeat;
+}
+
+.box .inner.start:active {
+    -webkit-transform: translate(-50%, -50%) scale(.95);
+    -moz-transform: translate(-50%, -50%) scale(.95);
+    -ms-transform: translate(-50%, -50%) scale(.95);
+    -o-transform: translate(-50%, -50%) scale(.95);
+    transform: translate(-50%, -50%) scale(.95);
+}
+
+.box .inner.start {
+    background-position: 0 0;
+}
+
+.box .inner.no-start {
+    background-position: -5rem 0;
+}
+
+.box .inner.completed {
+    background-position: -10rem 0;
+}
+
+.textp {
+    position: absolute;
+    bottom: 1rem;
+    left: 31%;
+    color: #ffffff;
+    font-size: .6rem;
+}
+
+.textp span {
+    color: #e7b75f;
+    text-align: center;
+}
+
+.redBox{
+    position: absolute;
+    background: rgba(49, 49, 49, 0.6) url(../images/hb.png) no-repeat;
+    background-size: 70%;
+    background-position: 50% 35%;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    
+}
+.redBox .redBox-m{
+    // transform: translateY(14rem);
+    padding-top: 75%;
+    color: aliceblue;
+    font-size: 2rem;
+    text-align: center;
+}
+#goQuiz{
+    margin: auto;
+    display: block;
+    // transform: translateY(19rem);
+    padding-top: 30%;
+}
+.hbnone{
+    /* display: none; */
+    transform: scale(0);
+}

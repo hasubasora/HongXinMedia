@@ -2,23 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="stylesheet" href="../stylesheets/main.css"/>
     <title>企鹅分分彩</title>
   </head>
   <body>
-    <header>
+    <ul class="openAminates">
+      <li>1</li>
+      <li> <img src="../images/djjinru.png" alt=""/><img src="../images/zsp.png" alt=""/><img src="../images/lijijingcai2.png" alt=""/></li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li> 
+        <div class="redBox hbnone">
+          <div class="redBox-m">1.2元</div><img id="goQuiz" src="../images/kaishijingcai.png" alt="开始竞猜" width="80%"/>
+        </div>
+        <div class="box" id="box">
+          <div class="outer KinerLottery KinerLotteryContent"><img src="../images/lotteryContent.png" alt=""/></div>
+          <div class="inner KinerLotteryBtn start"></div>
+        </div>
+        <div class="textp">恭喜你获得<span>1</span>次抽奖机会  </div>
+      </li>
+    </ul>
+    <menu class="bottom_menu">
+      <ul>
+        <li>交易</li>
+        <li>钱包</li>
+        <li>团队</li>
+        <li>我的</li>
+      </ul>
+    </menu>
+    <header class="home_header">
       <section><span>你好！102345678912</span><span>红包余额：2000</span></section>
       <section>
-        <p>1254564</p><span>00</span>
+        <div class="home_money"> <span class="m_int">1254564 </span>.<span class="m_float">00</span></div>
       </section>
-      <section>
-        <div><img src="" alt="开始竞猜"/></div>
-        <div> <img src="" alt="开始充值"/></div><span>微信秒提</span>
-      </section>
+      <section class="home_btn">
+        <div class="m_pay"><img src="../images/kaishijccai.png" alt="开始竞猜" width="100"/></div>
+        <div class="m_play"><img src="../images/chongzhi.png" alt="开始充值" width="100"/></div>
+      </section><span class="home_wx_draw_money">微信秒提款</span>
     </header>
-    <memu class="memu">
+    <memu class="home_content">
       <dl>
         <dt>模拟交易</dt>
         <dd>奖励红包</dd>
@@ -46,13 +73,19 @@
         <dt><img src="" alt="立即开始"/></dt>
       </dl>
     </memu>
-    <section>
-      <aside><img src="" alt="图标"/>
-        <div>
-          <h5>企鹅分分彩</h5><span>每分钟开奖</span>
-        </div><img src="" alt="立即竞猜"/>
+    <section class="home_footer">
+      <aside>
+        <div class="m_footer_img"><img src="../images/logo1.png" alt="图标"/></div>
+        <div class="m_footer_txt">
+          <h5>企鹅分分彩</h5><span class="m_text">每分钟开奖</span>
+        </div>
+        <div class="m_footer_txt"> <img src="" alt="立即竞猜"/></div>
       </aside>
-      <p>竞猜QQ在线人数后3位。开奖结果数据来自腾讯音视频在线人数统计主页（http://qqsso.com）右上角在线人数。</p>
+      <p class="p_txt">竞猜QQ在线人数后3位。开奖结果数据来自腾讯音视频在线人数统计主页（http://qqsso.com）右上角在线人数。</p>
     </section>
   </body>
+  <script src="../javascripts/rem.js"></script>
+  <script src="../javascripts/zepto.min.js"></script>
+  <script src="../javascripts/kinerLottery.js"></script>
+  <script src="../javascripts/kiner.js"></script>
 </html>

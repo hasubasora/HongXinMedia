@@ -35,12 +35,13 @@
                         border: 1px solid rgb(145, 145, 145);
                         outline: none;
                         margin: 0 auto;
-                        &.cq_Btn {
-                            border: none;
-                            @extend %btnColor;
-                            margin-left: 5px;
-                            flex: 1;
-                        }
+                    }
+                    .cq_Btn {
+                        @extend %btnColor;
+                        margin-left: 5px;   
+                        width: 10rem;
+
+                        
                     }
                 }
                 .login_btn {

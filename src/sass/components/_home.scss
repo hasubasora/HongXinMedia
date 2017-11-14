@@ -1,0 +1,202 @@
+body {
+    margin-bottom: 50px;
+}
+
+.openAminates {
+    position: fixed;
+    overflow-y: scroll; // background: rgb(241, 66, 66);
+    width: 100%;
+    height: auto;
+    height: 100%;
+    color: #111;
+    top: 0;
+    left: 0;
+    z-index: 88;
+    li {
+        height: 100%;
+        &:nth-child(1) {
+            background: rgba(0, 0, 0, 0.692) url(../images/huanying.png)no-repeat;
+            background-size: contain;
+            background-position: 10%;
+        }
+        &:nth-child(2) {
+            position: relative;
+            background: rgba(8, 168, 0, 0.589);
+            img {
+                position: absolute;
+                width: rem(120);
+                &:nth-child(1) {
+                    // transform: translate(rem(10),rem(194));
+                    top: rem(290);
+                    left: rem(10);
+                }
+                &:nth-child(2) {
+                    top: rem(290);
+                    left: rem(130);
+                }
+                &:nth-child(3) {
+                    top: rem(400);
+                    left: rem(190);
+                }
+            }
+        }
+        &:nth-child(3) {
+            background: rgb(223, 241, 66) url(../images/4.png)no-repeat;
+            background-size: cover;
+        }
+        &:nth-child(4) {
+            background: rgb(223, 241, 66) url(../images/yuce.png)no-repeat;
+            background-size: cover;
+        }
+        &:nth-child(5) {
+            background: rgb(223, 241, 66) url(../images/yem5.png)no-repeat;
+            background-size: cover;
+        }
+        &:nth-child(6) {
+            background: rgb(223, 241, 66) url(../images/huojiang.png)no-repeat;
+            background-size: cover;
+        }
+        &:nth-child(7) {
+            background: rgba(0, 0, 0, 0.692) url(../images/418546044440086156.png)no-repeat;
+            background-size: contain;
+            background-position: 10%;
+        }
+        &:nth-child(8) {
+            position: relative;
+            background: rgb(35, 24, 77) url(../images/ditu.png)no-repeat;
+            background-size: contain;
+        }
+    }
+}
+
+.home_header {
+    @include outline;
+    margin: 5px;
+    background: url(../images/biao1.png)no-repeat;
+    background-size: 100%;
+    @include clearfix;
+    height: rem(170);
+    section {
+        padding: rem(10);
+        display: flex;
+        justify-content: space-between;
+        span {
+            font-size: rem(12);
+            color: #ffffff;
+        }
+        .home_money {
+            padding: rem(20) rem(20) 0;
+            @include outline;
+            background: url(../images/zhanghuyuer.png)no-repeat; // background-size: rem(200);
+            background-size: contain;
+            background-position: center;
+            @include span(7);
+            margin-left: 13%;
+            height: rem(60); // background-position: rem(47) rem(13);
+            color: aliceblue;
+            text-align: center;
+            .m_int {
+                font-size: rem(18);
+                font-weight: 600;
+                color: #ffffff;
+                font-style: oblique;
+                padding: .5rem .2rem 0 1rem;
+                display: inline-block;
+            }
+            .m_float {
+                padding-left: .2rem;
+            }
+        }
+        &:nth-child(2) {
+            padding-bottom: 0;
+        }
+        &:nth-child(3) {
+            padding-top: 0;
+        }
+        .m_pay {
+            @include outline;
+            @include span(12);
+            img {
+                float: right;
+            }
+        }
+        .m_play {
+            @include outline;
+            @include span(12);
+        }
+    }
+    .home_wx_draw_money {
+        color: #fff;
+        font-size: 12px;
+        float: right;
+        padding: 0 10px 0px;
+    }
+}
+
+.home_content {
+    @include clearfix;
+    dl {
+        margin: 1.6%;
+        @include span(5.6);
+        @include outline;
+        padding: rem(10);
+        dt {
+            @include outline(blue);
+        }
+        dd {
+            @include outline;
+        }
+    }
+}
+
+.home_footer {
+    @include outline;
+    margin: 2%;
+    padding: 3%;
+    aside {
+        display: flex;
+        .m_footer_img {
+            width: rem(65);
+            img {
+                width: 100%;
+            }
+        }
+        .m_footer_txt {
+            margin: auto 10px;
+            flex: 1;
+            h5 {
+                font-size: rem(16);
+                padding-bottom: 5px;
+            }
+            span {
+                color: #8f8f8f;
+                font-size: rem(12);
+                @extend %_text;
+            }
+        }
+    }
+    .p_txt {
+        @extend %_text;
+        padding: 10px 0;
+    }
+}
+
+%_text {
+    color: #8f8f8f;
+    font-size: rem(12);
+}
+
+.bottom_menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: rem(45);
+    ul {
+        display: flex;
+        li {
+            height: 100%;
+            flex: 1;
+            @include outline;
+        }
+    }
+}

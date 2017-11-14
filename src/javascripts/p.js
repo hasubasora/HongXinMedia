@@ -1,4 +1,4 @@
-var playPayer = document.querySelector('#play-payer');
+
 var plays = document.querySelectorAll('.plays');
 var n = 0;
 (function () {
@@ -21,7 +21,7 @@ var n = 0;
     })
 }())
 
-
+var playPayer = document.querySelector('#play-payer');
 var money = document.querySelectorAll('.money li');
 (function () {
     for (var i = 0; i < money.length; i++) {
@@ -35,8 +35,8 @@ var money = document.querySelectorAll('.money li');
         }, false)
     }
 }())
-
-playPayer.addEventListener('click', () => {
+//zhifu
+playPayer.addEventListener('click',function () {
     money.forEach((m) => {
         // console.info(m.getAttribute("data-mo"));
         // console.info(m.classList.contains("active"));
@@ -62,4 +62,4 @@ playPayer.addEventListener('click', () => {
             alert('请选择支付方式！')
             console.info('取消支付');
     }
-})
+},false)

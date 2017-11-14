@@ -1,26 +1,61 @@
 html(lang="en")
     head
         meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0",)
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         link(rel="stylesheet", href="../stylesheets/main.css")      
-
         title 企鹅分分彩
     body
-     header
+     ul.openAminates
+      li 1
+      li 
+       img(src="../images/djjinru.png", alt="")
+       img(src="../images/zsp.png", alt="")
+       img(src="../images/lijijingcai2.png", alt="")
+      li 3
+      li 4
+      li 5
+      li 6
+      li 7
+      li 
+       .redBox.hbnone
+        .redBox-m 1.2元
+        img#goQuiz(src="../images/kaishijingcai.png", alt="开始竞猜",width='80%')
+       #box.box
+        .outer.KinerLottery.KinerLotteryContent
+         img(src="../images/lotteryContent.png", alt="")
+        .inner.KinerLotteryBtn.start
+       .textp 恭喜你获得
+        span 1
+        |次抽奖机会  
+        
+
+
+
+
+
+     menu.bottom_menu
+      ul
+       li 交易
+       li 钱包
+       li 团队
+       li 我的
+     header.home_header
       section
        span 你好！102345678912
        span 红包余额：2000
       section
-       p 1254564
-       span 00
-      section
-       div
-        img(src="", alt="开始竞猜")
-       div  
-        img(src="", alt="开始充值")
-       span 微信秒提
-     memu.memu
+       .home_money 
+        span.m_int 1254564 
+        | .
+        span.m_float 00
+      section.home_btn
+       .m_pay
+        img(src="../images/kaishijccai.png", alt="开始竞猜",width="100")
+       .m_play
+        img(src="../images/chongzhi.png", alt="开始充值",width="100")
+      span.home_wx_draw_money 微信秒提款
+     memu.home_content
       dl
        dt 模拟交易
        dd 奖励红包
@@ -47,17 +82,20 @@ html(lang="en")
       dl
        dt
         img(src="", alt="立即开始")          
-     section
+     section.home_footer
       aside
-       img(src="", alt="图标")
-       div
+       div.m_footer_img
+        img(src="../images/logo1.png", alt="图标")
+       div.m_footer_txt
         h5 企鹅分分彩
-        span 每分钟开奖
-       img(src="", alt="立即竞猜") 
-      p 竞猜QQ在线人数后3位。开奖结果数据来自腾讯音视频在线人数统计主页（http://qqsso.com）右上角在线人数。
-       
-
-
+        span.m_text 每分钟开奖
+       div.m_footer_txt  
+        img(src="", alt="立即竞猜") 
+      p.p_txt 竞猜QQ在线人数后3位。开奖结果数据来自腾讯音视频在线人数统计主页（http://qqsso.com）右上角在线人数。
+    script(src="../javascripts/rem.js")
+    script(src="../javascripts/zepto.min.js")
+    script(src="../javascripts/kinerLottery.js")
+    script(src="../javascripts/kiner.js")
 
 
 
