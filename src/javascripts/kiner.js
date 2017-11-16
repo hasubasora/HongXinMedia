@@ -137,7 +137,7 @@
 
    $.each($('.openAminatesList>li'), function (i, n) {
        if (localStorage.onload == "true") {
-           n.classList.add('none');
+         $('.openAminates').remove();
        }
        //初始化界面导航
        if (localStorage.onload != "true") {
@@ -145,9 +145,11 @@
                return false;
            } else {
                n.addEventListener('click', function () {
-                   n.classList.add('none');
+                   n.classList.add('none')
+                  
                    if (($('.openAminatesList>li').size() - 2) == i) {
                           localStorage.onload = "true"
+
                        //这里导入登陆页面login.html
                    }
                })

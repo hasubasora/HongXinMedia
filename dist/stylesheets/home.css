@@ -153,6 +153,8 @@ body {
 html *,
 html *:before,
 html *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -170,6 +172,10 @@ html span {
   margin-left: auto;
   margin-right: auto;
   *zoom: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .container:after {
@@ -189,6 +195,10 @@ html span {
 .containers {
   width: 100%;
   *zoom: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .containers:before, .containers:after {
@@ -216,6 +226,8 @@ input[type=button] {
 }
 
 .scale {
+  -webkit-transform: scale(0) !important;
+  -ms-transform: scale(0) !important;
   transform: scale(0) !important;
 }
 
@@ -299,11 +311,13 @@ body {
   margin: 5px 5px 10px;
   margin-bottom: 0px;
   background: #011caa url(../images/444.png) no-repeat;
+  -webkit-box-shadow: inset 0px 0px 147px 0px rgba(0, 12, 110, 0.6);
   box-shadow: inset 0px 0px 147px 0px rgba(0, 12, 110, 0.6);
   background-size: 30%;
   background-position-x: right;
   background-position-y: bottom;
   *zoom: 1;
+  -webkit-border-radius: 5px;
   border-radius: 5px;
   height: 10.3125rem;
 }
@@ -317,7 +331,15 @@ body {
 }
 .home_header section {
   padding: 0.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .home_header section span {
@@ -397,7 +419,9 @@ body {
   padding-right: 0.83333%;
   border: 1px solid white;
   background: #fff;
+  -webkit-box-shadow: 0 0 7px 1px #e4e4e4;
   box-shadow: 0 0 7px 1px #e4e4e4;
+  -webkit-border-radius: 5px;
   border-radius: 5px;
   padding: 0.625rem 0 0.625rem 0.625rem;
 }
@@ -431,12 +455,18 @@ body {
 
 .home_footer {
   background: #fff;
+  -webkit-box-shadow: 0 0 7px 1px #e4e4e4;
   box-shadow: 0 0 7px 1px #e4e4e4;
+  -webkit-border-radius: 5px;
   border-radius: 5px;
   margin: 2%;
   padding: 3%;
 }
 .home_footer aside {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .home_footer aside .m_footer_img {
@@ -447,6 +477,10 @@ body {
 }
 .home_footer aside .m_footer_txt {
   margin: auto 10px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
 }
 .home_footer aside .m_footer_txt img {
@@ -481,12 +515,20 @@ body {
   height: 3.125rem;
 }
 .bottom_menu ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
   color: #fff;
 }
 .bottom_menu ul li {
   text-align: center;
   height: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   padding-top: 5px;
 }
@@ -543,6 +585,8 @@ body {
   height: 7rem;
   left: 50%;
   top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   z-index: 2;
   background-image: url(../images/lotteryBtn.png);
@@ -551,6 +595,8 @@ body {
 }
 
 .hbbox .inner.start:active {
+  -webkit-transform: translate(-50%, -50%) scale(0.95);
+  -ms-transform: translate(-50%, -50%) scale(0.95);
   transform: translate(-50%, -50%) scale(0.95);
 }
 
@@ -602,5 +648,7 @@ body {
 
 .hbnone {
   /* display: none; */
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
   transform: scale(0);
 }
