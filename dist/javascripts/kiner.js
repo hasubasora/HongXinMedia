@@ -166,7 +166,7 @@
    hrefs('.m_pay', "连接地址");//开始竞猜
    hrefs('.m_play', "连接地址");//充值
    hrefs('.home_wx_draw_money', "连接地址");//微信提款
-   hrefs('#playBtn', "连接地址");//抽奖
+   hrefs('#playBtn', "连接地址");//抽奖攻略
 
 
 
