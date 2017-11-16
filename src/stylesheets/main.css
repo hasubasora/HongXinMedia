@@ -219,14 +219,25 @@ input[type=button] {
   transform: scale(0) !important;
 }
 
+[class*=iconfont] {
+  font-family: "iconfont" !important;
+  font-size: 1rem;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*<i class="iconfont">&#x33;</i>*/
 /*! Component 组件*/
 body {
-  margin-bottom: 50px;
+  margin-bottom: 55px;
+  background: #f9f9f9;
 }
 
 .openAminates {
   position: fixed;
-  overflow-y: scroll;
+  overflow: hidden;
   width: 100%;
   height: auto;
   height: 100%;
@@ -235,68 +246,62 @@ body {
   left: 0;
   z-index: 88;
 }
-.openAminates li {
+.openAminates .openAminatesList li {
   height: 100%;
 }
-.openAminates li:nth-child(1) {
+.openAminates .openAminatesList li:nth-child(1) {
   background: rgba(0, 0, 0, 0.692) url(../images/huanying.png) no-repeat;
   background-size: contain;
   background-position: 10%;
 }
-.openAminates li:nth-child(2) {
+.openAminates .openAminatesList li:nth-child(2) {
   position: relative;
-  background: rgba(8, 168, 0, 0.589);
+  background: #111 url(../images/22.png) no-repeat;
+  background-size: contain;
+  background-position: center;
 }
-.openAminates li:nth-child(2) img {
-  position: absolute;
-  width: 7.5rem;
+.openAminates .openAminatesList li:nth-child(3) {
+  background: #111 url(../images/4.png) no-repeat;
+  background-size: contain;
+  background-position: center;
 }
-.openAminates li:nth-child(2) img:nth-child(1) {
-  top: 18.125rem;
-  left: 0.625rem;
+.openAminates .openAminatesList li:nth-child(4) {
+  background: #111 url(../images/yuce.png) no-repeat;
+  background-size: contain;
+  background-position: center;
 }
-.openAminates li:nth-child(2) img:nth-child(2) {
-  top: 18.125rem;
-  left: 8.125rem;
+.openAminates .openAminatesList li:nth-child(5) {
+  background: #111 url(../images/yem5.png) no-repeat;
+  background-size: contain;
+  background-position: center;
 }
-.openAminates li:nth-child(2) img:nth-child(3) {
-  top: 25rem;
-  left: 11.875rem;
+.openAminates .openAminatesList li:nth-child(6) {
+  background: #111 url(../images/huojiang.png) no-repeat;
+  background-size: contain;
+  background-position: center;
 }
-.openAminates li:nth-child(3) {
-  background: #dff142 url(../images/4.png) no-repeat;
-  background-size: cover;
-}
-.openAminates li:nth-child(4) {
-  background: #dff142 url(../images/yuce.png) no-repeat;
-  background-size: cover;
-}
-.openAminates li:nth-child(5) {
-  background: #dff142 url(../images/yem5.png) no-repeat;
-  background-size: cover;
-}
-.openAminates li:nth-child(6) {
-  background: #dff142 url(../images/huojiang.png) no-repeat;
-  background-size: cover;
-}
-.openAminates li:nth-child(7) {
+.openAminates .openAminatesList li:nth-child(7) {
   background: rgba(0, 0, 0, 0.692) url(../images/418546044440086156.png) no-repeat;
   background-size: contain;
   background-position: 10%;
 }
-.openAminates li:nth-child(8) {
+.openAminates .openAminatesList li:nth-child(8) {
   position: relative;
   background: #23184d url(../images/ditu.png) no-repeat;
   background-size: contain;
 }
 
 .home_header {
-  outline: 1px solid red;
-  margin: 5px;
-  background: url(../images/biao1.png) no-repeat;
-  background-size: 100%;
+  margin: 5px 5px 10px;
+  margin-bottom: 0px;
+  background: #011caa url(../images/444.png) no-repeat;
+  box-shadow: inset 0px 0px 147px 0px rgba(0, 12, 110, 0.6);
+  background-size: 30%;
+  background-position-x: right;
+  background-position-y: bottom;
   *zoom: 1;
-  height: 10.625rem;
+  border-radius: 5px;
+  height: 10.3125rem;
 }
 .home_header:before, .home_header:after {
   content: "";
@@ -313,29 +318,28 @@ body {
 }
 .home_header section span {
   font-size: 0.75rem;
-  color: #ffffff;
+  color: #f1ded2;
 }
 .home_header section .home_money {
   padding: 1.25rem 1.25rem 0;
-  outline: 1px solid red;
   background: url(../images/zhanghuyuer.png) no-repeat;
   background-size: contain;
   background-position: center;
-  width: 58.33333%;
+  width: 62.5%;
   float: left;
   padding-left: 0.83333%;
   padding-right: 0.83333%;
-  margin-left: 13%;
+  margin-left: 8%;
   height: 3.75rem;
   color: aliceblue;
   text-align: center;
 }
 .home_header section .home_money .m_int {
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   font-weight: 600;
   color: #ffffff;
   font-style: oblique;
-  padding: .5rem .2rem 0 1rem;
+  padding: .5rem .2rem 0 2rem;
   display: inline-block;
 }
 .home_header section .home_money .m_float {
@@ -344,21 +348,20 @@ body {
 .home_header section:nth-child(2) {
   padding-bottom: 0;
 }
-.home_header section:nth-child(3) {
-  padding-top: 0;
+.home_header section.home_btn {
+  padding: 0.3125rem 0;
 }
-.home_header section .m_pay {
-  outline: 1px solid red;
-  width: 100%;
+.home_header section.home_btn .m_pay {
+  width: 66.66667%;
   float: left;
   padding-left: 0.83333%;
   padding-right: 0.83333%;
+  padding-right: 2.83333%;
 }
-.home_header section .m_pay img {
+.home_header section.home_btn .m_pay img {
   float: right;
 }
-.home_header section .m_play {
-  outline: 1px solid red;
+.home_header section.home_btn .m_play {
   width: 100%;
   float: left;
   padding-left: 0.83333%;
@@ -388,18 +391,44 @@ body {
   float: left;
   padding-left: 0.83333%;
   padding-right: 0.83333%;
-  outline: 1px solid red;
-  padding: 0.625rem;
+  border: 1px solid white;
+  background: #fff;
+  box-shadow: 0 0 7px 1px #e4e4e4;
+  border-radius: 5px;
+  padding: 0.625rem 0 0.625rem 0.625rem;
 }
 .home_content dl dt {
-  outline: 1px solid blue;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-block;
+  float: left;
+}
+.home_content dl dt img {
+  width: 100%;
 }
 .home_content dl dd {
-  outline: 1px solid red;
+  float: left;
+  width: 60%;
+  font-size: 12px;
+  margin-left: 10px;
+  line-height: 20px;
+}
+.home_content dl dd:nth-child(2) {
+  font-size: 16px;
+  font-weight: 600;
+}
+.home_content dl dd:nth-child(3) {
+  color: #969696;
+}
+.home_content #playBtn {
+  padding: 5px;
+  width: 100%;
 }
 
 .home_footer {
-  outline: 1px solid red;
+  background: #fff;
+  box-shadow: 0 0 7px 1px #e4e4e4;
+  border-radius: 5px;
   margin: 2%;
   padding: 3%;
 }
@@ -416,6 +445,9 @@ body {
   margin: auto 10px;
   flex: 1;
 }
+.home_footer aside .m_footer_txt img {
+  width: 130;
+}
 .home_footer aside .m_footer_txt h5 {
   font-size: 1rem;
   padding-bottom: 5px;
@@ -424,8 +456,12 @@ body {
   color: #8f8f8f;
   font-size: 0.75rem;
 }
+.home_footer aside .ljjc {
+  margin-right: 0;
+}
 .home_footer .p_txt {
-  padding: 10px 0;
+  padding-top: 10px;
+  line-height: 16px;
 }
 
 .home_footer aside .m_footer_txt span, .home_footer .p_txt {
@@ -434,18 +470,29 @@ body {
 }
 
 .bottom_menu {
+  background: #0a2164;
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 2.8125rem;
+  height: 3.125rem;
 }
 .bottom_menu ul {
   display: flex;
+  color: #fff;
 }
 .bottom_menu ul li {
+  text-align: center;
   height: 100%;
   flex: 1;
-  outline: 1px solid red;
+  padding-top: 5px;
+}
+.bottom_menu ul li i {
+  font-size: 1.3125rem;
+  line-height: 25px;
+}
+.bottom_menu ul li p {
+  line-height: 20px;
+  font-size: 0.75rem;
 }
 
 section .nav_header {
@@ -1075,14 +1122,10 @@ section section .lately .pays > section > span {
 
 .hbbox .inner {
   position: relative;
-  width: 3.4rem;
+  width: 3.4375rem;
   height: 7rem;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   z-index: 2;
   background-image: url(../images/lotteryBtn.png);
@@ -1091,10 +1134,6 @@ section section .lately .pays > section > span {
 }
 
 .hbbox .inner.start:active {
-  -webkit-transform: translate(-50%, -50%) scale(0.95);
-  -moz-transform: translate(-50%, -50%) scale(0.95);
-  -ms-transform: translate(-50%, -50%) scale(0.95);
-  -o-transform: translate(-50%, -50%) scale(0.95);
   transform: translate(-50%, -50%) scale(0.95);
 }
 
@@ -1110,15 +1149,14 @@ section section .lately .pays > section > span {
   background-position: -10rem 0;
 }
 
-.textp {
-  position: absolute;
-  bottom: 2rem;
-  left: 32%;
+.CanPlayCountText {
   color: #ffffff;
   font-size: .8rem;
 }
-
-.textp span {
+.CanPlayCountText .textp {
+  text-align: center;
+}
+.CanPlayCountText .textp span {
   color: #e7b75f;
   text-align: center;
 }
@@ -1134,7 +1172,6 @@ section section .lately .pays > section > span {
 }
 
 .redBox .redBox-m {
-  padding-top: 75%;
   color: aliceblue;
   font-size: 2rem;
   text-align: center;

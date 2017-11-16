@@ -2,7 +2,7 @@
  * 注意：本插件运用了rem屏幕适配方案，一律采用rem作为单位，若项目中不是采用这种方案的，请在kinerTreeMenu.css中修改样式，此段代码不会影响功能使用，仅会影响控件样式
  */
 
-(function(win, doc, $) {
+(function (win, doc, $) {
 
     var defaultOpt = {
 
@@ -10,11 +10,11 @@
         body: "", //大转盘整体的选择符或zepto对象
 
 
-        disabledHandler: function() {}, //禁止抽奖时回调
+        disabledHandler: function () {}, //禁止抽奖时回调
 
-        clickCallback: function() {}, //点击抽奖按钮,再次回调中实现访问后台获取抽奖结果,拿到抽奖结果后显示抽奖画面
+        clickCallback: function () {}, //点击抽奖按钮,再次回调中实现访问后台获取抽奖结果,拿到抽奖结果后显示抽奖画面
 
-        KinerLotteryHandler: function(deg) {} //抽奖结束回调
+        KinerLotteryHandler: function (deg) {} //抽奖结束回调
 
 
     };
@@ -27,11 +27,12 @@
 
         this.doing = false;
 
+
         this.init();
 
     }
 
-    KinerLottery.prototype.setOpts = function(opts) {
+    KinerLottery.prototype.setOpts = function (opts) {
 
 
         this.opts = $.extend(true, {}, defaultOpt, opts);
@@ -40,41 +41,65 @@
 
     };
 
-    KinerLottery.prototype.init = function() {
+    KinerLottery.prototype.init = function () {
 
         var self = this;
+        this.CanPlayCount = 0;
 
-
-        this.defNum = this.opts.rotateNum * 360; //转盘需要转动的角度
+        this.defNum = this.opts.rotateNum * 360; //转盘需要转动的角度 5圈*360
         // console.log(this.defNum);
 
 
         // alert(this.defNum);
-
-        //点击抽奖
-        $('.redz').on('click', ".KinerLotteryBtn", function() {
-            
-
-
-            if ($(this).hasClass('start') && !self.doing) {
-
-                console.log('点击');
-
-                self.opts.clickCallback.call(self);
-
-            } else {
-
-
-                var key = $(this).hasClass('no-start') ? "noStart" : $(this).hasClass('completed') ? "completed" : "illegal";
-
-                self.opts.disabledHandler(key);
-
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: 'http://192.168.168.46/RedBag/PlayRedBag',
+            // url:'http://rapapi.org/mockjsdata/28289/RedBag/PlayRedBag',
+            data: {
+                bid: 2
+            },
+            dataType: "json",
+            success: function (data) {
+                console.info(data)
+                self.CanPlayCount = data.Result.CanPlayCount
+                
+             
+                if (data.Status==1) {
+                    $('.CanPlayCount').html(data.Result.CanPlayCount)
+                    self.CanPlayCount = data.Result.CanPlayCount
+                } else {
+                    console.info(data)
+                }
             }
 
+        })
+        //点击抽奖
+        console.info(self.CanPlayCount)
+            $('.redz').on('click', ".KinerLotteryBtn", function () {
+                if (self.CanPlayCount != 0) {
+                    
+                if ($(this).hasClass('start') && !self.doing) {
+                    console.log('点击');
 
-        });
+                    self.opts.clickCallback.call(self);
 
-        $(this.opts.body).find('.KinerLotteryContent').get(0).addEventListener('webkitTransitionEnd', function() {
+                } else {
+
+                    var key = $(this).hasClass('no-start') ? "noStart" : $(this).hasClass('completed') ? "completed" : "illegal";
+
+                    self.opts.disabledHandler(key);
+
+                }
+            }else{
+                alert('你没有抽奖机会！')
+            }
+            
+
+            });
+
+
+        $(this.opts.body).find('.KinerLotteryContent').get(0).addEventListener('webkitTransitionEnd', function () {
 
             self.doing = false;
 
@@ -102,18 +127,19 @@
 
 
 
-        },false);
+        }, false);
 
 
 
     };
 
 
-    KinerLottery.prototype.goKinerLottery = function(_deg) {
+    KinerLottery.prototype.goKinerLottery = function (_deg) {
 
         if (this.doing) {
             return;
         }
+
         var deg = _deg + this.defNum;
         var realDeg = this.opts.direction == 0 ? deg : -deg;
         this.doing = true;
@@ -124,6 +150,8 @@
             'transition': 'all 5s',
             '-webkit-transform': 'rotate(' + (realDeg) + 'deg)',
             'transform': 'rotate(' + (realDeg) + 'deg)'
+
+
         });
         $(this.opts.body).attr('data-deg', _deg);
 
@@ -134,3 +162,4 @@
     win.KinerLottery = KinerLottery;
 
 })(window, document, $);
+//能玩的次数

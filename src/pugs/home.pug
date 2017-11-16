@@ -1,45 +1,65 @@
 html(lang="en")
     head
         meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0",)
-        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi",)
+        meta(http-equiv="Cache-Control" content="no-siteapp")
+        meta(http-equiv="X-UA-Compatible", content="chrome=1")
+        meta(http-equiv="cache-control" content="no-cache")
+        meta(name="renderer" content="webkit")
         link(rel="stylesheet", href="../stylesheets/main.css")      
+        link(rel="stylesheet", href="//at.alicdn.com/t/font_473151_zdmpzheblwvobt9.css")
         title 企鹅分分彩
     body
-     ul.openAminates
-      li 1
-      li 
-       img(src="../images/djjinru.png", alt="")
-       img(src="../images/zsp.png", alt="")
-       img(src="../images/lijijingcai2.png", alt="")
-      li 3
-      li 4
-      li 5
-      li 6
-      li 7
-      li.redz 
-       .redBox.hbnone
-        .redBox-m 1.2元
-        img#goQuiz(src="../images/kaishijingcai.png", alt="开始竞猜",width='80%')
-       #hbbox.hbbox
-        .outer.KinerLottery.KinerLotteryContent
-         img(src="../images/lotteryContent.png", alt="")
-        .inner.KinerLotteryBtn.start
-       .textp 恭喜你获得
-        span 1
-        |次抽奖机会  
+     //-第一次动画
+     <!--第一次动画-->
+     .openAminates
+      ul.openAminatesList
+       li 
+       li 
+       li 
+       li 
+       li 
+       li 
+       li 
+       li.redz 
+        .redBox.hbnone
+         .redBox-m 1.2元
+         img#goQuiz(src="../images/kaishijingcai.png", alt="开始竞猜",width='80%')
+        #hbbox.hbbox
+         .outer.KinerLottery.KinerLotteryContent
+          img(src="../images/lotteryContent.png", alt="")
+         .inner.KinerLotteryBtn.start
+        .CanPlayCountText 
+         p.textp 恭喜你获得
+          span.CanPlayCount 1
+          |次抽奖机会  
         
 
 
 
 
-
+     //-底部导航
+     <!--底部导航-->
      menu.bottom_menu
-      ul
-       li 交易
-       li 钱包
-       li 团队
-       li 我的
+      ul.menu
+       li.menu-li(data-key="index") 
+        i.iconfont.icon-icon-test
+        p 交易
+       li.menu-li(data-key="wallet") 
+        i.iconfont.icon-QIAOBAO
+        p 钱包
+       li.menu-li(data-key="team") 
+        i.iconfont.icon-duidui
+        p 团队
+       li.menu-li(data-key="this") 
+        i.iconfont.icon-wode
+        p 我的
+
+
+
+     //--首页
+     <!--首页-->
+     
      header.home_header
       section
        span 你好！102345678912
@@ -51,37 +71,33 @@ html(lang="en")
         span.m_float 00
       section.home_btn
        .m_pay
-        img(src="../images/kaishijccai.png", alt="开始竞猜",width="100")
+        img(src="../images/kaishi1.png", alt="开始竞猜",width="90")
        .m_play
-        img(src="../images/chongzhi.png", alt="开始充值",width="100")
+        img(src="../images/chongzhi.png", alt="开始充值",width="90")
       span.home_wx_draw_money 微信秒提款
      memu.home_content
-      dl
-       dt 模拟交易
+      dl.mock_trading
+       dt 
+        img(src="../images/box-1.png", alt="模拟交易") 
        dd 奖励红包
-       dd 
-        img(src="", alt="模拟交易")
-      dl
-       dt 红包活动
+       dd 模拟交易
+      dl.new_money
+       dt 
+        img(src="../images/box-2.png", alt="红包活动")     
        dd 可领0个
-       dd 
-        img(src="", alt="红包活动")      
-      dl
-       dt 排行榜
+       dd  红包活动
+      dl.billboard
+       dt 
+        img(src="../images/box-3.png", alt="排行榜")
        dd 每小时更新
-       dd 
-        img(src="", alt="排行榜")
-      dl
-       dt 新手教程
+       dd  排行榜
+      dl.q_a
+       dt 
+         img(src="../images/box-4.png", alt="新手教程")      
        dd 30秒上手赚
-       dd 
-        img(src="", alt="新手教程")      
-      dl
-       dt
-        img(src="", alt="抽奖攻略")              
-      dl
-       dt
-        img(src="", alt="立即开始")          
+       dd 新手教程
+       
+      img#playBtn(src="../images/choujiang3.png", alt="")             
      section.home_footer
       aside
        div.m_footer_img
@@ -89,13 +105,18 @@ html(lang="en")
        div.m_footer_txt
         h5 企鹅分分彩
         span.m_text 每分钟开奖
-       div.m_footer_txt  
-        img(src="", alt="立即竞猜") 
+       div.m_footer_txt.ljjc
+        img(src="../images/zz.png", alt="立即竞猜") 
       p.p_txt 竞猜QQ在线人数后3位。开奖结果数据来自腾讯音视频在线人数统计主页（http://qqsso.com）右上角在线人数。
     script(src="../javascripts/zepto.min.js")
     script(src="../javascripts/kinerLottery.js")
     script(src="../javascripts/kiner.js")
     script(src="../javascripts/rem.js")
+    script.
+     //要引入gxxxx.js 的文件
+     //alert(window.screen.height)
+
+
     
 
 

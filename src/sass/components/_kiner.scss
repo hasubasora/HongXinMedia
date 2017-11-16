@@ -14,7 +14,6 @@
     -o-transform: translate(-50%, -50%);
     /* background: url(../imgs/lotteryContent.png)no-repeat;
     background-size: contain; */
-    
 }
 
 .hbbox .outer {
@@ -39,14 +38,10 @@
 
 .hbbox .inner {
     position: relative;
-    width: 3.4rem;
+    width: rem(55);
     height: 7rem;
     left: 50%;
     top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     z-index: 2;
     background-image: url(../images/lotteryBtn.png);
@@ -55,10 +50,6 @@
 }
 
 .hbbox .inner.start:active {
-    -webkit-transform: translate(-50%, -50%) scale(.95);
-    -moz-transform: translate(-50%, -50%) scale(.95);
-    -ms-transform: translate(-50%, -50%) scale(.95);
-    -o-transform: translate(-50%, -50%) scale(.95);
     transform: translate(-50%, -50%) scale(.95);
 }
 
@@ -74,20 +65,20 @@
     background-position: -10rem 0;
 }
 
-.textp {
-    position: absolute;
-    bottom: 2rem;
-    left: 32%;
+.CanPlayCountText {
     color: #ffffff;
     font-size: .8rem;
+    // transform: translateY(550px);
+    .textp {
+        text-align: center;
+        span {
+            color: #e7b75f;
+            text-align: center;
+        }
+    }
 }
 
-.textp span {
-    color: #e7b75f;
-    text-align: center;
-}
-
-.redBox{
+.redBox {
     position: absolute;
     background: rgba(49, 49, 49, 0.6) url(../images/hb.png) no-repeat;
     background-size: 70%;
@@ -95,23 +86,23 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-
-    
 }
-.redBox .redBox-m{
-    // transform: translateY(14rem);
-    padding-top: 75%;
+
+.redBox .redBox-m {
+    // transform: translateY(18rem);
+    // padding-top: 78%;
     color: aliceblue;
     font-size: 2rem;
     text-align: center;
 }
-#goQuiz{
+
+#goQuiz {
     margin: auto;
-    display: block;
-    // transform: translateY(19rem);
+    display: block; // transform: translateY(19rem);
     padding-top: 30%;
 }
-.hbnone{
+
+.hbnone {
     /* display: none; */
     transform: scale(0);
 }

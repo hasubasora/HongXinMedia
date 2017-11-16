@@ -3,8 +3,35 @@
 var capital = {
     init: function init() {
         ranking.tabs(".sub", ".lately", 'active');
+        // var url = "http://rapapi.org/mockjsdata/28289/FunUser/UserBalanceLog"
+        var url = "http://192.168.168.46/FunUser/UserBalanceLog";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                'bid': 2,
+                'type': 1
+            },
+            dataType: "json",
+            success: function success(data) {
+                console.info(data.DrawItems); //提款
+                console.info(data.RechargeItems); //充值
+                console.info(data.RechargeTotal); //提款
+                console.info(data.TotalItems); //汇总
+                console.info(data.WithdrawalsTotal); //提款
+                console.info(data); //提款
+            }
+        });
+    },
+    list: function list(TotalItems) {
+        var list = "<div class=\"payUp\"><div class=\"dates\">" + Date + "<img src=\"../images/dade.png\" alt=\"\"></div><div class=\"payMsg\"><span>" + Time + "</span><span data-s=" + Typeid + ">" + Type + "</span><span class=\"greens\">-11.22</span></div></div>";
     }
 };
+// <div class="payUp">
+// <div class="dates">2017-10-31<img src="../images/dade.png" alt=""></div>
+// <div class="payMsg"><span>16:31:07</span><span>提款成功</span><span class="greens">-11.22</span></div>
+// <div class="payMsg"><span>16:31:07</span><span>充值成功</span><span class="oranges">+11.22</span></div>
+// </div>
 
 var ranking = {
     init: function init() {
@@ -205,9 +232,11 @@ var filter = {
  * @returns {*}
  */
 var whichAward = function whichAward(deg) {
+
+    console.log(deg);
     if (deg > 45 && deg <= 90 || deg > 225 && deg <= 270) {
         return "1.8元";
-    } else if (deg > 90 && deg <= 135 || deg > 0 && deg <= 45) {
+    } else if (deg > 90 && deg <= 135 || deg >= 0 && deg <= 45) {
         return "8元";
     } else if (deg > 135 && deg <= 180 || deg > 270 && deg <= 315) {
         return "10元";
@@ -234,17 +263,82 @@ var KinerLottery = new KinerLottery({
     }, //禁止抽奖时回调
 
     clickCallback: function clickCallback() {
+        var _this = this;
 
         //此处访问接口获取奖品
-        function random() {
-            return Math.floor(Math.random() * 360);
-        }
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: 'http://192.168.168.46/RedBag/RedBagResult',
+            data: {
+                bid: 2
+            },
+            dataType: "json",
+            success: function success(data) {
+                console.info(data);
+                console.info(data.Result);
+                if (data.Status == 1) {
+                    switch (data.Result) {
+                        case 0:
+                            //2元
+                            //    console.info(Math.floor(Math.random()*(44-1)+1))
+                            _this.goKinerLottery(Math.floor(Math.random() * (45 - 0) + 0));
+                            break;
+                        case 1:
+                            //10元
+                            _this.goKinerLottery(Math.floor(Math.random() * (90 - 45) + 45));
+                            break;
+                        case 2:
+                            //1.8元
+                            //   console.info(Math.floor(Math.random() * (135-90)+90))
+                            _this.goKinerLottery(Math.floor(Math.random() * (135 - 90) + 90));
+                            break;
+                        case 3:
+                            //2元
+                            _this.goKinerLottery(Math.floor(Math.random() * (180 - 135) + 135));
+                            break;
+                        case 4:
+                            //10元
+                            _this.goKinerLottery(Math.floor(Math.random() * (225 - 180) + 180));
+                            break;
+                        case 5:
+                            //8元
+                            _this.goKinerLottery(Math.floor(Math.random() * (270 - 225) + 225));
+                            break;
+                        case 6:
+                            //1.8元
+                            _this.goKinerLottery(Math.floor(Math.random() * (315 - 270) + 270));
+                            break;
+                        case 7:
+                            //8元
+                            _this.goKinerLottery(Math.floor(Math.random() * (360 - 315) + 315));
+                            break;
 
-        this.goKinerLottery(random());
+                    }
+                } else {
+                    console.info(data);
+                }
+            },
+            error: function error(data) {
+                alert(data.Msg);
+            }
+        });
+
+        //    function random(params) {
+        //        console.info(Math.random())
+        //        console.info(Math.random() * 360)
+        //        console.info(Math.floor(Math.random() * 360))
+        //        console.info(Math.floor(1 * 360))
+        //        return Math.floor(Math.random() * 360);
+        //        //   return Math.floor(1 * 360);
+        //    }
+        //   return Math.floor(Math.random() * 360);
+        //    console.info(random())
+        //    this.goKinerLottery(random());
     }, //点击抽奖按钮,再次回调中实现访问后台获取抽奖结果,拿到抽奖结果后显示抽奖画面
 
     KinerLotteryHandler: function KinerLotteryHandler(deg) {
-
+        console.info('有' + whichAward(deg));
         // alert("恭喜您获得:" + whichAward(deg));
         $('.redBox').css({
             transform: 'scale(1)',
@@ -253,11 +347,56 @@ var KinerLottery = new KinerLottery({
         $('.redBox-m').text(whichAward(deg));
     } //抽奖结束回调
 });
-
-$('#goQuiz').on('click', function () {
-    window.location.href = 'quiz.html';
+//hongbao weizhi
+var s_h = window.screen.height / 2;
+var list_h = window.screen.height;
+$('.redBox-m').css({
+    marginTop: s_h - 70
 });
-'use strict';
+
+document.querySelector('.CanPlayCountText').style.transform = "translateY(" + (list_h - 150) + "px)";
+
+$.each($('.openAminatesList>li'), function (i, n) {
+    if (localStorage.onload == "true") {
+        n.classList.add('none');
+    }
+    //初始化界面导航
+    if (localStorage.onload != "true") {
+        if ($(this).hasClass('redz')) {
+            return false;
+        } else {
+            n.addEventListener('click', function () {
+                n.classList.add('none');
+                if ($('.openAminatesList>li').size() - 2 == i) {
+                    localStorage.onload = "true";
+                    //这里导入登陆页面login.html
+                }
+            });
+        }
+        //已经初始化过了
+    }
+});
+
+hrefs('#goQuiz', "连接地址"); //抽完红包跳转到游戏界面
+hrefs('.new_money', "连接地址"); //红包活动
+hrefs('.mock_trading', "连接地址"); //模拟交易
+hrefs('.billboard', "连接地址"); //排行榜
+hrefs('.q_a', "连接地址"); //新手教程
+hrefs('.home_footer', "连接地址"); //开始竞猜
+hrefs('.m_pay', "连接地址"); //开始竞猜
+hrefs('.m_play', "连接地址"); //充值
+hrefs('.home_wx_draw_money', "连接地址"); //微信提款
+hrefs('#playBtn', "连接地址"); //抽奖攻略
+
+
+function hrefs(id, url) {
+    $(id).on('click', function () {
+        window.location.href = url;
+    });
+}
+
+//判断登陆的 复制过来
+"use strict";
 
 /**
  * 注意：本插件运用了rem屏幕适配方案，一律采用rem作为单位，若项目中不是采用这种方案的，请在kinerTreeMenu.css中修改样式，此段代码不会影响功能使用，仅会影响控件样式
@@ -299,26 +438,52 @@ $('#goQuiz').on('click', function () {
     KinerLottery.prototype.init = function () {
 
         var self = this;
+        this.CanPlayCount = 0;
 
-        this.defNum = this.opts.rotateNum * 360; //转盘需要转动的角度
+        this.defNum = this.opts.rotateNum * 360; //转盘需要转动的角度 5圈*360
         // console.log(this.defNum);
 
 
         // alert(this.defNum);
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: 'http://192.168.168.46/RedBag/PlayRedBag',
+            // url:'http://rapapi.org/mockjsdata/28289/RedBag/PlayRedBag',
+            data: {
+                bid: 2
+            },
+            dataType: "json",
+            success: function success(data) {
+                console.info(data);
+                self.CanPlayCount = data.Result.CanPlayCount;
 
+                if (data.Status == 1) {
+                    $('.CanPlayCount').html(data.Result.CanPlayCount);
+                    self.CanPlayCount = data.Result.CanPlayCount;
+                } else {
+                    console.info(data);
+                }
+            }
+
+        });
         //点击抽奖
+        console.info(self.CanPlayCount);
         $('.redz').on('click', ".KinerLotteryBtn", function () {
+            if (self.CanPlayCount != 0) {
 
-            if ($(this).hasClass('start') && !self.doing) {
+                if ($(this).hasClass('start') && !self.doing) {
+                    console.log('点击');
 
-                console.log('点击');
+                    self.opts.clickCallback.call(self);
+                } else {
 
-                self.opts.clickCallback.call(self);
+                    var key = $(this).hasClass('no-start') ? "noStart" : $(this).hasClass('completed') ? "completed" : "illegal";
+
+                    self.opts.disabledHandler(key);
+                }
             } else {
-
-                var key = $(this).hasClass('no-start') ? "noStart" : $(this).hasClass('completed') ? "completed" : "illegal";
-
-                self.opts.disabledHandler(key);
+                alert('你没有抽奖机会！');
             }
         });
 
@@ -355,6 +520,7 @@ $('#goQuiz').on('click', function () {
         if (this.doing) {
             return;
         }
+
         var deg = _deg + this.defNum;
         var realDeg = this.opts.direction == 0 ? deg : -deg;
         this.doing = true;
@@ -365,12 +531,14 @@ $('#goQuiz').on('click', function () {
             'transition': 'all 5s',
             '-webkit-transform': 'rotate(' + realDeg + 'deg)',
             'transform': 'rotate(' + realDeg + 'deg)'
+
         });
         $(this.opts.body).attr('data-deg', _deg);
     };
 
     win.KinerLottery = KinerLottery;
 })(window, document, $);
+//能玩的次数
 'use strict';
 
 var logins = {
