@@ -247,7 +247,7 @@ input[type=button] {
 /*<i class="iconfont">&#x33;</i>*/
 /*! Component 组件*/
 body {
-  margin-bottom: 55px;
+  padding-bottom: 55px;
   background: #f9f9f9;
 }
 

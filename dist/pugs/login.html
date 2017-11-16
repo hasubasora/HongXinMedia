@@ -1,0 +1,38 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="../stylesheets/main.min.css"/>
+    <link rel="stylesheet" href="../framework/layer_mobile/need/layer.css"/>
+    <title>登陆</title>
+  </head>
+  <body>
+    <section class="login"> 
+      <div class="login_box">
+        <ul>
+          <li>手机登陆验证<img src="../images/ss.png" alt=""/></li>
+          <li>
+            <label for="tel">
+              <input id="tel" type="tel" placeholder="手机号码" maxLength="11"/>
+            </label>
+          </li>
+          <li> 
+            <label for="cq">
+              <input class="cq_Msg" type="tel" placeholder="验证码"/>
+              <button class="cq_Btn" type="button">获取验证码</button>
+            </label>
+          </li>
+          <li>
+            <button class="login_btn" type="button" value="确认登陆">确认登陆</button>
+          </li>
+        </ul><i class="login_close">×</i>
+      </div>
+    </section>
+  </body>
+  <script src="../javascripts/filters.js">  </script>
+  <script src="../framework/layer_mobile/layer.js">  </script>
+  <script src="../javascripts/login.js">  </script>
+  <script>logins.init();</script>
+</html>

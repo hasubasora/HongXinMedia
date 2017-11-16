@@ -131,30 +131,33 @@
        marginTop: (s_h - 70)
    });
 
-
+   localStorage.removeItem('onload');
    document.querySelector('.CanPlayCountText').style.transform = "translateY(" + (list_h - 150) + "px)"
+
+   if (localStorage.onload == "true") {
+       $('.openAminates').addClass('none');
+   }
 
 
    $.each($('.openAminatesList>li'), function (i, n) {
-       if (localStorage.onload == "true") {
-         $('.openAminates').remove();
-       }
+
        //初始化界面导航
        if (localStorage.onload != "true") {
+           $('.openAminates').removeClass('none');
            if ($(this).hasClass('redz')) {
                return false;
            } else {
                n.addEventListener('click', function () {
                    n.classList.add('none')
-                  
+
                    if (($('.openAminatesList>li').size() - 2) == i) {
-                          localStorage.onload = "true"
+                    //    localStorage.onload = "true"
 
                        //这里导入登陆页面login.html
                    }
                })
            }
-           //已经初始化过了
+           //已经初始化过了 
        }
    });
 
@@ -162,13 +165,13 @@
    hrefs('#goQuiz', "连接地址"); //抽完红包跳转到游戏界面
    hrefs('.new_money', "连接地址"); //红包活动
    hrefs('.mock_trading', "连接地址"); //模拟交易
-   hrefs('.billboard', "连接地址");//排行榜
-   hrefs('.q_a', "连接地址");//新手教程
-   hrefs('.home_footer', "连接地址");//开始竞猜
-   hrefs('.m_pay', "连接地址");//开始竞猜
-   hrefs('.m_play', "连接地址");//充值
-   hrefs('.home_wx_draw_money', "连接地址");//微信提款
-   hrefs('#playBtn', "连接地址");//抽奖攻略
+   hrefs('.billboard', "连接地址"); //排行榜
+   hrefs('.q_a', "连接地址"); //新手教程
+   hrefs('.home_footer', "连接地址"); //开始竞猜
+   hrefs('.m_pay', "连接地址"); //开始竞猜
+   hrefs('.m_play', "连接地址"); //充值
+   hrefs('.home_wx_draw_money', "连接地址"); //微信提款
+   hrefs('#playBtn', "连接地址"); //抽奖攻略
 
 
 
@@ -180,9 +183,3 @@
 
 
    //判断登陆的 复制过来
-
-
-
-
-
-
