@@ -26,11 +26,7 @@ const capital = {
         var list=`<div class="payUp"><div class="dates">${Date}<img src="../images/dade.png" alt=""></div><div class="payMsg"><span>${Time}</span><span data-s=${Typeid}>${Type}</span><span class="greens">-11.22</span></div></div>`
     }
 }
-// <div class="payUp">
-// <div class="dates">2017-10-31<img src="../images/dade.png" alt=""></div>
-// <div class="payMsg"><span>16:31:07</span><span>提款成功</span><span class="greens">-11.22</span></div>
-// <div class="payMsg"><span>16:31:07</span><span>充值成功</span><span class="oranges">+11.22</span></div>
-// </div>
+
 
 const ranking = {
     init() {
@@ -59,7 +55,7 @@ const payMsgs = {
     init() {
         $.each($('.payMsg'), function (i, it) {
             $('.payMsg').eq(i).on('touchstart', function () {
-                $('.transaction_detail').eq(i).toggle(300);
+                $('.transaction_detail').eq(i).slideToggle();
                 if ($('.rightPic').eq(i).hasClass('transform90')) {
                     $('.rightPic').eq(i).removeClass('transform90');
                 } else {

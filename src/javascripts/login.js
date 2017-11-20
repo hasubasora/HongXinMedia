@@ -37,8 +37,8 @@ const logins = {
                     time: 2 //2秒后自动关闭
                 });
             }
-            return false;
-        });
+
+        },false);
         //点击登陆
         this.login_btn.addEventListener('touchstart', () => {
             if (this.cq_Msg.value && this.tel.value) {
@@ -68,7 +68,7 @@ const logins = {
         })
         this.login_close.addEventListener('touchstart', () => {
             //关闭登陆窗口
-        })
+        },false)
 
 
     },

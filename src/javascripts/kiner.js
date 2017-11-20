@@ -34,7 +34,7 @@
                    alert("活动已结束");
                    break;
            }
-
+ 
        }, //禁止抽奖时回调
 
        clickCallback: function () {
