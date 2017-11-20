@@ -1409,3 +1409,53 @@ section section .lately .pays > section > span {
   color: #1f9df1;
   padding-right: 20px;
 }
+
+.my_header {
+  outline: 1px solid red;
+  padding: 5px;
+}
+.my_header .header {
+  background: #140c5f url(../images/mybj.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 31%;
+  width: 100%;
+  outline: 1px solid red;
+  color: #fff7cb;
+}
+.my_header .header .h_top {
+  padding: 6px 17px;
+  outline: 1px solid red;
+  display: flex;
+  font-size: 1.1875rem;
+}
+.my_header .header .h_top .h_top_left {
+  flex: 1;
+  outline: 1px solid red;
+}
+.my_header .header .h_top .h_top_left i {
+  height: 18px;
+  width: 18px;
+  display: inline-block;
+  background: url(../images/hongbao.png);
+  background-size: contain;
+}
+.my_header .header .h_top .h_top_left span {
+  vertical-align: top;
+}
+.my_header .header .h_top .h_top_right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  outline: 1px solid red;
+}
+.my_header .header .h_top .h_top_right i {
+  height: 18px;
+  width: 18px;
+  display: inline-block;
+  background: url(../images/guiz.png);
+  background-size: contain;
+}
+.my_header .header .h_top .h_top_right span {
+  vertical-align: top;
+}

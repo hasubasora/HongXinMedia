@@ -1,1 +1,49 @@
-  
+  .my_header {
+      @include outline;
+      padding: 5px;
+      .header {
+          background: rgb(20, 12, 95) url(../images/mybj.png)no-repeat;
+          background-size: contain;
+          background-position: center;
+          height: 31%;
+          width: 100%;
+          @include outline;
+          color: #fff7cb;
+          .h_top {
+              padding: 6px 17px;
+              @include outline;
+              display: flex;
+              font-size: rem(19);
+              .h_top_left {
+                  flex: 1;
+                  i {
+                      height: 18px;
+                      width: 18px;
+                      display: inline-block;
+                      background: url(../images/hongbao.png);
+                      background-size: contain;
+                  }
+                  span {
+                      vertical-align: top;
+                  }
+                  @include outline;
+              }
+              .h_top_right {
+                  flex: 1;
+                  display: flex;
+                  justify-content: flex-end;
+                  @include outline;
+                  i {
+                      height: 18px;
+                      width: 18px;
+                      display: inline-block;
+                      background: url(../images/guiz.png);
+                      background-size: contain;
+                  }
+                  span {
+                      vertical-align:top;
+                  }
+              }
+          }
+      }
+  }
