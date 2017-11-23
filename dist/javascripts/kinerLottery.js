@@ -50,7 +50,7 @@
         $.ajax({
             async: false,
             type: "POST",
-            url: 'http://192.168.168.46/RedBag/PlayRedBag',
+            url: '/RedBag/PlayRedBag',
             // url:'http://rapapi.org/mockjsdata/28289/RedBag/PlayRedBag',
             data: {
                 bid: 2
@@ -141,3 +141,118 @@
     win.KinerLottery = KinerLottery;
 })(window, document, $);
 //能玩的次数
+
+
+/**
+ * 根据转盘旋转角度判断获得什么奖品
+ * @param deg
+ * @returns {*}
+ */
+var whichAward = function whichAward(deg) {
+    console.log(deg);
+    if (deg > 45 && deg <= 90 || deg > 225 && deg <= 270) {
+        return "1.8元";
+    } else if (deg > 90 && deg <= 135 || deg >= 0 && deg <= 45) {
+        return "8元";
+    } else if (deg > 135 && deg <= 180 || deg > 270 && deg <= 315) {
+        return "10元";
+    } else if (deg > 180 && deg <= 225 || deg > 180 && deg <= 360) {
+        return "2元";
+    }
+};
+var KinerLottery = new KinerLottery({
+    rotateNum: 8, //转盘转动圈数
+    body: "#hbbox", //大转盘整体的选择符或zepto对象
+    direction: 0, //0为顺时针转动,1为逆时针转动
+    disabledHandler: function disabledHandler(key) {
+        switch (key) {
+            case "noStart":
+                alert("活动尚未开始");
+                break;
+            case "completed":
+                alert("活动已结束");
+                break;
+        }
+    }, //禁止抽奖时回调
+    clickCallback: function clickCallback() {
+        var _this = this;
+
+        //此处访问接口获取奖品
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: '/RedBag/RedBagResult',
+            data: {
+                bid: $("#Bid").val()
+            },
+            dataType: "json",
+            success: function success(data) {
+                console.info(data);
+                console.info(data.Result);
+                if (data.Status == 1) {
+                    switch (data.Result) {
+                        case 0:
+                            //2元
+                            //    console.info(Math.floor(Math.random()*(44-1)+1))
+                            _this.goKinerLottery(Math.floor(Math.random() * (45 - 0) + 0));
+                            break;
+                        case 1:
+                            //10元
+                            _this.goKinerLottery(Math.floor(Math.random() * (90 - 45) + 45));
+                            break;
+                        case 2:
+                            //1.8元
+                            //   console.info(Math.floor(Math.random() * (135-90)+90))
+                            _this.goKinerLottery(Math.floor(Math.random() * (135 - 90) + 90));
+                            break;
+                        case 3:
+                            //2元
+                            _this.goKinerLottery(Math.floor(Math.random() * (180 - 135) + 135));
+                            break;
+                        case 4:
+                            //10元
+                            _this.goKinerLottery(Math.floor(Math.random() * (225 - 180) + 180));
+                            break;
+                        case 5:
+                            //8元
+                            _this.goKinerLottery(Math.floor(Math.random() * (270 - 225) + 225));
+                            break;
+                        case 6:
+                            //1.8元
+                            _this.goKinerLottery(Math.floor(Math.random() * (315 - 270) + 270));
+                            break;
+                        case 7:
+                            //8元
+                            _this.goKinerLottery(Math.floor(Math.random() * (360 - 315) + 315));
+                            break;
+                    }
+                } else {
+                    console.info(data);
+                }
+            },
+            error: function error(data) {
+                alert(data.Msg);
+            }
+        });
+        //    function random(params) {
+        //        console.info(Math.random())
+        //        console.info(Math.random() * 360)
+        //        console.info(Math.floor(Math.random() * 360))
+        //        console.info(Math.floor(1 * 360))
+        //        return Math.floor(Math.random() * 360);
+        //        //   return Math.floor(1 * 360);
+        //    }
+        //   return Math.floor(Math.random() * 360);
+        //    console.info(random())
+        //    this.goKinerLottery(random());
+    }, //点击抽奖按钮,再次回调中实现访问后台获取抽奖结果,拿到抽奖结果后显示抽奖画面
+    KinerLotteryHandler: function KinerLotteryHandler(deg) {
+        console.info('有' + whichAward(deg));
+        // alert("恭喜您获得:" + whichAward(deg));
+        $('.redBox').css({
+            transform: 'scale(1)',
+            transition: '.3s'
+        });
+        $('.redBox-m').text(whichAward(deg));
+    } //抽奖结束回调
+});

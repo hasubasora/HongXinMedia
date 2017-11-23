@@ -1,185 +1,95 @@
-   /**
-    * 根据转盘旋转角度判断获得什么奖品
-    * @param deg
-    * @returns {*}
-    */
-   var whichAward = function (deg) {
 
-       console.log(deg)
-       if ((deg > 45 && deg <= 90) || (deg > 225 && deg <= 270)) {
-           return "1.8元";
-       } else if ((deg > 90 && deg <= 135) || (deg >= 0 && deg <= 45)) {
-           return "8元";
-       } else if ((deg > 135 && deg <= 180) || (deg > 270 && deg <= 315)) {
-           return "10元";
-       } else if ((deg > 180 && deg <= 225 || (deg > 180 && deg <= 360))) {
-           return "2元";
-       }
+window.onload = function() {
+    //hongbao weizhi
+    var s_h = window.screen.height / 2;
+    var list_h = window.screen.height;
+    $('.redBox-m').css({
+        marginTop: (s_h - 70)
+    });
+    // document.querySelector('.CanPlayCountText').style.transform = "translateY(" + (list_h - 150) + "px)"
+    if (localStorage.onload == "true") {
+        $('.openAminates').addClass('none');
+        $('.openAminates').remove();
+        $('.loginBox').load('/Views/Game/login.html');
+        console.info('已经存在用户1')
+        addStart()
+    }
+    $.each($('.openAminatesList>li'), function(i, n) {
+        //初始化界面导航
+        if (localStorage.onload != "true") {
+            $('.openAminates').removeClass('none');
+            if ($(this).hasClass('GoToPlay')) {
+                localStorage.onload = "true"
+                // hrefs('.GoToPlay', "/Game/Home"); //抽完红包跳转到游戏界面
+                return false;
+            } else {
+                var bid = $("#Bid").val()
+                n.addEventListener('touchstart', function() {
+                    n.classList.add('none')
+                    if (($('.openAminatesList>li').size() - 1) == i) {
+                        // 这里导入登陆页面login.html
+                        $('.loginBox').load('/Views/Game/login.html');
+                        addStart()
+                        localStorage.onload = "true"
+                        $('.openAminates').addClass('none');
+                        // $('.openAminates').remove();
+                        hrefs('.GoToPlay', "/Game/Home"); //抽完红包跳转到游戏界面
+                    }
+                })
+            }
+            //已经初始化过了
+        }
+    });
+    //判断登陆的 复制过来
+    /*
+     * 底部菜单控制
+     */
+    document.querySelectorAll(".menu-li").forEach(function(x) {
+        x.addEventListener("click", function(e) {
+            console.log($("#IsRegister").val());
+            if ($("#IsRegister").val() == "False") {
+                $('.loginBox').removeClass('scale');
+                $('.loginBox').removeAttr('style');
+                e.stopPropagation()
+            } else {
+                var key = x.getAttribute("data-key");
+                location.href = "/Game/" + key;
+            }
+        }, false)
+    })
 
-   }
+    function addStart() {
+        //阻止默认事件
+        $('body').on('touchmove', function(e) {
+            e.preventDefault()
+        })
+        //新手教程
+        $('.q_a').on('click', function() {
+            localStorage.removeItem('onload');
+            location.reload();
+        })
+        if ($("#IsRegister").val() == 'False') {
+            console.log($("#IsRegister").val());
+            $('body').on('touchstart', function(e) {
+                e.stopPropagation();
+                $('.loginBox').removeClass('scale');
+                $('.loginBox').removeAttr('style');
+            })
+        } else { //跳转红包
+            hrefs('.new_money', "/Game/lotteries"); //红包活动
+            hrefs('.mock_trading', ""); //模拟交易
+            hrefs('.billboard', "/game/Ranking"); //排行榜
+            hrefs('.home_footer', "/Game/Start"); //开始竞猜
+            hrefs('.m_pay', "/Game/Start"); //开始竞猜
+            hrefs('.m_play', "/Views/Game/appdownload.html"); //充值
+            hrefs('.home_wx_draw_money', "/Views/Game/appdownload.html"); //微信提款
+            hrefs('#playBtn', "/Views/Game/strategy.html"); //抽奖攻略
+        }
+    }
+}
 
-
-   var KinerLottery = new KinerLottery({
-       rotateNum: 8, //转盘转动圈数
-       body: "#hbbox", //大转盘整体的选择符或zepto对象
-       direction: 0, //0为顺时针转动,1为逆时针转动
-
-       disabledHandler: function (key) {
-
-           switch (key) {
-               case "noStart":
-                   alert("活动尚未开始");
-                   break;
-               case "completed":
-                   alert("活动已结束");
-                   break;
-           }
- 
-       }, //禁止抽奖时回调
-
-       clickCallback: function () {
-
-           //此处访问接口获取奖品
-           $.ajax({
-               async: false,
-               type: "POST",
-               url: 'http://192.168.168.46/RedBag/RedBagResult',
-               data: {
-                   bid: 2
-               },
-               dataType: "json",
-               success: (data) => {
-                   console.info(data)
-                   console.info(data.Result)
-                   if (data.Status == 1) {
-                       switch (data.Result) {
-                           case 0:
-                               //2元
-                               //    console.info(Math.floor(Math.random()*(44-1)+1))
-                               this.goKinerLottery(Math.floor(Math.random() * (45 - 0) + 0));
-                               break;
-                           case 1:
-                               //10元
-                               this.goKinerLottery(Math.floor(Math.random() * (90 - 45) + 45));
-                               break;
-                           case 2:
-                               //1.8元
-                               //   console.info(Math.floor(Math.random() * (135-90)+90))
-                               this.goKinerLottery(Math.floor(Math.random() * (135 - 90) + 90));
-                               break;
-                           case 3:
-                               //2元
-                               this.goKinerLottery(Math.floor(Math.random() * (180 - 135) + 135));
-                               break;
-                           case 4:
-                               //10元
-                               this.goKinerLottery(Math.floor(Math.random() * (225 - 180) + 180));
-                               break;
-                           case 5:
-                               //8元
-                               this.goKinerLottery(Math.floor(Math.random() * (270 - 225) + 225));
-                               break;
-                           case 6:
-                               //1.8元
-                               this.goKinerLottery(Math.floor(Math.random() * (315 - 270) + 270));
-                               break;
-                           case 7:
-                               //8元
-                               this.goKinerLottery(Math.floor(Math.random() * (360 - 315) + 315));
-                               break;
-
-                       }
-                   } else {
-                       console.info(data)
-                   }
-               },
-               error(data) {
-                   alert(data.Msg)
-               }
-
-           })
-
-           //    function random(params) {
-           //        console.info(Math.random())
-           //        console.info(Math.random() * 360)
-           //        console.info(Math.floor(Math.random() * 360))
-           //        console.info(Math.floor(1 * 360))
-           //        return Math.floor(Math.random() * 360);
-           //        //   return Math.floor(1 * 360);
-           //    }
-           //   return Math.floor(Math.random() * 360);
-           //    console.info(random())
-           //    this.goKinerLottery(random());
-
-       }, //点击抽奖按钮,再次回调中实现访问后台获取抽奖结果,拿到抽奖结果后显示抽奖画面
-
-       KinerLotteryHandler: function (deg) {
-           console.info('有' + whichAward(deg))
-           // alert("恭喜您获得:" + whichAward(deg));
-           $('.redBox').css({
-               transform: 'scale(1)',
-               transition: '.3s'
-           });
-           $('.redBox-m').text(whichAward(deg))
-
-       } //抽奖结束回调
-   });
-   //hongbao weizhi
-   var s_h = window.screen.height / 2;
-   var list_h = window.screen.height;
-   $('.redBox-m').css({
-       marginTop: (s_h - 70)
-   });
-
-   localStorage.removeItem('onload');
-   document.querySelector('.CanPlayCountText').style.transform = "translateY(" + (list_h - 150) + "px)"
-
-   if (localStorage.onload == "true") {
-       $('.openAminates').addClass('none');
-   }
-
-
-   $.each($('.openAminatesList>li'), function (i, n) {
-
-       //初始化界面导航
-       if (localStorage.onload != "true") {
-           $('.openAminates').removeClass('none');
-           if ($(this).hasClass('redz')) {
-               return false;
-           } else {
-               n.addEventListener('click', function () {
-                   n.classList.add('none')
-
-                   if (($('.openAminatesList>li').size() - 2) == i) {
-                    //    localStorage.onload = "true"
-
-                       //这里导入登陆页面login.html
-                   }
-               })
-           }
-           //已经初始化过了 
-       }
-   });
-
-
-   hrefs('#goQuiz', "连接地址"); //抽完红包跳转到游戏界面
-   hrefs('.new_money', "连接地址"); //红包活动
-   hrefs('.mock_trading', "连接地址"); //模拟交易
-   hrefs('.billboard', "连接地址"); //排行榜
-   hrefs('.q_a', "连接地址"); //新手教程
-   hrefs('.home_footer', "连接地址"); //开始竞猜
-   hrefs('.m_pay', "连接地址"); //开始竞猜
-   hrefs('.m_play', "连接地址"); //充值
-   hrefs('.home_wx_draw_money', "连接地址"); //微信提款
-   hrefs('#playBtn', "连接地址"); //抽奖攻略
-
-
-
-   function hrefs(id, url) {
-       $(id).on('click', function () {
-           window.location.href = url;
-       })
-   }
-
-
-   //判断登陆的 复制过来
+function hrefs(id, url) {
+    $(id).on('click', function() {
+        window.location.href = url;
+    })
+}

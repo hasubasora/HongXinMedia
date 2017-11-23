@@ -1,0 +1,25 @@
+.bottom_menu {
+    background: #0a2164;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: rem(50);
+    ul {
+        display: flex;
+        color: #fff;
+        li {
+            text-align: center;
+            height: 100%;
+            flex: 1;
+            padding-top: 5px; // @include outline;
+            i {
+                font-size: rem(21);
+                line-height: 25px;
+            }
+            p {
+                line-height: 20px;
+                font-size: rem(12);
+            }
+        }
+    }
+}

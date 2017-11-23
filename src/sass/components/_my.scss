@@ -41,9 +41,101 @@
                       background-size: contain;
                   }
                   span {
-                      vertical-align:top;
+                      vertical-align: top;
                   }
               }
+          }
+          .h_content {
+              img {
+                  display: block;
+                  margin: auto;
+                  height: 80px;
+                  width: 80px;
+              }
+              p {
+                  text-align: center;
+                  padding-top: rem(12);
+              }
+          }
+      }
+      .h_menu {
+          display: flex;
+          li {
+              flex: 1;
+              @include outline;
+              padding: rem(16) 0;
+              text-align: center;
+              p {
+                  padding-bottom: rem(12);
+                  i {
+                      vertical-align: bottom;
+                      height: 18px;
+                      width: 18px;
+                      padding-right: 24px;
+                      display: inline-block;
+                      background: url(../images/cz.png)no-repeat;
+                      background-size: contain;
+                  }
+              }
+              &:nth-child(2) {
+                  p {
+                      i {
+                          background: url(../images/tixian.png)no-repeat;
+                          background-size: contain;
+                      }
+                  }
+              }
+              &:nth-child(3) {
+                  p {
+                      i {
+                          background: url(../images/wentitianchong.png)no-repeat;
+                          background-size: contain;
+                      }
+                  }
+              }
+              span {
+                  color: #c9c9c9;
+              }
+          }
+      }
+  }
+
+  .menu_list {
+      @include outline;
+      ul {
+          display: flex;
+          li {
+              padding: 16px;
+              @include outline;
+              &:nth-child(1) {
+                  width: 10px;
+                  @include outline;
+                  i {
+                      vertical-align: bottom;
+                      height: 18px;
+                      width: 18px;
+                      padding-right: 24px;
+                      display: inline-block;
+                      background: url(../images/hongbao.png)no-repeat;
+                      background-size: contain;
+                  }
+              }
+              &:nth-child(2) {
+                  flex: 1;
+              }
+              &:nth-child(3) {
+                  width: 10px;
+              }
+          }
+      }
+  }
+
+  .menu_list_QZ {
+      @include outline;
+      ul {
+          @include outline;
+          li {
+              @include outline;
           }
       }
   }
