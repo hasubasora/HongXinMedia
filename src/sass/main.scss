@@ -20,21 +20,24 @@
 
 /*！layout 布局*/
 
-@import "layout/main" //
-// , 
-// ,
-// "layout/fontface" // "layout/flex"
-;
+@import "layout/main";
 
 /*! Component 组件*/
 
-@import 
-"components/home"
+@import  "components/f"
+
 // ,
-// "components/f",
-// "components/login",
-// "components/kiner",
-// "components/playpal",
-// "components/menu",
+// "components/login"
+// ,
+// "components/kiner"
+,
+"components/playpal"
+// ,
+// "components/menu"
+// ,
+// "components/wraparound" 
+// ,
 // "components/my"
 ;
+
+

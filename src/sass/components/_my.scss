@@ -1,141 +1,281 @@
-  .my_header {
-      @include outline;
-      padding: 5px;
-      .header {
-          background: rgb(20, 12, 95) url(../images/mybj.png)no-repeat;
-          background-size: contain;
-          background-position: center;
-          height: 31%;
-          width: 100%;
-          @include outline;
-          color: #fff7cb;
-          .h_top {
-              padding: 6px 17px;
-              @include outline;
-              display: flex;
-              font-size: rem(19);
-              .h_top_left {
-                  flex: 1;
-                  i {
-                      height: 18px;
-                      width: 18px;
-                      display: inline-block;
-                      background: url(../images/hongbao.png);
-                      background-size: contain;
-                  }
-                  span {
-                      vertical-align: top;
-                  }
-                  @include outline;
-              }
-              .h_top_right {
-                  flex: 1;
-                  display: flex;
-                  justify-content: flex-end;
-                  @include outline;
-                  i {
-                      height: 18px;
-                      width: 18px;
-                      display: inline-block;
-                      background: url(../images/guiz.png);
-                      background-size: contain;
-                  }
-                  span {
-                      vertical-align: top;
-                  }
-              }
-          }
-          .h_content {
-              img {
-                  display: block;
-                  margin: auto;
-                  height: 80px;
-                  width: 80px;
-              }
-              p {
-                  text-align: center;
-                  padding-top: rem(12);
-              }
-          }
-      }
-      .h_menu {
-          display: flex;
-          li {
-              flex: 1;
-              @include outline;
-              padding: rem(16) 0;
-              text-align: center;
-              p {
-                  padding-bottom: rem(12);
-                  i {
-                      vertical-align: bottom;
-                      height: 18px;
-                      width: 18px;
-                      padding-right: 24px;
-                      display: inline-block;
-                      background: url(../images/cz.png)no-repeat;
-                      background-size: contain;
-                  }
-              }
-              &:nth-child(2) {
-                  p {
-                      i {
-                          background: url(../images/tixian.png)no-repeat;
-                          background-size: contain;
-                      }
-                  }
-              }
-              &:nth-child(3) {
-                  p {
-                      i {
-                          background: url(../images/wentitianchong.png)no-repeat;
-                          background-size: contain;
-                      }
-                  }
-              }
-              span {
-                  color: #c9c9c9;
-              }
-          }
-      }
-  }
+$mbtn: 2.1rem;
+$iconSize:1.1rem;
+.back{
+    background: #f9f9f9;
+    margin-bottom: 4rem;
+}
+.my_header {
+    margin: 5px;
+    margin-bottom: $mbtn;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    .header {
+        background: rgb(20, 12, 95) url(../images/mybj.png)no-repeat;
+        @extend %backgroundSizeContain;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        background-position: center;
+        height: 9.2rem;
+        width: 100%;
+        color: #fff7cb;
+        .h_top {
+            padding: 6px 17px;
+            display: flex;
+            font-size: rem(19);
+            .h_top_left {
+                flex: 1;
+                i {
+                    @extend %iconSize;
+                    background: url(../images/hongbao.png);
+                    @extend %backgroundSizeContain;
+                }
+                span {
+                    vertical-align: top;
+                }
+            }
+            .h_top_right {
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+                i {
+                    @extend %iconSize;
+                    background: url(../images/guiz.png);
+                    @extend %backgroundSizeContain;
+                }
+                span {
+                    vertical-align: top;
+                }
+            }
+        }
+        .h_content {
+            img {
+                display: block;
+                margin: auto;
+                height: 80px;
+                width: 80px;
+                border-radius: 50px;
+            }
+            p {
+                text-align: center;
+                padding-top: rem(12);
+            }
+        }
+    }
+    .h_menu {
+        background: #fff;
+        
+        display: flex;
+        li {
+            flex: 1;
+            padding: rem(16) 0;
+            text-align: center;
+            p {
+                padding-bottom: rem(12);
+                i {
+                    vertical-align: bottom;
+                    @extend %iconSize;
+                    padding-right: 24px;
+                    background: url(../images/cz.png)no-repeat;
+                    @extend %backgroundSizeContain;
+                }
+            }
+            &:nth-child(2) {
+                border-right: 1px solid #ccc;
+                border-left: 1px solid #ccc;
+                p {
+                    i {
+                        background: url(../images/tixian.png)no-repeat;
+                        @extend %backgroundSizeContain;
+                    }
+                }
+            }
+            &:nth-child(3) {
+                p {
+                    i {
+                        background: url(../images/wentitianchong.png)no-repeat;
+                        @extend %backgroundSizeContain;
+                    }
+                }
+            }
+            span {
+                color: #c9c9c9;
+            }
+        }
+    }
+}
 
-  .menu_list {
-      @include outline;
-      ul {
-          display: flex;
-          li {
-              padding: 16px;
-              @include outline;
-              &:nth-child(1) {
-                  width: 10px;
-                  @include outline;
-                  i {
-                      vertical-align: bottom;
-                      height: 18px;
-                      width: 18px;
-                      padding-right: 24px;
-                      display: inline-block;
-                      background: url(../images/hongbao.png)no-repeat;
-                      background-size: contain;
-                  }
-              }
-              &:nth-child(2) {
-                  flex: 1;
-              }
-              &:nth-child(3) {
-                  width: 10px;
-              }
-          }
-      }
-  }
+.menu_list {
+    background: #fff;
+    
+    margin-bottom: $mbtn;
+    ul {
+        display: flex;
+        @extend %borderTopBom;
+        li {
+            padding: 16px;
+            &:nth-child(1) {
+                width: 10px;
+                i {
+                    vertical-align: bottom;
+                    @extend %iconSize;
+                    background: url(../images/jiaoyi.png)no-repeat;
+                    @extend %backgroundSizeContain;
+                }
+            }
+            &:nth-child(2) {
+                flex: 1;
+            }
+            &:nth-child(3) {
+                i {
+                    &.hrefs {
+                        @extend %iconSize;
+                        background: url(../images/zhishi.png)no-repeat;
+                        @extend %backgroundSizeContain;
+                    }
+                }
+            }
+        }
+        &:nth-child(1) {
+            @extend %borderBom0;
+        }
+        &:nth-child(2) {
+            @extend %borderBom0;
+            >li {
+                padding: 16px;
+                i {
+                    vertical-align: bottom;
+                    @extend %iconSize;
+                    background: url(../images/mingxi.png)no-repeat;
+                    @extend %backgroundSizeContain;
+                }
+            }
+            &:nth-child(2) {
+                flex: 1;
+            }
+            &:nth-child(3) {
+                i {
+                    &.hrefs {
+                        @extend %iconSize;
+                        background: url(../images/zhishi.png)no-repeat;
+                        @extend %backgroundSizeContain;
+                    }
+                }
+            }
+        }
+        &:nth-child(3) {
+            li {
+                padding: 16px;
+                &:nth-child(1) {
+                    width: 10px;
+                    i {
+                        vertical-align: bottom;
+                        @extend %iconSize;
+                        background: url(../images/choujiang.png)no-repeat;
+                        @extend %backgroundSizeContain;
+                    }
+                }
+                &:nth-child(2) {
+                    flex: 1;
+                }
+                &:nth-child(3) {
+                    i {
+                        &.hrefs {
+                            @extend %iconSize;
+                            background: url(../images/zhishi.png)no-repeat;
+                            @extend %backgroundSizeContain;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
-  .menu_list_QZ {
-      @include outline;
-      ul {
-          @include outline;
-          li {
-              @include outline;
-          }
-      }
-  }
+.menu_list_QZ {
+    background: #fff;
+    
+    ul {
+        display: flex;
+        @extend %borderTopBom;
+        li {
+            padding: 16px;
+            &:nth-child(1) {
+                width: 10px;
+                i {
+                    vertical-align: bottom;
+                    @extend %iconSize;
+                    padding-right: 24px;
+                    background: url(../images/wentitianchong.png)no-repeat;
+                    @extend %backgroundSizeContain;
+                }
+            }
+            &:nth-child(2) {
+                flex: 1;
+            }
+            &:nth-child(3) {
+                color: #cccccc;
+                i {
+                    &.hrefs {
+                        @extend %iconSize;
+                        background: url(../images/zhishi.png)no-repeat;
+                        @extend %backgroundSizeContain;
+                        margin-left: 10px;
+                        vertical-align: top;
+                    }
+                }
+            }
+        }
+        &:nth-child(1) {
+            @extend %borderBom0;
+        }
+        &:nth-child(2) {
+            li {
+                padding: 16px;
+                &:nth-child(1) {
+                    width: 10px;
+                    i {
+                        @extend %iconSize;
+                        vertical-align: bottom;
+                        padding-right: 24px;
+                        background: url(../images/wentitianchong.png)no-repeat;
+                        @extend %backgroundSizeContain;
+                    }
+                }
+                &:nth-child(2) {
+                    flex: 1;
+                }
+                &:nth-child(3) {
+                    color: #cccccc;
+                    i {
+                        &.hrefs {
+                            @extend %iconSize;
+                            @extend %backgroundSizeContain;
+                            background: url(../images/zhishi.png)no-repeat;
+                            margin-left: 10px;
+                            vertical-align: top;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+%iconSize {
+    height: $iconSize;
+    width: $iconSize;
+    display: inline-block;
+}
+
+%backgroundSizeContain {
+    background-size: contain;
+}
+
+%borderTopBom {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+%borderBom0 {
+    border-bottom: 0;
+}

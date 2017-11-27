@@ -1,0 +1,76 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta name="renderer" content="webkit"/>
+    <link rel="stylesheet" href="../stylesheets/main.min.css"/>
+    <script src="../framework/jq/jquery-2.2.1.min.js"></script>
+    <script>
+      window.onload=function(){
+         $(document).on('click','.wd_list',function(){
+              var nowTime = new Date().getTime();
+              var clickTime = $(this).attr("ctime");
+                 if( clickTime != 'undefined' && (nowTime - clickTime < 500)){
+                     alert('操作过于频繁，稍后再试');
+                     return false;
+                 }else{
+                     $(this).attr("ctime",nowTime);
+                     $('.wd_list i').css({'transform':'rotate(90deg)'});
+                     $('.wd_text_b').slideToggle()
+                 }       
+         })
+      }
+    </script>
+    <title>劵包</title>
+  </head>
+  <body>
+    <header class="wd_header">
+      <div class="wd_box">
+        <h5>抵用卷<span class="wd_list">详细介绍<i></i></span></h5>
+      </div>
+      <section class="wd_text">
+        <div class="wd_text_h">必赢劵：新用户竞猜抵用直接首次盈利后失效.</div>
+        <div class="wd_text_c"><span>面额：10元/张</span><span>有效时间：3天</span></div>
+        <div class="wd_text_b">
+          <p>1.一张代金券只能使用一次，</p>
+          <p>2.代金券仅限于选择12赔率的竞猜选项，不能与其他优惠同时使用。</p>
+          <p>3.每位用户一天仅限使用3张。连续使用需间隔1小时。</p>
+          <p>获取途径:</p>
+          <p>1.成功邀请好友试玩并完成提现后，用户即可获得两张代金券，即领即用。</p>
+          <p>2.代金券细则可在[我的一券包] 查看。</p>
+        </div>
+      </section>
+      <section class="wd_text">
+        <div class="wd_text_h">代金卷：单词竞猜直接抵用下注金额.</div>
+        <div class="wd_text_c"><span>面额：10元/张</span><span>有效时间：3天</span></div>
+        <div class="wd_text_b">
+          <p>1.必赢券仅限新用户使用，下注竟猜至首次盈利后失效。</p>
+          <p>2.必赢券仅限于选择1:2赔率的竞猜选项，不能与其他优惠同时使用。</p>
+          <p>获取途径:</p>
+          <p>3.新用户成功主册后即可获得平台免费赠送的必赢券，即领即用。</p>
+          <p>4.必真券细则可在[我的一一券包] 直看。</p>
+        </div>
+      </section>
+    </header>
+    <section class="wd_centent">
+      <div class="wd_glass"><img class="wd_img" src="../images/by.png" alt="必赢劵"/>
+        <div class="wd_img_text">
+          <h1>必赢劵10元</h1>
+          <h2>有效期3天</h2><span class="blue">已过期</span>
+        </div>
+      </div>
+    </section>
+    <section class="wd_centent">
+      <div class="wd_glass"><img class="wd_img" src="../images/dj.png" alt="代金劵"/>
+        <div class="wd_img_text">
+          <h1>代金劵10元</h1>
+          <h2>有效期30天</h2><span>剩余<i>5</i>天         </span>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

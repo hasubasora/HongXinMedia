@@ -1,0 +1,95 @@
+ html {
+     font-size: 32px;
+ }
+
+ .guess_chart {
+     font-size: 1.2rem;
+     height: 80vh;
+     position: absolute;
+     top: 1.5rem;
+     z-index: 9;
+    //  border: 1px solid #fff;
+     border-radius: 12px;
+     background: rgb(30, 24, 55);
+     background-size: contain;
+     width: 9rem;
+     left: .5rem;
+     overflow: hidden;
+     .closeBtn {
+         display: inline-block;
+         position: absolute;
+         top: -.3rem;
+         right: -.3rem;
+         width: 1rem;
+         background: url(../imgs/game/btn-close.png) no-repeat;
+         background-size: 100%;
+     }
+     .inner {
+         overflow: scroll;
+         overflow-x: hidden;
+         height: 80vh;
+         font-size: .3rem;
+         table {
+             color: #fff;
+             thead{
+                 tr{
+                     td{
+                        padding: 5px 0;
+                        
+                     }
+                 }
+             }
+         }
+         td {
+             text-align: center;
+         }
+         tbody {
+             tr {
+                 &:nth-child(odd) {
+                     background: #725c63;
+                 }
+             }
+             td {
+                 padding: 5px;
+                 &:nth-child(2) {
+                     color: #fef38c;
+                 }
+                 span {
+                     //  border: 1px solid red;
+                     display: block;
+                     height: rem(7);
+                     width: rem(7);
+                     border-radius: 50px;
+                     &.dx {
+                         @extend %dx;
+                     }
+                     &.ds {
+                         @extend %ds;
+                     }
+                     &.dxds {
+                         @extend %dxds;
+                     }
+                     &.bzsz {
+                         @extend %bzsz;
+                     }
+                 }
+             }
+         }
+     }
+ }
+
+ %dx {
+     background: #f8819a;
+ }
+
+ %ds {
+     background: #c1e4ff;
+ }
+
+ %dxds {
+     background: #fad9b3;
+ }
+
+ %bzsz {
+     background: #827cd1;
+ }

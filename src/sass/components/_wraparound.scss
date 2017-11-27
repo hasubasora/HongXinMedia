@@ -1,0 +1,86 @@
+.wd_header {
+    padding: 0 20px;
+    background: #f5f5f5;
+    .wd_box {
+        height: 45px;
+        line-height: 45px;
+        border-bottom: 1px solid #d9d9d9;
+        h5 {
+            font-weight: 600;
+            .wd_list {
+                font-weight: 500;
+                color: #ff4445;
+                float: right;
+                i {
+                    transform-origin: 5px;
+                    transform: rotate(0deg);
+                    width: 16px;
+                    height: 15px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    background: url(../images/2.png) no-repeat;
+                    background-size: contain;
+                    margin-left: 5px;
+                    transition: .2s;
+                }
+            }
+        }
+    }
+    .wd_text {
+        font-size: 16px;
+        line-height: 16px;
+        .wd_text_h {
+            margin-top: 14px;
+            line-height: 20px;
+        }
+        .wd_text_c {
+            padding-bottom: 14px;
+            display: flex;
+            border-bottom: 1px solid #d9d9d9;
+            span {
+                flex: 1;
+            }
+        }
+        .wd_text_b {
+            display:none;
+            padding: 14px 0;
+            border-bottom: 1px solid #d9d9d9;
+            p {
+                color: #757575;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.wd_centent {
+    padding: 20px;
+    border-bottom: 1px solid #d9d9d9;
+    .wd_glass {
+        display: flex;
+        .wd_img {
+            width: 200px;
+            height: 140px;
+        }
+        .wd_img_text {
+            width: 150px;
+            padding: 16px;
+            h1 {
+                font-size: 16px;
+            }
+            h2 {
+                font-size: 14px;
+                line-height: 20px;
+                padding-bottom: 50px;
+            }
+            span {
+                i {
+                    color: #53ADFE;
+                }
+                &.blue {
+                    color: #53ADFE;
+                }
+            }
+        }
+    }
+}

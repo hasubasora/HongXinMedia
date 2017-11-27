@@ -35,9 +35,9 @@
                     text-align: center;
                     float: right;
                     &.act {
-                        background: url(../images/paydui.png)no-repeat;
-                        background-size: 134%;
-                        background-position: -3px;
+                        background: url(../images/paydui.png)no-repeat !important;
+                        background-size: 134% !important;
+                        background-position: -3px !important;
                     }
                     input {
                         display: none;

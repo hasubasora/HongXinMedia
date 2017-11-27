@@ -1,5 +1,265 @@
 "use strict";
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var jo = {
+    "DrawItems": [], //提款数据
+    "RechargeItems": [], //充值数据
+    "RechargeTotal": 32412, //充值总额
+    "TotalItems": [//汇总
+    {
+        "Amount": "111", //变动金额
+        "Date": "2017/22/11",
+        "Time": "12:55",
+        "Type": "提现",
+        "TypeId": 1 //1提现 0充值
+    }, {
+        "Amount": "2222", //变动金额 
+        "Date": "2017/23/13",
+        "Time": "12:55",
+        "Type": "充值",
+        "TypeId": 0 //1提现 0充值
+    }, {
+        "Amount": "3333", //变动金额
+        "Date": "2017/23/13",
+        "Time": "12:55",
+        "Type": "提现",
+        "TypeId": 1 //1提现 0充值
+    }],
+    "WithdrawalsTotal": 80723 //提现总额
+};
+
+var deal_list = function () {
+    function deal_list(n) {
+        _classCallCheck(this, deal_list);
+
+        this.n = n;
+    }
+
+    _createClass(deal_list, [{
+        key: "maps",
+        value: function maps() {
+            var len = this.n.length;
+            var map = {},
+                dest = [];
+            for (var i = 0; i < len; i++) {
+                var ai = this.n[i]; //第一个
+                if (!map[ai.Date]) {
+                    dest.push({
+                        Date: ai.Date,
+                        data: [ai]
+                    });
+                    map[ai.Date] = ai;
+                } else {
+                    for (var j = 0; j < dest.length; j++) {
+                        var dj = dest[j];
+                        if (dj.Date == ai.Date) {
+                            dj.data.push(ai);
+                            break;
+                        }
+                    }
+                }
+            }
+            console.log(dest);
+            this.ays = dest;
+        }
+    }, {
+        key: "payUp",
+        value: function payUp() {
+            //
+            var len = this.ays.length;
+            var payUp = '<div class="payUp">',
+                payMsg;
+            var boxs;
+            console.info(this.ays);
+            // // console.log(Object.keys(this.n[0]));
+            // // console.log(Object.values(this.n[0]));
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = this.ays[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var i = _step.value;
+
+                    payUp += "<div class=\"dates\">" + i.Date + "<img src=\"../images/dade.png\" alt=\"\"></div>";
+                    var _iteratorNormalCompletion2 = true;
+                    var _didIteratorError2 = false;
+                    var _iteratorError2 = undefined;
+
+                    try {
+                        for (var _iterator2 = i.data[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                            var j = _step2.value;
+
+                            console.log(j.Amount);
+                            payUp += "<div class=\"payMsg\"><span>" + j.Time + "</span><span data-uid=" + j.TypeId + ">" + j.Type + "</span><span class=\"greens\">-11.22</span></div>";
+                        }
+                    } catch (err) {
+                        _didIteratorError2 = true;
+                        _iteratorError2 = err;
+                    } finally {
+                        try {
+                            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                                _iterator2.return();
+                            }
+                        } finally {
+                            if (_didIteratorError2) {
+                                throw _iteratorError2;
+                            }
+                        }
+                    }
+
+                    payUp += "</div>";
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+
+            console.log(payUp);
+            return payUp;
+        }
+    }, {
+        key: "payUpList",
+        value: function payUpList() {
+            var payMsg = "<div class=\"payMsg\"><span>" + this.times + "</span><span data-uid=" + this.typesId + ">" + this.types + "</span><span class=\"greens\">-11.22</span></div>";
+        }
+    }, {
+        key: "init",
+        value: function init() {
+            this.maps();
+            this.payUp();
+        }
+    }]);
+
+    return deal_list;
+}();
+
+var b = new deal_list(jo.TotalItems);
+b.init();
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var setChart = function () {
+    function setChart(setJsons) {
+        _classCallCheck(this, setChart);
+
+        this.setJsons = setJsons;
+        this.str = '';
+    }
+
+    _createClass(setChart, [{
+        key: 'setNumber',
+        value: function setNumber(period, num) {
+            // console.log(this.setJsons.Result)
+            var reg = /\d+/g,
+                ms = this.str.match(reg);
+
+            var otr = '<tr><td>' + period + '</td><td>' + num + '</td>';
+            if (num <= 13) {
+                otr += '<td></td><td><span class=\'dx\'></span></td>';
+                if (num % 2 == 0) {
+                    //偶数 双
+                    otr += '<td></td><td><span class=\'ds\'></span></td><td></td><td><span class=\'dxds\'></td><td></td><td></td>';
+                }
+                if (num % 2 != 0) {
+                    //奇数 单.
+                    otr += '<td><span class=\'ds\'></span></td><td></td><td></td><td></td><td></td><td><span class=\'dxds\'></td>';
+                }
+            }
+            if (num >= 14 && num <= 27) {
+                otr += '<td><span class=\'dx\'></span></td><td></td>';
+                if (num % 2 == 0) {
+                    //偶数
+                    otr += '<td></td><td><span class=\'ds\'></td><td><span class=\'dxds\'></td><td></td><td></td><td></td>';
+                }
+                if (num % 2 != 0) {
+                    //奇数
+                    otr += '<td><span class=\'ds\'></td><td></td><td></td><td></td><td><span class=\'dxds\'></td><td></td>';
+                }
+            }
+            if (this.smoothly(Number(ms[0]), Number(ms[1]), Number(ms[2])) != -1) {
+                otr += '<td><span class=\'bzsz\'></td><td></td></tr>';
+            } else if (Number(ms[0]) == Number(ms[1]) && Number(ms[1]) == Number(ms[2]) && Number(ms[2]) == Number(ms[0])) {
+                otr += '<td></td><td><span class=\'bzsz\'></td></tr>';
+            } else {
+                otr += '<td></td><td></td></tr>';
+            }
+            return otr;
+        }
+    }, {
+        key: 'smoothly',
+        value: function smoothly(a, b, c) {
+            //顺子计算
+            if (a + 1 == b && b + 1 == c) {
+                return 1;
+            } else {
+                if (a - 1 == b && b - 1 == c) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+        }
+    }, {
+        key: 'init',
+        value: function init() {
+            var sty = '';
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = this.setJsons.Result[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var i = _step.value;
+
+                    this.str = i.LotteryType;
+                    sty += this.setNumber(i.Period, i.WinnerNumber);
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+
+            document.querySelector('.tbody').innerHTML = sty;
+        }
+    }]);
+
+    return setChart;
+}();
+
+window.onload = function (params) {
+    $.post("/trade/GetHistoryLotryNum", function (data) {
+        var sets = new setChart(data).init();
+    });
+};
+"use strict";
+
 var capital = {
     init: function init() {
         ranking.tabs(".sub", ".lately", 'active');
@@ -649,6 +909,134 @@ var logins = {
 };
 'use strict';
 
+var logins = {
+  tel: document.querySelector('#tel'), //电话
+  cq_Btn: document.querySelector('.cq_Btn'), //验证码按钮
+  cq_Msg: document.querySelector('.cq_Msg'), //验证码
+  login_btn: document.querySelector('.login_btn'), //登陆按钮
+  login_close: document.querySelector('.login_close'), //关闭登陆X
+  init: function init() {
+    var _this = this;
+
+    //点击获取
+    $('.loginBox').on('click', '.cq_Btn', function () {
+      if (_this.tel.value) {
+        if (filter.verificationPhone(_this.tel.value)) {
+          //发送验证码
+          $.ajax({
+            type: 'post',
+            cache: false,
+            contentType: "application/json; charset=utf-8",
+            url: "/WeiXin/SendMsg",
+            data: JSON.stringify({
+              Mobile: _this.tel.value
+            }),
+            dataType: "json",
+            error: function error(a, b) {
+              console.log(a);
+            },
+            success: function success(data) {
+              console.info(data);
+              if (data.Status == 1) {
+                filter.countdowns(logins.cq_Btn);
+                //提示
+                layer.open({
+                  content: '验证码已发送',
+                  skin: 'msg',
+                  time: 2 //2秒后自动关闭
+                });
+              } else {
+                layer.open({
+                  content: data.Msg,
+                  skin: 'msg',
+                  time: 2 //2秒后自动关闭
+                });
+              }
+            }
+          });
+        } else {
+          //提示
+          layer.open({
+            content: '请输入正确手机号',
+            skin: 'msg',
+            time: 2 //2秒后自动关闭
+          });
+        }
+      } else {
+
+        //提示
+        layer.open({
+          content: '请输入手机号',
+          skin: 'msg',
+          time: 2 //2秒后自动关闭
+        });
+      }
+    });
+    //点击登陆
+    $('.login_btn').on('click', function (e) {
+      if (_this.cq_Msg.value && _this.tel.value) {
+        if (filter.verificationPhone(_this.tel.value)) {
+          //验证码验证
+          //登陆请求
+          var bid = $("#Bid").val();
+          console.log(bid);
+          $.ajax({
+            type: 'post',
+            cache: false,
+            contentType: "application/json; charset=utf-8",
+            url: "/FunUser/Register",
+            data: JSON.stringify({
+              Mobile: _this.tel.value,
+              Code: _this.cq_Msg.value,
+              Bid: bid
+
+            }),
+            dataType: "json",
+            error: function error(a, b) {
+              console.log(a);
+            },
+            success: function success(data) {
+              layer.open({
+                content: data.Msg,
+                skin: 'msg',
+                time: 2 //2秒后自动关闭
+              });
+              if (data.Status == 1) {
+                setTimeout(function () {
+                  location.reload();
+                }, 2000);
+                $("#IsRegister").val("True");
+              }
+            }
+          });
+        }
+      } else {
+        if (!_this.tel.value) {
+          //提示
+          layer.open({
+            content: '请输入手机号',
+            skin: 'msg',
+            time: 2 //2秒后自动关闭
+          });
+        } else if (!_this.cq_Msg.value) {
+          //提示
+          layer.open({
+            content: '请输入验证码',
+            skin: 'msg',
+            time: 2 //2秒后自动关闭
+          });
+        }
+      }
+    });
+    $(this.login_close).on('click', function (e) {
+      $('.loginBox').addClass('scale');
+      e.stopPropagation();
+      //关闭登陆窗口
+    });
+  }
+};
+'use strict';
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -731,157 +1119,7 @@ var footerflex = function () {
 //     }], '/Game/')
 //     footerfle.init()
 // }
-"use strict";
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var jo = {
-    "DrawItems": [], //提款数据
-    "RechargeItems": [], //充值数据
-    "RechargeTotal": 32412, //充值总额
-    "TotalItems": [//汇总
-    {
-        "Amount": "111", //变动金额
-        "Date": "2017/22/11",
-        "Time": "12:55",
-        "Type": "提现",
-        "TypeId": 1 //1提现 0充值
-    }, {
-        "Amount": "2222", //变动金额 
-        "Date": "2017/23/13",
-        "Time": "12:55",
-        "Type": "充值",
-        "TypeId": 0 //1提现 0充值
-    }, {
-        "Amount": "3333", //变动金额
-        "Date": "2017/23/13",
-        "Time": "12:55",
-        "Type": "提现",
-        "TypeId": 1 //1提现 0充值
-    }],
-    "WithdrawalsTotal": 80723 //提现总额
-};
-
-var deal_list = function () {
-    function deal_list(n) {
-        _classCallCheck(this, deal_list);
-
-        this.n = n;
-    }
-
-    _createClass(deal_list, [{
-        key: "maps",
-        value: function maps() {
-            var len = this.n.length;
-            var map = {},
-                dest = [];
-            for (var i = 0; i < len; i++) {
-                var ai = this.n[i]; //第一个
-                if (!map[ai.Date]) {
-                    dest.push({
-                        Date: ai.Date,
-                        data: [ai]
-                    });
-                    map[ai.Date] = ai;
-                } else {
-                    for (var j = 0; j < dest.length; j++) {
-                        var dj = dest[j];
-                        if (dj.Date == ai.Date) {
-                            dj.data.push(ai);
-                            break;
-                        }
-                    }
-                }
-            }
-            console.log(dest);
-            this.ays = dest;
-        }
-    }, {
-        key: "payUp",
-        value: function payUp() {
-            //
-            var len = this.ays.length;
-            var payUp = '<div class="payUp">',
-                payMsg;
-            var boxs;
-            console.info(this.ays);
-            // // console.log(Object.keys(this.n[0]));
-            // // console.log(Object.values(this.n[0]));
-            var _iteratorNormalCompletion = true;
-            var _didIteratorError = false;
-            var _iteratorError = undefined;
-
-            try {
-                for (var _iterator = this.ays[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                    var i = _step.value;
-
-                    payUp += "<div class=\"dates\">" + i.Date + "<img src=\"../images/dade.png\" alt=\"\"></div>";
-                    var _iteratorNormalCompletion2 = true;
-                    var _didIteratorError2 = false;
-                    var _iteratorError2 = undefined;
-
-                    try {
-                        for (var _iterator2 = i.data[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                            var j = _step2.value;
-
-                            console.log(j.Amount);
-                            payUp += "<div class=\"payMsg\"><span>" + j.Time + "</span><span data-uid=" + j.TypeId + ">" + j.Type + "</span><span class=\"greens\">-11.22</span></div>";
-                        }
-                    } catch (err) {
-                        _didIteratorError2 = true;
-                        _iteratorError2 = err;
-                    } finally {
-                        try {
-                            if (!_iteratorNormalCompletion2 && _iterator2.return) {
-                                _iterator2.return();
-                            }
-                        } finally {
-                            if (_didIteratorError2) {
-                                throw _iteratorError2;
-                            }
-                        }
-                    }
-
-                    payUp += "</div>";
-                }
-            } catch (err) {
-                _didIteratorError = true;
-                _iteratorError = err;
-            } finally {
-                try {
-                    if (!_iteratorNormalCompletion && _iterator.return) {
-                        _iterator.return();
-                    }
-                } finally {
-                    if (_didIteratorError) {
-                        throw _iteratorError;
-                    }
-                }
-            }
-
-            console.log(payUp);
-            return payUp;
-        }
-    }, {
-        key: "payUpList",
-        value: function payUpList() {
-            var payMsg = "<div class=\"payMsg\"><span>" + this.times + "</span><span data-uid=" + this.typesId + ">" + this.types + "</span><span class=\"greens\">-11.22</span></div>";
-        }
-    }, {
-        key: "init",
-        value: function init() {
-            this.maps();
-            this.payUp();
-        }
-    }]);
-
-    return deal_list;
-}();
-
-var b = new deal_list(jo.TotalItems);
-b.init();
+'use strict';
 
 window.onload = function () {
     var footerfle = new footerflex([{
