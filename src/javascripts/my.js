@@ -1,14 +1,13 @@
 
 
-window.onload = function () {
     var footerfle = new footerflex([{
         't': '首页',
         'n': 'home',
         'i': 'icon-icon-test'
     }, {
-        't': '钱包',
-        'n': 'wallet',
-        'i': 'icon-QIAOBAO'
+        't': '邀请',
+        'n': 'invite',
+        'i': 'icon-yaoqing5'
     }, {
         't': '团队',
         'n': 'team',
@@ -20,6 +19,5 @@ window.onload = function () {
     }], '/Game/')
     footerfle.init()
 
-}
 
 

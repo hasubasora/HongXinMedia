@@ -75,7 +75,7 @@ gulp.task('compass', () => {
                 'iOS 7',
                 'Firefox ESR',
                 'Explorer >= 8',
-                'Opera >= 42',
+                'Opera >= 40',
                 'Safari >= 8',
                 'last 5 FirefoxAndroid versions',
                 'last 5 ChromeAndroid versions',

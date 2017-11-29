@@ -1,0 +1,38 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_473151_lr67lm2wcbpxecdi.css"/>
+    <link rel="stylesheet" href="../stylesheets/main.min.css"/>
+    <link rel="stylesheet" href="../framework/layer_mobile/need/layer.css"/>
+    <title>登录</title>
+  </head>
+  <body>
+    <div class="n_login">
+      <div class="n_login_box">
+        <div class="n_login_title">
+          <h3>登录/注册</h3><i class="n_login_close"></i>
+        </div>
+        <div class="n_login_logo"><img src="../images/logo.png" alt=""/></div>
+        <div class="n_login_content">
+          <label for="n_login_tel"> 
+            <input id="n_login_tel" type="tel" placeholder="手机号" maxLength="11"/>
+          </label>
+          <label for="n_login_cq"> 
+            <input id="n_login_cq" type="tel" placeholder="动态密码"/>
+            <button id="n_login_cq_btn" type="button">获取动态密码</button>
+          </label>
+        </div>
+        <div class="n_login_blue">请输入手机号，短信验证码</div>
+        <button id="n_login_submit" disabled="disabled">登&nbsp;录  </button>
+      </div>
+    </div>
+  </body>
+  <script src="../javascripts/filters.js">  </script>
+  <script src="../framework/layer_mobile/layer.js"> </script>
+  <script src="../framework/jq/jquery-2.2.1.min.js">   </script>
+  <script src="../javascripts/login-b.js">  </script>
+  <script>new login( "WeiXin/SendMsg","/FunUser/Register").init();</script>
+</html>

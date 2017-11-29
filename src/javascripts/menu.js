@@ -56,7 +56,7 @@ class footerflex {
 //     }, {
 //         't': '钱包',
 //         'n': 'wallet', 
-//         'i': 'icon-QIAOBAO'
+//         'i': 'icon-yaoqing5'
 //     }, {
 //         't': '团队',
 //         'n': 'team',

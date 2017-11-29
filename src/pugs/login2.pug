@@ -1,0 +1,33 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0",)
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="//at.alicdn.com/t/font_473151_lr67lm2wcbpxecdi.css")        
+        link(rel="stylesheet", href="../stylesheets/main.min.css")      
+        link(rel="stylesheet", href="../framework/layer_mobile/need/layer.css")      
+        title 登录
+    body
+     .n_login
+      .n_login_box
+       .n_login_title
+        h3 登录/注册
+        i.n_login_close
+       .n_login_logo
+        img(src="../images/logo.png", alt="")
+       .n_login_content
+        label(for="n_login_tel") 
+         input#n_login_tel(type="tel",placeholder="手机号",maxLength='11')
+        label(for="n_login_cq") 
+         input#n_login_cq(type="tel",placeholder="动态密码")
+         button#n_login_cq_btn(type="button") 获取动态密码
+       .n_login_blue 请输入手机号，短信验证码
+       button#n_login_submit(disabled) 登&nbsp;录  
+
+
+    script(src="../javascripts/filters.js")   
+    script(src="../framework/layer_mobile/layer.js") 
+    script(src="../framework/jq/jquery-2.2.1.min.js")    
+    script(src="../javascripts/login-b.js")   
+    script.
+     new login( "WeiXin/SendMsg","/FunUser/Register").init();

@@ -1,0 +1,178 @@
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-size: 16px;
+    color: rgb(33, 29, 92);
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    margin-bottom: 10px;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.yq_header {
+    ul {
+        width: 70%;
+        margin: 10px auto;
+        display: flex;
+        border: 2px solid rgb(33, 29, 92);
+        border-radius: 50px;
+        overflow: hidden;
+        background: #fff;
+        li {
+            user-select: none;
+            flex: 1;
+            cursor: pointer;
+            line-height: 30px;
+            font-size: 16px;
+            text-align: center;
+            color: rgb(33, 29, 92);
+            border-left: 2px solid rgb(33, 29, 92);
+            &:nth-child(1) {
+                border-left: 0;
+            }
+            &.active {
+                background: rgb(33, 29, 92);
+                color: rgb(232, 234, 236);
+            }
+        }
+    }
+}
+
+.yq_section {
+    height: 80%;
+}
+
+.swiper_container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    .swiper_wrapper {
+        transform: translate3d(0, 0, 0);
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        transition-property: transform;
+        box-sizing: content-box;
+        .swiper_slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition-property: transform;
+            .zshb {
+                img {
+                    height: auto;
+                    width: 100%;
+                }
+                padding: 0 rem(5);
+                margin: 0 rem(30);
+                width: 70%;
+            }
+            .zslj {
+                background: rgb(33, 29, 92) url(../images/lianjie.png) no-repeat;
+                border: 1px solid rgb(33, 29, 92);
+                border-radius: 8px;
+                padding: 0 rem(5);
+                margin: 0 rem(30);
+                padding-top: rem(120); // width: 70%;
+                height: rem(300);
+                width: rem(240);
+                background-size: contain;
+                .zslj_text {
+                    margin: 0 auto rem(20);
+                    width: 100%;
+                    height: rem(172);
+                    text-align: left;
+                    border-radius: 8px;
+                    padding: rem(5);
+                    background: #fff;
+                    word-wrap: break-word;
+                }
+                >p {
+                    font-size: rem(12);
+                    text-align: left;
+                    line-height: rem(13);
+                }
+            }
+            .yqgz {
+                width: 70%;
+                img {
+                    height: auto;
+                    width: 100%;
+                }
+                padding: 0 rem(5);
+                margin: 0 rem(30);
+            }
+        }
+    }
+    .swiper_button_next {
+        position: absolute;
+        top: 50%;
+        width: 27px;
+        height: 44px;
+        margin-top: -22px;
+        z-index: 10;
+        cursor: pointer;
+        background-size: 27px 44px;
+        background-position: center;
+        background-repeat: no-repeat;
+        right: 10px;
+        left: auto;
+    }
+    .swiper_button_prev {
+        position: absolute;
+        top: 50%;
+        width: 27px;
+        height: 44px;
+        margin-top: -22px;
+        z-index: 10;
+        cursor: pointer;
+        background-size: 27px 44px;
+        background-position: center;
+        background-repeat: no-repeat;
+        left: 10px;
+        right: auto;
+    }
+    .swiper_button_disabled {
+        opacity: .35;
+        cursor: auto;
+        pointer-events: none;
+    }
+}
+
+.none {
+    display: none !important;
+}

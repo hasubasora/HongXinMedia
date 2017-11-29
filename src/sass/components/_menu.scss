@@ -4,6 +4,7 @@
     bottom: 0;
     width: 100%;
     height: rem(50);
+    z-index: 1998;
     ul {
         display: flex;
         color: #fff;
@@ -11,13 +12,13 @@
             text-align: center;
             height: 100%;
             flex: 1;
-            padding-top: 5px; // @include outline;
+            padding-top: rem(5); // @include outline;
             i {
                 font-size: rem(21);
-                line-height: 25px;
+                line-height: rem(25);
             }
             p {
-                line-height: 20px;
+                line-height: rem(20);
                 font-size: rem(12);
             }
         }

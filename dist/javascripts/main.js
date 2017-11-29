@@ -481,6 +481,65 @@ var filter = {
 };
 'use strict';
 
+// alert(window.screen.height +'-'+ window.screen.width)
+
+
+window.onload = function () {
+    var footerfle = new footerflex([{
+        't': '首页',
+        'n': 'home',
+        'i': 'icon-icon-test'
+    }, {
+        't': '邀请',
+        'n': 'invite',
+        'i': 'icon-yaoqing5'
+    }, {
+        't': '团队',
+        'n': 'team',
+        'i': 'icon-duidui'
+    }, {
+        't': '我的',
+        'n': 'my',
+        'i': 'icon-wode'
+    }], '/Game/').init();
+
+    var w = window.screen.width;
+    var swiper_slide = document.querySelectorAll(".swiper_slide");
+    var swiper_button_next = document.querySelector(".swiper_button_next");
+    var abox = document.querySelectorAll(".sub");
+    var _index = 0;
+    for (var i = 0; i < abox.length; i++) {
+        abox[i].index = i;
+        abox[i].onclick = function () {
+            _index = this.index;
+            console.info(_index);
+            for (var j = 0; j < abox.length; j++) {
+                swiper_slide[j].classList.add('none');
+                abox[j].classList.remove('active');
+            }
+            this.classList.add("active");
+            swiper_slide[this.index].classList.remove('none');
+        };
+    }
+    $(swiper_button_next).on('click', function () {
+        console.info($("#yq_ul li").length);
+        $("#yq_ul li").eq(_index).addClass('active');
+    });
+    $("#yq_ul li").on('click', function () {});
+
+    // $('.sub').on('click', function () {
+    //     console bounceInLeft animated
+    //     _index = $(this).index();
+    //     $(swiper_slide).eq(_index).removeClass('bounceOutLeft animated none').siblings().addClass('bounceOutLeft animated none')
+    //     // .siblings().addClass('bounceOutLeft animated')
+    // })
+    // $('.swiper_button_next').on('click', () => {
+    //     $(swiper_slide).eq(_index).addClass('bounceOutLeft animated').siblings().addClass('bounceInLeft animated')
+    // })
+
+};
+'use strict';
+
 window.onload = function () {
     //hongbao weizhi
     var s_h = window.screen.height / 2;
@@ -836,30 +895,80 @@ var KinerLottery = new KinerLottery({
 });
 'use strict';
 
-var logins = {
-    tel: document.querySelector('#tel'), //电话
-    cq_Btn: document.querySelector('.cq_Btn'), //验证码按钮
-    cq_Msg: document.querySelector('.cq_Msg'), //验证码
-    login_btn: document.querySelector('.login_btn'), //登陆按钮
-    login_close: document.querySelector('.login_close'), //关闭登陆X
-    init: function init() {
-        var _this = this;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-        //点击获取
-        this.cq_Btn.addEventListener('touchstart', function () {
-            if (_this.tel.value) {
-                if (filter.verificationPhone(_this.tel.value)) {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var login = function () {
+    function login(url, url2) {
+        _classCallCheck(this, login);
+
+        this.url = url;
+        this.url2 = url2;
+        this.tel = document.querySelector('#n_login_tel'); //电话
+        this.cq_Btn = document.querySelector('#n_login_cq_btn'); //验证码按钮
+        this.cq_Msg = document.querySelector('#n_login_cq'); //验证码
+        this.login_btn = document.querySelector('#n_login_submit'); //登陆按钮
+        this.login_close = document.querySelector('.n_login_close'); //关闭登陆X
+    }
+
+    _createClass(login, [{
+        key: 'init',
+        value: function init() {
+            var _this = this;
+
+            this.login_close.addEventListener('click', function () {
+                alert('关闭');
+            }, false);
+            this.cq_Btn.addEventListener('click', function () {
+                _this.login_phone(_this.cq_Btn);
+            }, false);
+            this.login_btn.addEventListener('click', function () {
+                _this.login_submit();
+            }, false);
+            this.cq_Msg.addEventListener('input', function (e) {
+                _this.login_btn.removeAttribute('disabled');
+                _this.login_btn.classList.add('n_login_submit_red');
+            });
+        }
+    }, {
+        key: 'login_phone',
+        value: function login_phone(m_this) {
+            if (this.tel.value) {
+                if (filter.verificationPhone(this.tel.value)) {
                     //发送验证码
-
-                    filter.countdowns(_this.cq_Btn);
-                    //提示
-                    layer.open({
-                        content: '验证码已发送',
-                        skin: 'msg',
-                        time: 2 //2秒后自动关闭
+                    $.ajax({
+                        type: 'post',
+                        cache: false,
+                        contentType: "application/json; charset=utf-8",
+                        url: this.url,
+                        data: JSON.stringify({
+                            Mobile: this.tel.value
+                        }),
+                        dataType: "json",
+                        error: function error(a, b) {
+                            console.log(a);
+                        },
+                        success: function success(data) {
+                            console.info(data);
+                            if (data.Status == 1) {
+                                filter.countdowns(m_this);
+                                //提示
+                                layer.open({
+                                    content: '验证码已发送',
+                                    skin: 'msg',
+                                    time: 2 //2秒后自动关闭
+                                });
+                            } else {
+                                layer.open({
+                                    content: data.Msg,
+                                    skin: 'msg',
+                                    time: 2 //2秒后自动关闭
+                                });
+                            }
+                        }
                     });
                 } else {
-
                     //提示
                     layer.open({
                         content: '请输入正确手机号',
@@ -868,7 +977,6 @@ var logins = {
                     });
                 }
             } else {
-
                 //提示
                 layer.open({
                     content: '请输入手机号',
@@ -876,23 +984,51 @@ var logins = {
                     time: 2 //2秒后自动关闭
                 });
             }
-        }, false);
-        //点击登陆
-        this.login_btn.addEventListener('touchstart', function () {
-            if (_this.cq_Msg.value && _this.tel.value) {
-                if (filter.verificationPhone(_this.tel.value)) {
+        }
+    }, {
+        key: 'login_submit',
+        value: function login_submit() {
+            if (this.cq_Msg.value && this.tel.value) {
+                if (filter.verificationPhone(this.tel.value)) {
                     //验证码验证
                     //登陆请求
+                    $.ajax({
+                        type: 'post',
+                        cache: false,
+                        contentType: "application/json; charset=utf-8",
+                        url: this.url2,
+                        data: JSON.stringify({
+                            Mobile: this.tel.value,
+                            Code: this.cq_Msg.value
+                        }),
+                        dataType: "json",
+                        error: function error(a, b) {
+                            console.log(a);
+                        },
+                        success: function success(data) {
+                            layer.open({
+                                content: data.Msg,
+                                skin: 'msg',
+                                time: 2 //2秒后自动关闭
+                            });
+                            if (data.Status == 1) {
+                                setTimeout(function () {
+                                    location.reload();
+                                }, 2000);
+                                $("#IsRegister").val("True");
+                            }
+                        }
+                    });
                 }
             } else {
-                if (!_this.tel.value) {
+                if (!this.tel.value) {
                     //提示
                     layer.open({
                         content: '请输入手机号',
                         skin: 'msg',
                         time: 2 //2秒后自动关闭
                     });
-                } else if (!_this.cq_Msg.value) {
+                } else if (!this.cq_Msg.value) {
                     //提示
                     layer.open({
                         content: '请输入验证码',
@@ -901,12 +1037,11 @@ var logins = {
                     });
                 }
             }
-        });
-        this.login_close.addEventListener('touchstart', function () {
-            //关闭登陆窗口
-        }, false);
-    }
-};
+        }
+    }]);
+
+    return login;
+}();
 'use strict';
 
 var logins = {
@@ -1107,7 +1242,7 @@ var footerflex = function () {
 //     }, {
 //         't': '钱包',
 //         'n': 'wallet', 
-//         'i': 'icon-QIAOBAO'
+//         'i': 'icon-yaoqing5'
 //     }, {
 //         't': '团队',
 //         'n': 'team',
@@ -1121,26 +1256,24 @@ var footerflex = function () {
 // }
 'use strict';
 
-window.onload = function () {
-    var footerfle = new footerflex([{
-        't': '首页',
-        'n': 'home',
-        'i': 'icon-icon-test'
-    }, {
-        't': '钱包',
-        'n': 'wallet',
-        'i': 'icon-QIAOBAO'
-    }, {
-        't': '团队',
-        'n': 'team',
-        'i': 'icon-duidui'
-    }, {
-        't': '我的',
-        'n': 'my',
-        'i': 'icon-wode'
-    }], '/Game/');
-    footerfle.init();
-};
+var footerfle = new footerflex([{
+    't': '首页',
+    'n': 'home',
+    'i': 'icon-icon-test'
+}, {
+    't': '邀请',
+    'n': 'invite',
+    'i': 'icon-yaoqing5'
+}, {
+    't': '团队',
+    'n': 'team',
+    'i': 'icon-duidui'
+}, {
+    't': '我的',
+    'n': 'my',
+    'i': 'icon-wode'
+}], '/Game/');
+footerfle.init();
 'use strict';
 
 var plays = document.querySelectorAll('.plays');
