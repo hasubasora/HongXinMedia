@@ -5,9 +5,8 @@ const capital = {
         var url = "http://192.168.168.46/FunUser/UserBalanceLog"
         $.ajax({
             type: "POST",
-            url: url,
+            url: url, 
             data: {
-                'bid': 2,
                 'type': 1
             },
             dataType: "json",

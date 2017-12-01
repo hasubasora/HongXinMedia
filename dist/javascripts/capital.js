@@ -22,7 +22,7 @@ var jo = {
         "Type": "充值",
         "TypeId": 0 //1提现 0充值
     }, {
-        "Amount": "3333", //变动金额
+        "Amount": "-3333", //变动金额
         "Date": "2017/23/13",
         "Time": "12:55",
         "Type": "提现",
@@ -71,7 +71,10 @@ var deal_list = function () {
             //
             var len = this.ays.length;
             var payUp = '<div class="payUp">',
-                payMsg;
+                payMsg,
+                g = 'greens',
+                typecol = '',
+                o = 'oranges';
             var boxs;
             console.info(this.ays);
             // // console.log(Object.keys(this.n[0]));
@@ -93,8 +96,15 @@ var deal_list = function () {
                         for (var _iterator2 = i.data[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
                             var j = _step2.value;
 
+                            console.info(Number(j.Amount) < 0);
+                            if (Number(j.Amount) > 0) {
+                                typecol = o;
+                            }
+                            if (Number(j.Amount) < 0) {
+                                typecol = g;
+                            }
                             console.log(j.Amount);
-                            payUp += "<div class=\"payMsg\"><span>" + j.Time + "</span><span data-uid=" + j.TypeId + ">" + j.Type + "</span><span class=\"greens\">-11.22</span></div>";
+                            payUp += "<div class=\"payMsg\"><span>" + j.Time + "</span><span data-uid=" + j.TypeId + ">" + j.Type + "</span><span class=\"" + typecol + "\">" + j.Amount + "</span></div>";
                         }
                     } catch (err) {
                         _didIteratorError2 = true;
@@ -132,13 +142,20 @@ var deal_list = function () {
             return payUp;
         }
     }, {
-        key: "payUpList",
-        value: function payUpList() {
-            var payMsg = "<div class=\"payMsg\"><span>" + this.times + "</span><span data-uid=" + this.typesId + ">" + this.types + "</span><span class=\"greens\">-11.22</span></div>";
-        }
-    }, {
         key: "init",
         value: function init() {
+            this.maps();
+            this.payUp();
+        }
+    }, {
+        key: "init2",
+        value: function init2() {
+            this.maps();
+            this.payUp();
+        }
+    }, {
+        key: "init3",
+        value: function init3() {
             this.maps();
             this.payUp();
         }
@@ -147,5 +164,4 @@ var deal_list = function () {
     return deal_list;
 }();
 
-var b = new deal_list(jo.TotalItems);
-b.init();
+new deal_list(jo.TotalItems).init();

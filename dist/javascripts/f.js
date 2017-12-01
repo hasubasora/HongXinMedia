@@ -9,7 +9,6 @@ var capital = {
             type: "POST",
             url: url,
             data: {
-                'bid': 2,
                 'type': 1
             },
             dataType: "json",

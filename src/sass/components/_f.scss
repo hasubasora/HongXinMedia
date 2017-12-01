@@ -103,9 +103,7 @@ section {
     border-radius: 30px;
     padding: 0 10px;
     margin-top: 5px;
-}
-
- //交易明细
+} //交易明细
 .transaction {
     background: rgb(10, 33, 101);
     @include height(40px);
@@ -127,6 +125,10 @@ section {
 
 .txt26 {
     font-size: 26px !important;
+    display: inline-block;
+    vertical-align: sub;
+    margin-top: 8px;
+    margin-left: 8px;
 }
 
 .detail {
@@ -150,14 +152,23 @@ section {
         }
         .transaction_detail {
             font-size: 0.8rem;
-            padding: 20px;
-            @extend .borders;
-            display: none;
+            padding: 0 20px;
+            @extend .borders; // display: none;
             aside {
                 display: flex;
                 span {
-                    line-height: 1.2;
+                    @include height(35px);
                     &:nth-child(1) {
+                        flex: 1;
+                    }
+                }
+            }
+            .transaction_detail_list {
+                >aside {
+                    height: 35px;
+                    border-top: 1px solid rgb(218, 218, 218);
+                    span {
+                        line-height: 35px;
                         flex: 1;
                     }
                 }
@@ -354,12 +365,10 @@ section {
                 @include span(3);
                 height: rem(48);
                 background: url(../images/bao1.png) no-repeat;
-                background-size: contain;
-                // background-position-x: 9px;
+                background-size: contain; // background-position-x: 9px;
                 &.open {
                     background: url(../images/bao2.png) no-repeat;
-                    background-size: contain;
-                    // background-position-x: 9px;
+                    background-size: contain; // background-position-x: 9px;
                 }
             }
         }
@@ -401,6 +410,7 @@ section {
             height: rem(40);
             top: rem(7);
             right: 0;
+            cursor: pointer;
         }
         .toRecharge {
             @extend %btnQuiz;
@@ -530,11 +540,11 @@ section {
         border-radius: 50px;
         background: rgb(13, 182, 248);
     }
-    >p{
-        span{
+    >p {
+        span {
             font-size: 12px;
         }
-        a{
+        a {
             font-size: 12px;
             float: right;
             color: #5432ce;

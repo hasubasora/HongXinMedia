@@ -16,7 +16,7 @@ var jo = {
             "Type": "充值",
             "TypeId": 0 //1提现 0充值
         }, {
-            "Amount": "3333", //变动金额
+            "Amount": "-3333", //变动金额
             "Date": "2017/23/13",
             "Time": "12:55",
             "Type": "提现",
@@ -57,7 +57,9 @@ class deal_list {
     payUp() { //
         let len = this.ays.length;
         var payUp = '<div class="payUp">',
-            payMsg;
+            payMsg, g = 'greens',
+            typecol='',
+            o = 'oranges';
         var boxs;
         console.info(this.ays)
         // // console.log(Object.keys(this.n[0]));
@@ -65,22 +67,32 @@ class deal_list {
         for (let i of this.ays) {
             payUp += `<div class="dates">${i.Date}<img src="../images/dade.png" alt=""></div>`
             for (let j of i.data) {
+                console.info(Number(j.Amount)<0 )
+                if (Number(j.Amount) > 0) {
+                    typecol = o;
+                }
+                if (Number(j.Amount) < 0) {
+                    typecol = g;
+                }
                 console.log(j.Amount);
-                payUp += `<div class="payMsg"><span>${j.Time}</span><span data-uid=${j.TypeId}>${j.Type}</span><span class="greens">-11.22</span></div>`
+                payUp += `<div class="payMsg"><span>${j.Time}</span><span data-uid=${j.TypeId}>${j.Type}</span><span class="${typecol}">${j.Amount}</span></div>`
             }
             payUp += `</div>`
         }
         console.log(payUp);
         return payUp;
     }
-    payUpList() {
-        let payMsg = `<div class="payMsg"><span>${this.times}</span><span data-uid=${this.typesId}>${this.types}</span><span class="greens">-11.22</span></div>`
-    }
     init() {
         this.maps();
         this.payUp();
     }
+    init2(){
+        this.maps();
+        this.payUp();
+    }
+    init3(){
+        this.maps();
+        this.payUp();
+    }
 }
-var b = new deal_list(jo.TotalItems);
-b.init()
-
+new deal_list(jo.TotalItems).init()

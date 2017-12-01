@@ -22,7 +22,7 @@ var jo = {
         "Type": "充值",
         "TypeId": 0 //1提现 0充值
     }, {
-        "Amount": "3333", //变动金额
+        "Amount": "-3333", //变动金额
         "Date": "2017/23/13",
         "Time": "12:55",
         "Type": "提现",
@@ -71,7 +71,10 @@ var deal_list = function () {
             //
             var len = this.ays.length;
             var payUp = '<div class="payUp">',
-                payMsg;
+                payMsg,
+                g = 'greens',
+                typecol = '',
+                o = 'oranges';
             var boxs;
             console.info(this.ays);
             // // console.log(Object.keys(this.n[0]));
@@ -93,8 +96,15 @@ var deal_list = function () {
                         for (var _iterator2 = i.data[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
                             var j = _step2.value;
 
+                            console.info(Number(j.Amount) < 0);
+                            if (Number(j.Amount) > 0) {
+                                typecol = o;
+                            }
+                            if (Number(j.Amount) < 0) {
+                                typecol = g;
+                            }
                             console.log(j.Amount);
-                            payUp += "<div class=\"payMsg\"><span>" + j.Time + "</span><span data-uid=" + j.TypeId + ">" + j.Type + "</span><span class=\"greens\">-11.22</span></div>";
+                            payUp += "<div class=\"payMsg\"><span>" + j.Time + "</span><span data-uid=" + j.TypeId + ">" + j.Type + "</span><span class=\"" + typecol + "\">" + j.Amount + "</span></div>";
                         }
                     } catch (err) {
                         _didIteratorError2 = true;
@@ -132,13 +142,20 @@ var deal_list = function () {
             return payUp;
         }
     }, {
-        key: "payUpList",
-        value: function payUpList() {
-            var payMsg = "<div class=\"payMsg\"><span>" + this.times + "</span><span data-uid=" + this.typesId + ">" + this.types + "</span><span class=\"greens\">-11.22</span></div>";
-        }
-    }, {
         key: "init",
         value: function init() {
+            this.maps();
+            this.payUp();
+        }
+    }, {
+        key: "init2",
+        value: function init2() {
+            this.maps();
+            this.payUp();
+        }
+    }, {
+        key: "init3",
+        value: function init3() {
             this.maps();
             this.payUp();
         }
@@ -147,8 +164,7 @@ var deal_list = function () {
     return deal_list;
 }();
 
-var b = new deal_list(jo.TotalItems);
-b.init();
+new deal_list(jo.TotalItems).init();
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -269,7 +285,6 @@ var capital = {
             type: "POST",
             url: url,
             data: {
-                'bid': 2,
                 'type': 1
             },
             dataType: "json",
@@ -538,6 +553,111 @@ window.onload = function () {
     // })
 
 };
+"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var json = [{
+    "Msg": "测试内容3h55",
+    "Result": [{
+        "CreateDate": "订单日期",
+        "LotterTime": "开奖时间",
+        "LstTradeLogItem": [{
+            "BuyAmount": "12",
+            "BuyType": "5",
+            "WinRate": 27740
+        }, {
+            "BuyAmount": "13",
+            "BuyType": "4",
+            "WinRate": 27740
+        }],
+        "TradeId": '交易编号1',
+        "WinNumber": '开奖数字1',
+        "WinnerAmount": "123"
+    }, {
+        "CreateDate": "订单日期1",
+        "LotterTime": "开奖时间1",
+        "LstTradeLogItem": [{
+            "BuyAmount": "100",
+            "BuyType": "购买类型1",
+            "WinRate": 111
+        }],
+        "TradeId": '交易编号',
+        "WinNumber": '开奖数字',
+        "WinnerAmount": "-456"
+    }],
+    "Status": 1
+}];
+
+var trade = function () {
+    function trade(n) {
+        _classCallCheck(this, trade);
+
+        this.n = n;
+    }
+
+    _createClass(trade, [{
+        key: "init",
+        value: function init() {
+            this.strings(this.n[0].Result);
+            // console.info(this)
+            // console.info(this.strings(this.n[0].Result))
+            // console.info(this.n[0].Result[0].CreateDate)
+            var lat = document.createElement('div'),
+                lately = document.querySelector('.lately');
+            lat.className = "payUp tet";
+            lat.innerHTML = "<div class=\"jdates dates\">" + this.n[0].Result[0].CreateDate + "<img src=\"../images/dade.png\" alt=\"\"></div>" + this.strings(this.n[0].Result);
+            lately.appendChild(lat);
+        }
+    }, {
+        key: "strings",
+        value: function strings(r) {
+            var _this = this;
+
+            var result = r,
+                srt = '',
+                profit = '盈利',
+                loss = '亏损',
+                g = 'greens',
+                o = 'oranges',
+                col = '',
+                LstTradeLogItem = '',
+                txt = '';
+            result.forEach(function (element) {
+                if (element.WinnerAmount < 0) {
+                    txt = loss;
+                    col = g;
+                } else {
+                    txt = profit;
+                    col = o;
+                }
+                srt += "<div class=\"payMsg\"><span>" + element.LotterTime + "\u5F00\u5956</span><span class=\"" + col + "\">" + txt + "</span><span>\u76C8\u5229:" + element.WinnerAmount + "<img class=\"rightPic\" src=\"../images/right.png\" alt=\"\"></span></div>\n            <div class=\"transaction_detail\"> \n            <aside><span>\u8BA2\u5355\u53F7\uFF1A" + element.TradeId + "</span><span>\u5F00\u76D8\u6570\u5B57:" + element.WinNumber + "</span></aside>" + _this.strings_list(element.LstTradeLogItem) + "</div>";
+                // console.info(element.LstTradeLogItem)
+            });
+            // console.info()
+
+            return srt;
+        }
+    }, {
+        key: "strings_list",
+        value: function strings_list(ele) {
+            // console.info('el')
+            var doc = '<div class="transaction_detail_list">';
+            ele.forEach(function (eles) {
+                doc += "<aside><span>\u7ADE\u731C\uFF1A" + eles.BuyType + "</span><span>\u4E0B\u5355\u91D1\u989D\uFF1A" + eles.BuyAmount + "\u5143</span><span>\u76C8\u5229\u7387\uFF1A" + eles.WinRate + "</span></aside>";
+            });
+            doc += '</div>';
+            // console.info(doc)
+            return doc;
+        }
+    }]);
+
+    return trade;
+}();
+
+new trade(json).init();
 'use strict';
 
 window.onload = function () {
@@ -1170,6 +1290,241 @@ var logins = {
     });
   }
 };
+"use strict";
+
+//宝箱抽奖
+var lotteries = {
+    init: function init() {
+        var _this = this;
+        var CanPlayCount = 0;
+        $.ajax({
+            async: false,
+            type: "POST",
+            // url: '/RedBag/PlayRedBag',
+            url: 'http://rap.taobao.org/mockjsdata/28289/RedBag/PlayRedBag',
+            dataType: "json",
+            success: function success(data) {
+                _this.CanPlayCount = data.Result.CanPlayCount;
+                if (data.Status == 1) {
+                    $('#NewMoneySum').html(data.Result.CanPlayCount);
+                    $('.NewMoneySum').html('您还有 ' + data.Result.CanPlayCount + ' 次机会');
+                    _this.CanPlayCount = data.Result.CanPlayCount;
+                    _this.opens(data.Result.CanPlayCount); //抽奖次数
+                } else {
+                    //提示
+                    layer.open({
+                        content: '网络错误，请刷新页面！',
+                        skin: 'msg',
+                        time: 2 //2秒后自动关闭
+                    });
+                }
+            }
+        });
+
+        $('.lotteryBtn').on('touchstart', function () {
+            $('.openBox').removeClass('none');
+        });
+        $('.close').on('touchstart', function () {
+            $('.openBox').addClass('none');
+            _this.closes();
+        });
+    },
+    redBagLog: function redBagLog(params) {
+        var _data = '',
+            RedBagLog = '',
+            drawRecord = document.querySelector('.drawRecord');
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: "RedBag/RedBagLog",
+            dataType: "json",
+            success: function success(data) {
+                _data = data.Result;
+            },
+            error: function error(data) {
+                //提示
+                layer.open({
+                    content: '网络错误，请刷新页面！',
+                    skin: 'msg',
+                    time: 2 //2秒后自动关闭
+                });
+            }
+        });
+        _data.Result.forEach(function (element) {
+            console.info(element.Amount);
+            RedBagLog += "<article class=\"drawRecordList\"> <span>" + element.Date + "</span><span>" + element.Time + "</span><span>" + element.Type + "</span><span class=\"reds\">+" + element.Amount + "</span></article>";
+        });
+        drawRecord.innerHTML = RedBagLog;
+    },
+    opens: function opens(num) {
+        $.each($('.boxList li'), function (i, it) {
+            $('.boxList li').eq(i).on('touchstart', function (e) {
+                e.preventDefault();
+                if (num > 0) {
+                    $('.boxList li').eq(i).addClass('open');
+                    $.ajax({
+                        async: false,
+                        type: "POST",
+                        url: '/RedBag/RedBagResult',
+                        dataType: "json",
+                        success: function success(data) {
+                            console.info(data);
+                            switch (data.Result) {
+                                case 0:
+                                    //2元
+                                    //询问框
+                                    layer.open({
+                                        content: '恭喜你获得2元红包！',
+                                        btn: ['继续抽奖', '去竞猜'],
+                                        shadeClose: false,
+                                        yes: function yes(index) {
+                                            location.reload();
+                                            layer.close(index);
+                                        },
+                                        no: function no(index) {
+                                            layer.close(index);
+                                            window.location.href = '/Game/Start';
+                                        }
+                                    });
+                                    break;
+                                case 1:
+                                    layer.open({
+                                        content: '恭喜你获得10元红包！',
+                                        btn: ['继续抽奖', '去竞猜'],
+                                        shadeClose: false,
+                                        yes: function yes(index) {
+                                            location.reload();
+                                            layer.close(index);
+                                        },
+                                        no: function no(index) {
+                                            layer.close(index);
+                                            window.location.href = '/Game/Start';
+                                        }
+                                    });
+                                    //10元
+                                    break;
+                                case 2:
+                                    layer.open({
+                                        content: '恭喜你获得1.8元红包！',
+                                        btn: ['继续抽奖', '去竞猜'],
+                                        shadeClose: false,
+                                        yes: function yes(index) {
+                                            location.reload();
+                                            layer.close(index);
+                                        },
+                                        no: function no(index) {
+                                            layer.close(index);
+                                            window.location.href = '/Game/Start';
+                                        }
+                                    });
+                                    //1.8元
+                                    break;
+                                case 3:
+                                    layer.open({
+                                        content: '恭喜你获得2元红包！',
+                                        btn: ['继续抽奖', '去竞猜'],
+                                        shadeClose: false,
+                                        yes: function yes(index) {
+                                            location.reload();
+                                            layer.close(index);
+                                        },
+                                        no: function no(index) {
+                                            layer.close(index);
+                                            window.location.href = '/Game/Start';
+                                        }
+                                    });
+                                    //2元
+                                    break;
+                                case 4:
+                                    layer.open({
+                                        content: '恭喜你获得10元红包！',
+                                        btn: ['继续抽奖', '去竞猜'],
+                                        shadeClose: false,
+                                        yes: function yes(index) {
+                                            location.reload();
+                                            layer.close(index);
+                                        },
+                                        no: function no(index) {
+
+                                            layer.close(index);
+                                            window.location.href = '/Game/Start';
+                                        }
+                                    }); // alert('恭喜你获得红包 10元');
+                                    // setTimeout(location.reload(), 3000)
+
+                                    //10元
+                                    break;
+                                case 5:
+                                    layer.open({
+                                        content: '恭喜你获得8元红包！',
+                                        btn: ['继续抽奖', '去竞猜'],
+                                        shadeClose: false,
+                                        yes: function yes(index) {
+                                            location.reload();
+                                            layer.close(index);
+                                        },
+                                        no: function no(index) {
+
+                                            layer.close(index);
+                                            window.location.href = '/Game/Start';
+                                        }
+                                    }); //8元
+                                    break;
+                                case 6:
+                                    layer.open({
+                                        content: '恭喜你获得1.8元红包！',
+                                        btn: ['继续抽奖', '去竞猜'],
+                                        shadeClose: false,
+                                        yes: function yes(index) {
+                                            location.reload();
+                                            layer.close(index);
+                                        },
+                                        no: function no(index) {
+                                            layer.close(index);
+                                            window.location.href = '/Game/Start';
+                                        }
+                                    });
+                                    //1.8元
+                                    break;
+                                case 7:
+                                    _this.redHub(8);
+                                    //8元
+                                    break;
+                            }
+                        }
+                    });
+                } else {
+                    //信息框
+                    layer.open({
+                        content: '您没有抽奖的机会！',
+                        btn: '我知道了'
+                    });
+                }
+            });
+        });
+    },
+    closes: function closes() {
+        $.each($('.boxList li'), function (i, it) {
+            $('.boxList li').eq(i).removeClass('open');
+        });
+    },
+    redHub: function redHub(argument) {
+        layer.open({
+            content: '恭喜你获得' + argument + '元红包！',
+            btn: ['继续抽奖', '去竞猜'],
+            shadeClose: false,
+            yes: function yes(index) {
+                location.reload();
+                layer.close(index);
+            },
+            no: function no(index) {
+                layer.close(index);
+                window.location.href = '/Game/Start';
+            }
+        });
+    }
+};
+lotteries.init();
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();

@@ -18,13 +18,18 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none !important;
     margin: 0;
 }
-input[type="button"],
+
+input[type="select"],
+input[type="radio"],
+input[type="checkbox"],
 input[type="submit"],
-input[type="reset"],textarea {
-
-  -webkit-appearance: none;
+input[type="reset"],
+textarea {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
 
 input[type="number"] {
     -moz-appearance: textfield;
@@ -36,15 +41,13 @@ body {
     font-size: 100%;
     font-size: 16px;
     width: 100%;
-    height: auto;
-    // background: nth($bgcolor, 1);
+    height: auto; // background: nth($bgcolor, 1);
 }
 
 html *,
 html *:before,
 html *:after {
-    box-sizing: border-box;
-    // transition: 0.1s;
+    box-sizing: border-box; // transition: 0.1s;
 }
 
 html i,
@@ -83,7 +86,11 @@ input[type=button] {
     border: none;
     cursor: pointer;
 }
-.scale{transform: scale(0)!important}
+
+.scale {
+    transform: scale(0)!important
+}
+
 .none {
     display: none;
 }
