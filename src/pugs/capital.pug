@@ -14,7 +14,7 @@ html(lang="en")
        span.sub 提款
       section
        <!--近7日-->
-       article.lately 
+       article.lately.lately1 
         ul
          li
           p 累计充值(元)
@@ -26,31 +26,20 @@ html(lang="en")
           select.selected
            option(value="7天") 7天
            option(value="今天") 今天
-        .payUp
-         .dates 2017-10-31
-          img(src="../images/dade.png", alt="")
-         .payMsg
-          span 16:31:07
-          span 提款成功
-          span.greens -11.22
-         .payMsg
-          span 16:31:07
-          span 充值成功
-          span.oranges +11.22
-        .payUp
-         .dates 2017-10-30
-          img(src="../images/dade.png", alt="")
-         .payMsg
-          span 16:31:07
-          span 提款成功
-          span.greens -11.22
-         .payMsg
-          span 16:31:07
-          span 充值成功
-          span.oranges +11.22  
-         .btm -数据加载完毕-    
+        div   
+         .payUp
+          .dates 2017-10-31
+           img(src="../images/dade.png", alt="")
+          .payMsg
+           span 16:31:07
+           span 提款成功
+           span.greens -11.22
+          .payMsg
+           span 16:31:07
+           span 充值成功
+           span.oranges +11.22  
        <!--充值-->
-       article.lately.none  
+       article.lately.lately2.none  
         .pays
          section
           p 累计充值(元)
@@ -68,7 +57,7 @@ html(lang="en")
           span.oranges +11.22
          .btm -数据加载完毕- 
        <!--提款-->
-       article.lately.none   
+       article.lately.lately3.none   
         .pays
          section
           p 累计充值(元)

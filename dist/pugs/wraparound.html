@@ -20,8 +20,11 @@
                  }else{
                      $(this).attr("ctime",nowTime);
                      $('.wd_list i').css({'transform':'rotate(90deg)'});
-                     $('.wd_text_b').slideToggle()
+                     $('.wd_text').slideToggle()
                  }       
+         })
+         $(document).on('click','.button',function(){
+              window.android.startGame(); 
          })
       }
     </script>
@@ -46,7 +49,7 @@
       </section>
       <section class="wd_text">
         <div class="wd_text_h">代金卷：单词竞猜直接抵用下注金额.</div>
-        <div class="wd_text_c"><span>面额：10元/张</span><span>有效时间：3天</span></div>
+        <div class="wd_text_c"><span>面额：10元/张</span><span>有效时间：30天</span></div>
         <div class="wd_text_b">
           <p>1.必赢券仅限新用户使用，下注竟猜至首次盈利后失效。</p>
           <p>2.必赢券仅限于选择1:2赔率的竞猜选项，不能与其他优惠同时使用。</p>
@@ -60,7 +63,9 @@
       <div class="wd_glass"><img class="wd_img" src="../images/by.png" alt="必赢劵"/>
         <div class="wd_img_text">
           <h1>必赢劵10元</h1>
-          <h2>有效期3天</h2><span class="blue">已过期</span>
+          <h2>有效期3天</h2>
+          <h3>剩余<span class="blue">1</span>张</h3>
+          <button class="button" type="button">立即使用</button>
         </div>
       </div>
     </section>
@@ -68,7 +73,29 @@
       <div class="wd_glass"><img class="wd_img" src="../images/dj.png" alt="代金劵"/>
         <div class="wd_img_text">
           <h1>代金劵10元</h1>
-          <h2>有效期30天</h2><span>剩余<i>5</i>天         </span>
+          <h2>有效期30天</h2>
+          <h3>剩余<span class="blue">1</span>张</h3>
+          <button class="button" type="button">立即使用      </button>
+        </div>
+      </div>
+    </section>
+    <section class="wd_centent">
+      <div class="wd_glass"><img class="wd_img" src="../images/246365038243676644.png" alt="必赢劵"/>
+        <div class="wd_img_text">
+          <h1>必赢劵10元</h1>
+          <h2>有效期3天</h2>
+          <h3>已失效    <span class="blue">1</span>张</h3>
+          <button class="disabled" type="button" disabled="disabled">已失效      </button>
+        </div>
+      </div>
+    </section>
+    <section class="wd_centent">
+      <div class="wd_glass"><img class="wd_img" src="../images/diyongquan.png" alt="代金劵"/>
+        <div class="wd_img_text">
+          <h1>代金劵10元</h1>
+          <h2>有效期30天</h2>
+          <h3>已失效    <span class="blue">1</span>张</h3>
+          <button class="disabled" type="button" disabled="disabled">已失效          </button>
         </div>
       </div>
     </section>

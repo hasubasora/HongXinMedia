@@ -145,19 +145,35 @@ var deal_list = function () {
         key: "init",
         value: function init() {
             this.maps();
-            this.payUp();
+            var payUp = this.payUp();
+            var glass = document.createElement('div');
+
+            glass.innerHTML = payUp;
+            var lately = document.querySelector('.lately1');
+            console.log(glass);
+            lately.appendChild(glass);
         }
     }, {
         key: "init2",
         value: function init2() {
             this.maps();
-            this.payUp();
+            var payUp = this.payUp();
+            var glass = document.createElement('div');
+            glass.innerHTML = payUp;
+            var lately = document.querySelector('.lately2');
+            console.log(glass);
+            lately.appendChild(glass);
         }
     }, {
         key: "init3",
         value: function init3() {
             this.maps();
-            this.payUp();
+            var payUp = this.payUp();
+            var glass = document.createElement('div');
+            glass.innerHTML = payUp;
+            var lately = document.querySelector('.lately3');
+            console.log(glass);
+            lately.appendChild(glass);
         }
     }]);
 
@@ -1697,7 +1713,6 @@ playPayer.addEventListener('click', function () {
 }, false);
 "use strict";
 
-;
 (function () {
     var ft = document.getElementsByTagName("html")[0]; //获取到html标签
     var s = window.screen.width; //获取屏幕的宽度
@@ -1709,6 +1724,48 @@ playPayer.addEventListener('click', function () {
         ft.style.fontSize = w / s * 16 + "px";
     };
 })();
+(function ($) {
+    $.fn.flowtype = function (options) {
+        // Establish default settings/variables
+        // ====================================
+        var settings = $.extend({
+            maximum: 9999,
+            minimum: 1,
+            maxFont: 9999,
+            minFont: 1,
+            fontRatio: 23.44
+        }, options),
+
+
+        // Do the magic math
+        // =================
+        changes = function changes(el) {
+            var $el = $(el),
+                elw = $el.width(),
+                width = elw > settings.maximum ? settings.maximum : elw < settings.minimum ? settings.minimum : elw,
+                fontBase = width / settings.fontRatio,
+                fontSize = fontBase > settings.maxFont ? settings.maxFont : fontBase < settings.minFont ? settings.minFont : fontBase;
+            $el.css('font-size', fontSize + 'px');
+        };
+
+        // Make the magic visible
+        // ======================
+        return this.each(function () {
+            // Context for resize callback
+            var that = this;
+            // Make changes upon resize
+            $(window).resize(function () {
+                changes(that);
+            });
+            // Set changes on load
+            changes(this);
+        });
+    };
+})(jQuery);
+
+$('html').flowtype({
+    // fontRatio: 24
+});
 "use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };

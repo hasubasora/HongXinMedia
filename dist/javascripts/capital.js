@@ -145,19 +145,35 @@ var deal_list = function () {
         key: "init",
         value: function init() {
             this.maps();
-            this.payUp();
+            var payUp = this.payUp();
+            var glass = document.createElement('div');
+
+            glass.innerHTML = payUp;
+            var lately = document.querySelector('.lately1');
+            console.log(glass);
+            lately.appendChild(glass);
         }
     }, {
         key: "init2",
         value: function init2() {
             this.maps();
-            this.payUp();
+            var payUp = this.payUp();
+            var glass = document.createElement('div');
+            glass.innerHTML = payUp;
+            var lately = document.querySelector('.lately2');
+            console.log(glass);
+            lately.appendChild(glass);
         }
     }, {
         key: "init3",
         value: function init3() {
             this.maps();
-            this.payUp();
+            var payUp = this.payUp();
+            var glass = document.createElement('div');
+            glass.innerHTML = payUp;
+            var lately = document.querySelector('.lately3');
+            console.log(glass);
+            lately.appendChild(glass);
         }
     }]);
 

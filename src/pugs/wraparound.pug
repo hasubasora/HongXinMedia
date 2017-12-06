@@ -19,8 +19,11 @@ html(lang="en")
                     }else{
                         $(this).attr("ctime",nowTime);
                         $('.wd_list i').css({'transform':'rotate(90deg)'});
-                        $('.wd_text_b').slideToggle()
+                        $('.wd_text').slideToggle()
                     }       
+            })
+            $(document).on('click','.button',function(){
+                 window.android.startGame(); 
             })
          }
         title 劵包
@@ -46,7 +49,7 @@ html(lang="en")
        .wd_text_h 代金卷：单词竞猜直接抵用下注金额.
        .wd_text_c
         span 面额：10元/张
-        span 有效时间：3天
+        span 有效时间：30天
        .wd_text_b
         p 1.必赢券仅限新用户使用，下注竟猜至首次盈利后失效。
         p 2.必赢券仅限于选择1:2赔率的竞猜选项，不能与其他优惠同时使用。
@@ -59,16 +62,40 @@ html(lang="en")
         .wd_img_text
          h1 必赢劵10元
          h2 有效期3天
-         span.blue 已过期
+         h3 剩余
+          span.blue 1
+          |张
+         button.button(type="button") 立即使用
      section.wd_centent
       .wd_glass
         img.wd_img(src="../images/dj.png", alt="代金劵")
         .wd_img_text
          h1 代金劵10元
          h2 有效期30天
-         span 剩余
-          i 5
-          |天         
+         h3 剩余
+          span.blue 1
+          |张
+         button.button(type="button") 立即使用      
+     section.wd_centent
+      .wd_glass
+        img.wd_img(src="../images/246365038243676644.png", alt="必赢劵")
+        .wd_img_text
+         h1 必赢劵10元
+         h2 有效期3天
+         h3 已失效    
+          span.blue 1
+          |张
+         button.disabled(type="button",disabled) 已失效      
+     section.wd_centent
+      .wd_glass
+        img.wd_img(src="../images/diyongquan.png", alt="代金劵")
+        .wd_img_text
+         h1 代金劵10元
+         h2 有效期30天
+         h3 已失效    
+          span.blue 1
+          |张
+         button.disabled(type="button",disabled) 已失效          
              
                     
 

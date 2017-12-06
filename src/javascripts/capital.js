@@ -84,15 +84,31 @@ class deal_list {
     }
     init() {
         this.maps();
-        this.payUp();
+        var payUp = this.payUp();
+        var glass = document.createElement('div');
+        
+        glass.innerHTML = payUp;
+        var lately = document.querySelector('.lately1')
+        console.log(glass);
+        lately.appendChild(glass);
     }
     init2(){
         this.maps();
-        this.payUp();
+        var payUp = this.payUp();
+        var glass = document.createElement('div');
+        glass.innerHTML = payUp;
+        var lately = document.querySelector('.lately2')
+        console.log(glass);
+        lately.appendChild(glass);
     }
     init3(){
         this.maps();
-        this.payUp();
+        var payUp = this.payUp();
+        var glass = document.createElement('div');
+        glass.innerHTML = payUp;
+        var lately = document.querySelector('.lately3')
+        console.log(glass);
+        lately.appendChild(glass);
     }
 }
 new deal_list(jo.TotalItems).init()

@@ -1,0 +1,121 @@
+.zhandui {
+    background: url(../images/tt.png)no-repeat;
+    background-size: contain;
+    height: rem(215);
+    color: #ffffff;
+    .zd_header {
+        padding: rem(10);
+        .zd_header_right {
+            float: right;
+            background: url(../images/guiz.png)no-repeat;
+            background-size: contain;
+            padding-left: rem(20);
+            font-size: rem(14);
+        }
+        @include clearfix;
+    }
+    .zd_title {
+        margin: 0 rem(5);
+        border-bottom: 1px solid rgb(255, 255, 255);
+        .zd_h3 {
+            font-size: rem(24);
+            background: url(../images/wode.png)no-repeat;
+            background-size: contain;
+            margin: rem(15) auto;
+            display: table;
+            padding: rem(5) 0 rem(5) rem(45);
+        }
+        .zd_p {
+            text-align: center;
+            font-size: rem(12);
+            padding-bottom: rem(30);
+        }
+    }
+    .zd_footer {
+        display: flex;
+        .zd_footer_list {
+            flex: 1;
+            height: rem(65);
+            p {
+                font-size: rem(12);
+                padding: rem(12) rem(12) rem(10) rem(12);
+            }
+            .zd_money {
+                padding-left: rem(12);
+                color: #fff185;
+                font-size: rem(20);
+            }
+            &:nth-child(2) {
+                border-left: 1px solid rgb(255, 255, 255);
+                border-right: 1px solid rgb(255, 255, 255);
+            }
+        }
+        .zd_footer_list_btn {
+            background: url(../images/yaoqing.png)no-repeat;
+            background-size: 80%;
+            background-position: rem(10);
+        }
+    }
+}
+
+.zhandui_content {
+    .zd_list {
+        display: flex;
+        flex-wrap: wrap;
+        .zd_list_c {
+            border-radius: 5px;
+            box-shadow: 0px 0px 6px -2px #777;
+            background: #ffffff;
+            width: rem(118);
+            padding: rem(8);
+            margin-top: rem(5);
+            margin-left: rem(5);
+            h5 {
+                font-size: rem(12);
+                background: url(../images/zhanduishu.png)no-repeat;
+                background-size: contain;
+                padding-left: rem(22);
+                @include height(16px);
+                margin-bottom: rem(5);
+            }
+            .zd_number {
+                font-size: rem(20);
+            }
+        }
+    }
+}
+
+.zhandui_footer {
+    margin: rem(5);
+    text-align: center;
+    background: #ffffff;
+    .table_body {
+        font-size: rem(12);
+        display: table-row;
+        width: 100%;
+        span {
+            display: table-cell;
+            padding: rem(10);
+            color: #17191e;
+        }
+        &:nth-Child(odd) {
+            background: #e1e5fd;
+        }
+    }
+    .table_title {
+        font-size: rem(14);
+        background: #060d59 !important;
+        span {
+            color: #f3f7fb !important;
+            padding: rem(13);
+            &:nth-child(1){
+                border-top-left-radius: 5px;
+                
+            }
+            &:nth-last-child(1){
+                border-top-right-radius: 5px;
+                
+            }
+        }
+    }
+}

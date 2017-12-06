@@ -29,6 +29,7 @@
     .wd_text {
         font-size: 16px;
         line-height: 16px;
+        display:none;
         .wd_text_h {
             margin-top: 14px;
             line-height: 20px;
@@ -42,7 +43,6 @@
             }
         }
         .wd_text_b {
-            display:none;
             padding: 14px 0;
             border-bottom: 1px solid #d9d9d9;
             p {
@@ -64,14 +64,19 @@
         }
         .wd_img_text {
             width: 150px;
-            padding: 16px;
+            padding-left:16px;
             h1 {
-                font-size: 16px;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 22px;
             }
             h2 {
+                font-size: 16px;
+                line-height: 22px;
+            }
+            h3{
+                padding-bottom: 45px;
                 font-size: 14px;
-                line-height: 20px;
-                padding-bottom: 50px;
             }
             span {
                 i {
@@ -80,6 +85,19 @@
                 &.blue {
                     color: #53ADFE;
                 }
+            }
+            button{
+                @include height(35px);
+                width: 100px;
+                border-radius: 15px;
+            }
+            .button{
+                background: rgb(247, 186, 64);
+                color: #ffffff;
+
+            }
+            .disabled{
+                background: #cccccc;
             }
         }
     }
