@@ -43,7 +43,7 @@
         });
         $("form").on("submit", function (event) {
             event.preventDefault();
-            console.log($(this).serialize());//序列化 input 里面要有name
+            console.log($(this).serialize()); //序列化 input 里面要有name
         });
         //Ajax请求出错时注册一个回调处理函数
         $(document).ajaxError(function () {
@@ -101,17 +101,18 @@
             if (r != null) return decodeURI(r[2]);
             return null;
         }
+        //Unicode UTF-16
+
+        var atr = '吉'
+        console.info(atr.codePointAt())
+        'abc'.charAt(0) // "a"
+        '𠮷'.charAt(0) // "\uD842"
+        console.info('𠮷'.at(0))
+        for (const iterator of atr) {
+            console.info(iterator)
+        }
 
 
-        // 字体大小变化
-        (function () {
-            var ft = document.getElementsByTagName("html")[0]; //获取到html标签
-            var s = window.screen.width; //获取屏幕的宽度
-            window.onresize = function () { //屏幕尺寸改变触发
-                var w = document.body.offsetWidth; //获取浏览器内容的宽度
-                ft.style.fontSize = w / s * 16 + "px";
-            }
-        })();
         //判断在什么设备浏览器上打开
         var browser = {
             versions: function () {
