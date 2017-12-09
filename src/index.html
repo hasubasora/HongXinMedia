@@ -7,16 +7,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="stylesheets/main.css">
-    <script src="framework/jq/jquery.1.11.1.min.js"></script>
+    <script src="framework/jq/jquery-2.2.1.min.js"></script>
 </head>
 
 <body>
-        好气喔，但是要保持乖巧
+    <h1 style="font-size:2rem;">好气喔，但是要保持乖巧</h1>
+    <div class="trigger">Trigger</div>
+    <div class="result"></div>
+    <div class="log"></div>
     <script type="text/javascript">
-        $(".copys").on("touchstart", function() {
+        //每当一个Ajax请求完成，jQuery就会触发ajaxComplete事件，在这个时间点所有处理函数会使用.ajaxComplete()方法注册并执行。
+        //但是从 jQuery 1.8 开始, .ajaxComplete() 方法只能绑定到 document元素.
+        $(document).ajaxComplete(function () {
+            $(".log").text("Triggered ajaxComplete handler.");
+        });
+
+        //在Ajax请求发送之前绑定一个要执行的函数
+        $(document).ajaxSend(function () {
+            $(".log").text("Triggered ajaxSend handler.");
+        });
+        //在AJAX 请求刚开始时执行一个处理函数
+        $(document).ajaxStart(function () {
+            $(".log").text("Triggered ajaxStart handler.");
+        });
+        //在AJAX 请求完成时执行一个处理函数
+        $(".log").ajaxStop(function () {
+            $(this).text("Triggered ajaxStop handler.");
+        });
+        //绑定一个函数当 Ajax 请求成功完成时执行
+        $(document).ajaxSuccess(function (event, xhr, settings) {
+            if (settings.url == "ajax/test.html") {
+                $(".log").text("Triggered ajaxSuccess handler. The ajax response was: " +
+                    xhr.responseText);
+            }
+        });
+        $("form").on("submit", function (event) {
+            event.preventDefault();
+            console.log($(this).serialize());//序列化 input 里面要有name
+        });
+        //Ajax请求出错时注册一个回调处理函数
+        $(document).ajaxError(function () {
+            $(".log").text("Triggered ajaxError handler.");
+        });
+        $(".trigger").click(function () {
+            $(".result").load("ajax/test.html");
+        });
+
+        $.ajax({
+            async: false, //是否异步 跨域请求和 dataType: "jsonp" 不支持同步
+            type: "POST",
+            url: "http://rap.taobao.org/mockjsdata/28289/Draw/SaveAliPayAccount",
+            data: {
+                name: "John",
+                location: "Boston"
+            },
+            dataType: 'json', // html,jsonp, script, 或者 text。
+            processData: false, //发送 XML 数据至服务器。设置 processData 选项为 false，防止自动转换数据格式。
+            beforeSend(data) { //在发送请求之前调用
+                console.info('在发送请求之前调用beforeSend');
+            },
+            // dataFilter(data) { //在请求成功之后调用 和success 不会同时执行
+            //     console.info('在请求成功之后调用dataFilter');
+            // },
+            success(data) { //当请求成功并接收到返回数据之后调用
+                console.info('当请求成功并接收到返回数据之后调用success');
+            },
+            error(data) { //在请求出错时调用
+                console.info('在请求出错时调用error');
+            },
+            complete() { //请求完成时，无论是在失败或成功，它们按顺序依次执行回调。他们收到jqXHR对象，以及一个包含成功或错误代码。
+                console.info('请求完成时，无论是在失败或成功，它们按顺序依次执行回调。他们收到jqXHR对象，以及一个包含成功或错误代码。complete');
+            }
+        }).done(function (data, textStatus, jqXHR) { //success
+            console.info(data);
+            console.info("success")
+        }).fail(function (jqXHR, textStatus, errorThrown) { //error
+            console.info("error");
+        }).always(function (data /*jqXHR*/ , textStatus, /*jqXHR*/ errorThrown) { //complete 可多个？
+            console.info("complete");
+        });
+
+
+        $(".copys").on("touchstart", function () {
             $('textarea').select();
             document.execCommand("Copy");
-            alert("复制成功!");
+            console.info("复制成功!");
         });
         // alert(getQueryString('departmentName'));
 
@@ -25,6 +100,64 @@
             var r = window.location.search.substr(1).match(reg);
             if (r != null) return decodeURI(r[2]);
             return null;
+        }
+
+
+        // 字体大小变化
+        (function () {
+            var ft = document.getElementsByTagName("html")[0]; //获取到html标签
+            var s = window.screen.width; //获取屏幕的宽度
+            window.onresize = function () { //屏幕尺寸改变触发
+                var w = document.body.offsetWidth; //获取浏览器内容的宽度
+                ft.style.fontSize = w / s * 16 + "px";
+            }
+        })();
+        //判断在什么设备浏览器上打开
+        var browser = {
+            versions: function () {
+                var u = navigator.userAgent,
+                    app = navigator.appVersion;
+                return { //移动终端浏览器版本信息
+                    trident: u.indexOf('Trident') > -1, //IE内核
+                    presto: u.indexOf('Presto') > -1, //opera内核
+                    webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                    gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                    mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                    iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                    iPad: u.indexOf('iPad') > -1, //是否iPad
+                    webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+                };
+            }(),
+            language: (navigator.browserLanguage || navigator.language).toLowerCase()
+        }
+        if (browser.versions.mobile) { //判断是否是移动设备打开。browser代码在下面
+            var ua = navigator.userAgent.toLowerCase(); //获取判断用的对象
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                //在微信中打开
+                console.log('你在微信中打开')
+            }
+            if (ua.match(/WeiBo/i) == "weibo") {
+                //在新浪微博客户端打开
+                console.log('在新浪微博客户端打开')
+
+            }
+            if (ua.match(/QQ/i) == "qq") {
+                //在QQ空间打开
+                console.log('在QQ空间打开')
+                //
+            }
+            if (browser.versions.ios) {
+                console.log('是否在IOS浏览器打开')
+                //是否在IOS浏览器打开
+            }
+            if (browser.versions.android) {
+                console.log('是否在安卓浏览器打开')
+                //是否在安卓浏览器打开
+            }
+        } else {
+            //否则就是PC浏览器打开
         }
     </script>
 

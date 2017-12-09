@@ -110,15 +110,18 @@ body {
             padding: rem(5) 0;
             .m_pay {
                 // @include outline;
-                @include span(8);
-                padding-right: 2.83333%;
+                @include span(12);
+                padding-left: 2.83333%;
                 img {
-                    float: right;
+                    float: left;
                 }
             }
             .m_play {
+                @include span(8);
                 // @include outline;
-                @include span(12);
+                img {
+                    float: right;
+                }
             }
         }
     }

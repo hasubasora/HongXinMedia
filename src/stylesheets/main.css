@@ -154,6 +154,7 @@ body {
   font-size: 16px;
   width: 100%;
   height: auto;
+  user-select: none;
 }
 
 html *,
@@ -1211,12 +1212,12 @@ section section .lately .pays > section > span {
 }
 
 .wd_header {
-  padding: 0 20px;
+  padding: 0 1.25rem;
   background: #f5f5f5;
 }
 .wd_header .wd_box {
-  height: 45px;
-  line-height: 45px;
+  height: 2.8125rem;
+  line-height: 2.8125rem;
   border-bottom: 1px solid #d9d9d9;
 }
 .wd_header .wd_box h5 {
@@ -1228,28 +1229,28 @@ section section .lately .pays > section > span {
   float: right;
 }
 .wd_header .wd_box h5 .wd_list i {
-  transform-origin: 5px;
+  transform-origin: 0.3125rem;
   transform: rotate(0deg);
-  width: 16px;
-  height: 15px;
+  width: 1rem;
+  height: 0.9375rem;
   display: inline-block;
   vertical-align: middle;
   background: url(../images/2.png) no-repeat;
   background-size: contain;
-  margin-left: 5px;
+  margin-left: 0.3125rem;
   transition: .2s;
 }
 .wd_header .wd_text {
-  font-size: 16px;
-  line-height: 16px;
+  font-size: 1rem;
+  line-height: 1rem;
   display: none;
 }
 .wd_header .wd_text .wd_text_h {
-  margin-top: 14px;
-  line-height: 20px;
+  margin-top: 0.875rem;
+  line-height: 1.25rem;
 }
 .wd_header .wd_text .wd_text_c {
-  padding-bottom: 14px;
+  padding-bottom: 0.875rem;
   display: flex;
   border-bottom: 1px solid #d9d9d9;
 }
@@ -1257,41 +1258,41 @@ section section .lately .pays > section > span {
   flex: 1;
 }
 .wd_header .wd_text .wd_text_b {
-  padding: 14px 0;
+  padding: 0.875rem 0;
   border-bottom: 1px solid #d9d9d9;
 }
 .wd_header .wd_text .wd_text_b p {
   color: #757575;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .wd_centent {
-  padding: 20px;
+  padding: 1.25rem;
   border-bottom: 1px solid #d9d9d9;
 }
 .wd_centent .wd_glass {
   display: flex;
 }
 .wd_centent .wd_glass .wd_img {
-  width: 200px;
-  height: 140px;
+  width: 12.5rem;
+  height: 8.75rem;
 }
 .wd_centent .wd_glass .wd_img_text {
-  width: 150px;
-  padding-left: 16px;
+  width: 9.375rem;
+  padding-left: 1rem;
 }
 .wd_centent .wd_glass .wd_img_text h1 {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
-  line-height: 22px;
+  line-height: 1.375rem;
 }
 .wd_centent .wd_glass .wd_img_text h2 {
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 1rem;
+  line-height: 1.375rem;
 }
 .wd_centent .wd_glass .wd_img_text h3 {
-  padding-bottom: 45px;
-  font-size: 14px;
+  padding-bottom: 2.8125rem;
+  font-size: 0.875rem;
 }
 .wd_centent .wd_glass .wd_img_text span i {
   color: #53ADFE;
@@ -1300,10 +1301,10 @@ section section .lately .pays > section > span {
   color: #53ADFE;
 }
 .wd_centent .wd_glass .wd_img_text button {
-  height: 35px;
-  line-height: 35px;
+  height: 2.8125rem;
+  line-height: 2.8125rem;
   width: 100px;
-  border-radius: 15px;
+  border-radius: 0.9375rem;
 }
 .wd_centent .wd_glass .wd_img_text .button {
   background: #f7ba40;
@@ -1820,20 +1821,23 @@ body {
   padding: 0.3125rem 0;
 }
 .home_header section.home_btn .m_pay {
-  width: 66.66667%;
-  float: left;
-  padding-left: 0.83333%;
-  padding-right: 0.83333%;
-  padding-right: 2.83333%;
-}
-.home_header section.home_btn .m_pay img {
-  float: right;
-}
-.home_header section.home_btn .m_play {
   width: 100%;
   float: left;
   padding-left: 0.83333%;
   padding-right: 0.83333%;
+  padding-left: 2.83333%;
+}
+.home_header section.home_btn .m_pay img {
+  float: left;
+}
+.home_header section.home_btn .m_play {
+  width: 66.66667%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+}
+.home_header section.home_btn .m_play img {
+  float: right;
 }
 .home_header .home_wx_draw_money {
   color: #fff;
