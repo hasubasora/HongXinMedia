@@ -107,10 +107,10 @@
         background: #060d59 !important;
         span {
             color: #f3f7fb !important;
-            padding: rem(13);
+            padding: rem(16) ;
+            width: 6rem;
             &:nth-child(1){
                 border-top-left-radius: 5px;
-                
             }
             &:nth-last-child(1){
                 border-top-right-radius: 5px;

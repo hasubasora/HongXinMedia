@@ -1,0 +1,115 @@
+body {
+    background: #439057 !important;
+}
+
+.wx_header {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    margin: rem(24) rem(24) 0;
+    padding: rem(14);
+    background: #fbfbfb;
+    display: flex;
+    .wxIcon {
+        background: url(../images/weixinlogo.png)no-repeat;
+        background-size: cover;
+        display: block;
+        width: rem(30);
+        height: rem(30);
+    }
+    span {
+        font-size: rem(18);
+        line-height: rem(32);
+        color: #439057;
+        padding-left: rem(10);
+    }
+}
+
+.wx_content {
+    background: #ffffff;
+    margin: 0 rem(24);
+    padding: rem(20);
+    .wx_content_cq {
+    border-bottom: 1px solid #ccc;
+        #wx_cq {
+            position: relative;
+            top: 0;
+            left: 0;
+            height: rem(200);
+            width: rem(200);
+            margin: 0 auto;
+            padding: rem(10);
+            // border: 1px solid;
+            // border-image: linear-gradient( rgb(153, 153, 153), #ffffff, rgb(153, 153, 153)) 60;
+            img {
+                width: 100%;
+            }
+            .wx_mb{
+                display: none;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: rgba($color: #ffffff, $alpha: .8);
+                .reload{
+                    padding: rem(10) rem(20);
+                    transform: translate(rem(65),rem(65));
+                    background: #439057;
+                    color: #fff;
+                    border-radius: 5px;
+                    border:1px solid #dbdbdb;
+                }
+            }
+        }
+        .wx_text {
+            height: rem(100);
+            width: rem(200);
+            margin: 0 auto;
+            padding: rem(20) 0;
+            display: flex;
+            i {
+                background: url(../images/ydd.png)no-repeat;
+                background-size: contain;
+                display: block;
+                width: rem(5);
+                margin-top: 8px;
+            }
+            .wx_text_centent {
+                display: flex;
+                flex-direction: column;
+                span {
+                    font-size: rem(16);
+                    line-height: rem(23);
+                    text-indent: rem(10);
+                    color: #439057;
+                    &:nth-child(1) {
+                        color: orange;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.wx_footer {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin: 0 rem(24) rem(24);
+    padding: 0 rem(22) rem(20);
+    background: #ffffff;
+    display: flex;
+    i{
+        display: block;
+        width:rem(25);
+        height:rem(25);
+        background: url(../images/qb.png)no-repeat;
+        background-size: contain;
+    }
+    span{
+        display: block;
+        font-size: rem(14);
+        line-height: rem(24);
+        text-indent: rem(10);
+        color: rgb(104, 104, 104);
+    }
+}

@@ -96,7 +96,7 @@ const filter = {
     },
     countdowns(btn) {
         let times = 60;
-        timer = setInterval(() => {
+       let timer = setInterval(() => {
             if (times > 0) {
                 btn.setAttribute('style', 'pointer-events: none');
                 filter.inputs(btn,`${times}s`);

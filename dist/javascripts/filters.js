@@ -99,7 +99,7 @@ var filter = {
     },
     countdowns: function countdowns(btn) {
         var times = 60;
-        timer = setInterval(function () {
+        var timer = setInterval(function () {
             if (times > 0) {
                 btn.setAttribute('style', 'pointer-events: none');
                 filter.inputs(btn, times + 's');

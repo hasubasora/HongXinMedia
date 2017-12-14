@@ -70,7 +70,7 @@ var deal_list = function () {
         value: function payUp() {
             //
             var len = this.ays.length;
-            var payUp = '<div class="payUp">',
+            var payUp = '',
                 payMsg,
                 g = 'greens',
                 typecol = '',
@@ -87,7 +87,7 @@ var deal_list = function () {
                 for (var _iterator = this.ays[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                     var i = _step.value;
 
-                    payUp += "<div class=\"dates\">" + i.Date + "<img src=\"../images/dade.png\" alt=\"\"></div>";
+                    payUp += "<div class=\"payUp\"><div class=\"dates\">" + i.Date + "<img src=\"../images/dade.png\" alt=\"\"></div>";
                     var _iteratorNormalCompletion2 = true;
                     var _didIteratorError2 = false;
                     var _iteratorError2 = undefined;
@@ -179,5 +179,54 @@ var deal_list = function () {
 
     return deal_list;
 }();
+// new deal_list(jo.TotalItems).init()
 
-new deal_list(jo.TotalItems).init();
+
+window.onload = function () {
+    var log = 0;
+    ajaxlog(log);
+
+    $('.selected').on('change', function (params) {
+        log = $(this).val();
+        ajaxlog(log);
+        $('.selected').find("option[value='" + log + "']").attr("selected", true);
+    });
+};
+
+function ajaxlog(params) {
+    $.ajax({
+        type: "POST",
+        url: "/FunUser/UserBalanceLog",
+        data: {
+            'type': params
+        },
+        dataType: "json",
+        success: function success(data) {
+            layer.open({
+                type: 2,
+                shadeClose: false
+            });
+            if (data.Status == 1) {
+                $('.payUp').remove();
+                // RechargeTotal=data.Result.RechargeTotal; //总金额
+                // WithdrawalsTotal=data.Result.WithdrawalsTotal //提款总
+                $('[name=TotalRecharge]').text(data.Result.RechargeTotal.toFixed(2));
+                $('[name=TotalDraw]').text(data.Result.WithdrawalsTotal.toFixed(2));
+                // console.info(data.Result);
+                if (data.Result.TotalItems.length) {
+                    new deal_list(data.Result.TotalItems).init();
+                    new deal_list(data.Result.RechargeItems).init2(); //提款
+                    new deal_list(data.Result.DrawItems).init3(); //充值
+                }
+                layer.closeAll();
+            } else {
+                //提示
+                layer.open({
+                    content: '获取数据失败，请刷新页面！',
+                    skin: 'msg',
+                    time: 2 //2秒后自动关闭
+                });
+            }
+        }
+    });
+}

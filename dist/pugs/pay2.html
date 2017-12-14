@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="stylesheet" href="../stylesheets/main.min.css"/>
     <title>提现</title>
@@ -10,24 +10,62 @@
   <body class="huise">
     <section class="withdrawDeposit"> 
       <ul>
-        <li><img class="withdrawDeposit-img" src="../images/zhifu.png" alt=""/></li>
+        <li><img class="withdrawDeposit-img" src="../images/zhifubao.png" alt=""/></li>
         <li>
-          <h1>本微信号零钱包</h1>
+          <h1> 
+            <input id="userNum" type="text" name="userNum" disabled="disabled" placeholder="支付宝账号"/>
+          </h1>
           <p>提现手续费0%，限时优惠。</p>
+          <p>提现成功后，支付宝账号不可修改。</p>
         </li>
-        <li><img src="../images/paydui.png" alt=""/></li>
       </ul>
       <ul class="withdrawDeposit-money">
         <li>到账金额</li>
         <li><sub>￥</sub>
-          <input class="moneys" type="number" name="money"/>
+          <input class="moneys" type="number" name="money" placeholder="0.00" maxLength="9"/>
         </li>
-        <li>账户金额￥0.00元</li>
+        <li>账户金额：<span class="outMoneyNum">￥12.00元 </span><span class="outMoney">全部提现</span></li>
         <li> 
-          <input type="button" value="提现"/>
-          <p>微信秒到账</p>
+          <p>战队收益：<span>￥12.00元</span></p>
+          <p>战队收益通过审核后次日可到账，到账即可提现！ </p>
+        </li>
+        <li> 
+          <button class="pointer" id="tx" type="button">提现</button>
+        </li>
+        <li>
+          <p>温馨提示：单笔最小金额1，单笔最大出金额度5000，单日最大出金额度20000. </p>
         </li>
       </ul>
-    </section><a class="goIndex" href="">返回首页    </a>
+    </section><a class="goIndex" href="weixin://wxpay/bizpayurl?pr=D0S8H92">返回首页    </a>
+    <section class="userNameBox">
+      <div class="boxGlass"><img class="close" src="../images/quxiao.png" alt=""/>
+        <div class="titleBox">
+          <h2>提现手机验证<img src="../images/zhifubao.png" alt=""/></h2>
+        </div>
+        <ul>
+          <li>
+            <input class="zfbPay" type="text" placeholder="支付宝账号" maxLength="50"/>
+          </li>
+          <li>
+            <p class="blue">每个用户只能绑定一个支付宝账号，绑定后将无法修改，请确认无误。</p>
+          </li>
+          <li>
+            <input class="tel" type="text" disabled="disabled"/>
+          </li>
+          <li class="rele"> 
+            <input class="releCq" type="text" placeholder="动态密码"/>
+            <button id="cqBtn">获取动态密码</button>
+          </li>
+          <li>
+            <button class="GoPay pointer">确定</button>
+          </li>
+        </ul>
+      </div>
+    </section>
   </body>
+  <script src="../framework/jq/jquery-2.2.1.min.js"> </script>
+  <script src="../framework/layer_mobile/layer.js"> </script>
+  <script src="../javascripts/rem.js"> </script>
+  <script src="../javascripts/filters.js"> </script>
+  <script src="../javascripts/pay.js"> </script>
 </html>

@@ -1,40 +1,41 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var json = [{
-    "Msg": "测试内容3h55",
-    "Result": [{
-        "CreateDate": "订单日期",
-        "LotterTime": "开奖时间",
-        "LstTradeLogItem": [{
-            "BuyAmount": "12",
-            "BuyType": "5",
-            "WinRate": 27740
-        }, {
-            "BuyAmount": "13",
-            "BuyType": "4",
-            "WinRate": 27740
-        }],
-        "TradeId": '交易编号1',
-        "WinNumber": '开奖数字1',
-        "WinnerAmount": "123"
-    }, {
-        "CreateDate": "订单日期1",
-        "LotterTime": "开奖时间1",
-        "LstTradeLogItem": [{
-            "BuyAmount": "100",
-            "BuyType": "购买类型1",
-            "WinRate": 111
-        }],
-        "TradeId": '交易编号',
-        "WinNumber": '开奖数字',
-        "WinnerAmount": "-456"
-    }],
-    "Status": 1
-}];
+// var json = [{
+//     "Msg": "测试内容3h55",
+//     "Result": [{
+//         "CreateDate": "订单日期",
+//         "LotterTime": "开奖时间",
+//         "LstTradeLogItem": [{
+//             "BuyAmount": "12",
+//             "BuyType": "5",
+//             "WinRate": 27740
+//         }, {
+//             "BuyAmount": "13",
+//             "BuyType": "4",
+//             "WinRate": 27740
+//         }],
+//         "TradeId": '交易编号1',
+//         "WinNumber": '开奖数字1',
+//         "WinnerAmount": "123"
+//     }, {
+//         "CreateDate": "订单日期1",
+//         "LotterTime": "开奖时间1",
+//         "LstTradeLogItem": [{
+//             "BuyAmount": "100",
+//             "BuyType": "购买类型1",
+//             "WinRate": 111
+//         }],
+//         "TradeId": '交易编号',
+//         "WinNumber": '开奖数字',
+//         "WinnerAmount": "-456"
+//     }],
+//     "Status": 1
+// }]
+
 
 var trade = function () {
     function trade(n) {
@@ -44,7 +45,7 @@ var trade = function () {
     }
 
     _createClass(trade, [{
-        key: "init",
+        key: 'init',
         value: function init() {
             this.strings(this.n[0].Result);
             // console.info(this)
@@ -53,11 +54,11 @@ var trade = function () {
             var lat = document.createElement('div'),
                 lately = document.querySelector('.lately');
             lat.className = "payUp tet";
-            lat.innerHTML = "<div class=\"jdates dates\">" + this.n[0].Result[0].CreateDate + "<img src=\"../images/dade.png\" alt=\"\"></div>" + this.strings(this.n[0].Result);
+            lat.innerHTML = '<div class="jdates dates">' + this.n[0].Result[0].CreateDate + '<img src="../images/dade.png" alt=""></div>' + this.strings(this.n[0].Result);
             lately.appendChild(lat);
         }
     }, {
-        key: "strings",
+        key: 'strings',
         value: function strings(r) {
             var _this = this;
 
@@ -78,7 +79,7 @@ var trade = function () {
                     txt = profit;
                     col = o;
                 }
-                srt += "<div class=\"payMsg\"><span>" + element.LotterTime + "\u5F00\u5956</span><span class=\"" + col + "\">" + txt + "</span><span>\u76C8\u5229:" + element.WinnerAmount + "<img class=\"rightPic\" src=\"../images/right.png\" alt=\"\"></span></div>\n            <div class=\"transaction_detail\"> \n            <aside><span>\u8BA2\u5355\u53F7\uFF1A" + element.TradeId + "</span><span>\u5F00\u76D8\u6570\u5B57:" + element.WinNumber + "</span></aside>" + _this.strings_list(element.LstTradeLogItem) + "</div>";
+                srt += '<div class="payMsg"><span>' + element.LotterTime + '\u5F00\u5956</span><span class="' + col + '">' + txt + '</span><span>' + txt + ':' + element.WinnerAmount + '<img class="rightPic" src="../images/right.png" alt=""></span></div>\n            <div class="transaction_detail"> \n            <aside><span>\u8BA2\u5355\u53F7\uFF1A' + element.TradeId + '</span><span>\u5F00\u76D8\u6570\u5B57:' + element.WinNumber + '</span></aside>' + _this.strings_list(element.LstTradeLogItem) + '</div>';
                 // console.info(element.LstTradeLogItem)
             });
             // console.info()
@@ -86,12 +87,12 @@ var trade = function () {
             return srt;
         }
     }, {
-        key: "strings_list",
+        key: 'strings_list',
         value: function strings_list(ele) {
             // console.info('el')
             var doc = '<div class="transaction_detail_list">';
             ele.forEach(function (eles) {
-                doc += "<aside><span>\u7ADE\u731C\uFF1A" + eles.BuyType + "</span><span>\u4E0B\u5355\u91D1\u989D\uFF1A" + eles.BuyAmount + "\u5143</span><span>\u76C8\u5229\u7387\uFF1A" + eles.WinRate + "</span></aside>";
+                doc += '<aside><span>\u7ADE\u731C\uFF1A' + eles.BuyType + '</span><span>\u4E0B\u5355\u91D1\u989D\uFF1A' + eles.BuyAmount + '\u5143</span><span>\u76C8\u5229\u7387\uFF1A' + eles.WinRate + '</span></aside>';
             });
             doc += '</div>';
             // console.info(doc)
@@ -101,5 +102,46 @@ var trade = function () {
 
     return trade;
 }();
+// new trade(json).init()
 
-new trade(json).init();
+window.onload = function () {
+    var log = 0;
+    ajaxlog(log);
+
+    $('.selected').on('change', function (params) {
+        log = $(this).val();
+        ajaxlog(log);
+        $('.selected').find("option[value='" + log + "']").attr("selected", true);
+    });
+    $.each($('.payMsg'), function (i, it) {
+        $('.payMsg').eq(i).on('touchstart', function () {
+            $('.transaction_detail').eq(i).toggle();
+            if ($('.rightPic').eq(i).hasClass('transform90')) {
+                $('.rightPic').eq(i).removeClass('transform90');
+            } else {
+                $('.rightPic').eq(i).addClass('transform90');
+            }
+        });
+    });
+};
+
+function ajaxlog(params) {
+    console.log(params);
+    $.ajax({
+        // async: false,
+        type: "POST",
+        url: "/trade/GetTradeLog",
+        // url:'http://rap.taobao.org/mockjsdata/28289/trade/GetTradeLog',
+        data: {
+            dateType: params
+        },
+        dataType: "json",
+        success: function success(data) {
+            if (data.Status == 1) {
+                $('.payUp').remove();
+                $('.numtext').text(data.Result.length);
+                new trade(data).init();
+            }
+        }
+    });
+}

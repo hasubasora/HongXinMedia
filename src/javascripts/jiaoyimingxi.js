@@ -1,34 +1,34 @@
-var json = [{
-    "Msg": "测试内容3h55",
-    "Result": [{
-        "CreateDate": "订单日期",
-        "LotterTime": "开奖时间",
-        "LstTradeLogItem": [{
-            "BuyAmount": "12",
-            "BuyType": "5",
-            "WinRate": 27740
-        }, {
-            "BuyAmount": "13",
-            "BuyType": "4",
-            "WinRate": 27740
-        }],
-        "TradeId": '交易编号1',
-        "WinNumber": '开奖数字1',
-        "WinnerAmount": "123"
-    }, {
-        "CreateDate": "订单日期1",
-        "LotterTime": "开奖时间1",
-        "LstTradeLogItem": [{
-            "BuyAmount": "100",
-            "BuyType": "购买类型1",
-            "WinRate": 111
-        }],
-        "TradeId": '交易编号',
-        "WinNumber": '开奖数字',
-        "WinnerAmount": "-456"
-    }],
-    "Status": 1
-}]
+// var json = [{
+//     "Msg": "测试内容3h55",
+//     "Result": [{
+//         "CreateDate": "订单日期",
+//         "LotterTime": "开奖时间",
+//         "LstTradeLogItem": [{
+//             "BuyAmount": "12",
+//             "BuyType": "5",
+//             "WinRate": 27740
+//         }, {
+//             "BuyAmount": "13",
+//             "BuyType": "4",
+//             "WinRate": 27740
+//         }],
+//         "TradeId": '交易编号1',
+//         "WinNumber": '开奖数字1',
+//         "WinnerAmount": "123"
+//     }, {
+//         "CreateDate": "订单日期1",
+//         "LotterTime": "开奖时间1",
+//         "LstTradeLogItem": [{
+//             "BuyAmount": "100",
+//             "BuyType": "购买类型1",
+//             "WinRate": 111
+//         }],
+//         "TradeId": '交易编号',
+//         "WinNumber": '开奖数字',
+//         "WinnerAmount": "-456"
+//     }],
+//     "Status": 1
+// }]
 
 
 
@@ -65,7 +65,7 @@ class trade {
                 txt = profit;
                 col = o;
             }
-            srt += `<div class="payMsg"><span>${element.LotterTime}开奖</span><span class="${col}">${txt}</span><span>盈利:${element.WinnerAmount}<img class="rightPic" src="../images/right.png" alt=""></span></div>
+            srt += `<div class="payMsg"><span>${element.LotterTime}开奖</span><span class="${col}">${txt}</span><span>${txt}:${element.WinnerAmount}<img class="rightPic" src="../images/right.png" alt=""></span></div>
             <div class="transaction_detail"> 
             <aside><span>订单号：${element.TradeId}</span><span>开盘数字:${element.WinNumber}</span></aside>${this.strings_list(element.LstTradeLogItem)}</div>`
             // console.info(element.LstTradeLogItem)
@@ -86,4 +86,49 @@ class trade {
         return doc;
     }
 }
-new trade(json).init()
+// new trade(json).init()
+
+window.onload = function () {
+    var log = 0;
+    ajaxlog(log);
+
+    $('.selected').on('change', function (params) {
+        log = $(this).val();
+        ajaxlog(log);
+        $('.selected').find("option[value='" + log + "']").attr("selected", true);
+    })
+    $.each($('.payMsg'), function (i, it) {
+        $('.payMsg').eq(i).on('touchstart', function () {
+            $('.transaction_detail').eq(i).toggle();
+            if ($('.rightPic').eq(i).hasClass('transform90')) {
+                $('.rightPic').eq(i).removeClass('transform90');
+            } else {
+                $('.rightPic').eq(i).addClass('transform90');
+            }
+        })
+    })
+
+}
+
+function ajaxlog(params) {
+    console.log(params);
+    $.ajax({
+       // async: false,
+        type: "POST",
+        url: "/trade/GetTradeLog",
+        // url:'http://rap.taobao.org/mockjsdata/28289/trade/GetTradeLog',
+        data: {
+            dateType: params
+        },
+        dataType: "json",
+        success: function (data) {
+            if (data.Status == 1) {
+                $('.payUp').remove();
+                $('.numtext').text(data.Result.length)
+                new trade(data).init()
+            }
+        }
+    })
+
+   
+}

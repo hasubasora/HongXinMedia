@@ -1,7 +1,7 @@
 html(lang="en")
     head
         meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         link(rel="stylesheet", href="../stylesheets/main.min.css")          
         title 提现
@@ -9,19 +9,50 @@ html(lang="en")
      section.withdrawDeposit 
       ul
        li
-        img.withdrawDeposit-img(src="../images/zhifu.png", alt="")
+        img.withdrawDeposit-img(src="../images/zhifubao.png", alt="")
        li
-        h1 本微信号零钱包
+        h1 
+         input#userNum(type="text", name="userNum",disabled,placeholder='支付宝账号')
         p 提现手续费0%，限时优惠。
-       li
-        img(src="../images/paydui.png", alt="")
+        p 提现成功后，支付宝账号不可修改。
       ul.withdrawDeposit-money
        li 到账金额
        li
         sub ￥
-        input.moneys(type="number",name="money")
-       li 账户金额￥0.00元
+        input.moneys(type="number",name="money",placeholder="0.00",maxLength='9')
+       li 账户金额：
+        span.outMoneyNum ￥12.00元 
+        span.outMoney 全部提现
        li 
-        input(type="button", value="提现")
-        p 微信秒到账
-     a.goIndex(href="") 返回首页    
+        p 战队收益：
+         span ￥12.00元
+        p 战队收益通过审核后次日可到账，到账即可提现！ 
+       li 
+        button#tx.pointer(type='button') 提现
+       li
+        p 温馨提示：单笔最小金额1，单笔最大出金额度5000，单日最大出金额度20000. 
+     a.goIndex(href="weixin://wxpay/bizpayurl?pr=D0S8H92") 返回首页    
+     section.userNameBox
+      .boxGlass
+       img.close(src="../images/quxiao.png", alt="")
+       .titleBox
+        h2 提现手机验证
+         img(src="../images/zhifubao.png", alt="")
+       ul
+        li
+         input.zfbPay(type="text",placeholder='支付宝账号',maxLength='50')
+        li
+         p.blue 每个用户只能绑定一个支付宝账号，绑定后将无法修改，请确认无误。
+        li
+         input.tel(type="text",disabled)
+        li.rele  
+         input.releCq(type="text",placeholder='动态密码')
+         button#cqBtn 获取动态密码
+        li
+         button.GoPay.pointer 确定
+
+    script(src="../framework/jq/jquery-2.2.1.min.js") 
+    script(src="../framework/layer_mobile/layer.js") 
+    script(src="../javascripts/rem.js") 
+    script(src="../javascripts/filters.js") 
+    script(src="../javascripts/pay.js") 
