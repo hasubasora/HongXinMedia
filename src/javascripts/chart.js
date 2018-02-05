@@ -1,14 +1,12 @@
 
-
-class setChart {
+ 
+var setChart ={
     constructor(setJsons) {
         this.setJsons = setJsons;
-        this.str = '';
-    }
-    setNumber(period, num) {
+    },
+    setNumber(period, num,bs) {
         // console.log(this.setJsons.Result)
-        var reg = /\d+/g,
-            ms = this.str.match(reg);
+        var reg = /\d+/g;
 
         var otr = `<tr><td>${period}</td><td>${num}</td>`
         if (num <= 13) {
@@ -33,31 +31,19 @@ class setChart {
                 otr += `<td><span class='ds'></td><td></td><td></td><td></td><td><span class='dxds'></td><td></td>`;
             }
         }
-        if (this.smoothly(Number(ms[0]), Number(ms[1]), Number(ms[2])) != -1) {
+        if (bs.match(/1/)!=null) {
             otr += `<td><span class='bzsz'></td><td></td></tr>`
-        } else if (Number(ms[0]) == Number(ms[1]) && Number(ms[1]) == Number(ms[2]) && Number(ms[2]) == Number(ms[0])) {
+        } else if (bs.match(/0/)!=null) {
             otr += `<td></td><td><span class='bzsz'></td></tr>`
         } else {
             otr += `<td></td><td></td></tr>`
         }
         return otr;
-    }
-    smoothly(a, b, c) { //顺子计算
-        if ((a + 1) == b && (b + 1) == c) {
-            return 1;
-        } else {
-            if (a - 1 == b && b - 1 == c) {
-                return 1;
-            } else {
-                return -1;
-            }
-        }
-    }
+    },
     init() {
         var sty = '';
         for (let i of this.setJsons.Result) {
-            this.str = i.LotteryType;
-            sty += this.setNumber(i.Period, i.WinnerNumber);
+            sty += this.setNumber(i.Period, i.WinnerNumber,i.LotteryType);
 
         }
         document.querySelector('.tbody').innerHTML=sty;
@@ -65,9 +51,8 @@ class setChart {
 
     }
 }
-window.onload = function (params) {
+$(function (params) {
     $.post("/trade/GetHistoryLotryNum",  function (data) {
-        const sets = new setChart(data).init();
-
+       setChart(data).init();
       });
-}
+})

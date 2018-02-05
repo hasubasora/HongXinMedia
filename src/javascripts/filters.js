@@ -96,24 +96,43 @@ const filter = {
     },
     countdowns(btn) {
         let times = 60;
-       let timer = setInterval(() => {
+        let timer = setInterval(() => {
             if (times > 0) {
                 btn.setAttribute('style', 'pointer-events: none');
-                filter.inputs(btn,`${times}s`);
+                filter.inputs(btn, `${times}s`);
                 times--;
             } else {
                 clearInterval(timer);
                 btn.removeAttribute('style');
-                filter.inputs(btn,'获取验证码');
+                filter.inputs(btn, '获取验证码');
                 times = 60;
             }
         }, 1000)
     },
-    inputs(btn,v1){
+    inputs(btn, v1) {
         if (btn.tagName == 'INPUT') {
             btn.value = v1;
         } else if (btn.tagName == 'BUTTON') {
             btn.innerText = v1;
+        }
+    },
+    ajaxFunction() { //检测支不支持AJAS
+        var xmlHttp;
+        try {
+            // Firefox, Opera 8.0+, Safari
+            xmlHttp = new XMLHttpRequest();
+        } catch (e) {
+            // Internet Explorer
+            try {
+                xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch (e) {
+                try {
+                    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                } catch (e) {
+                    alert("您的浏览器不支持AJAX！");
+                    return false;
+                }
+            }
         }
     }
 }

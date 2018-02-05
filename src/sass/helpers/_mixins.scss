@@ -95,7 +95,7 @@ $legacy-support-for-ie:true;
     color: rgb(255, 255, 255);
 }
 
-@mixin text($h:2.5rem, $w:15rem) {
+@mixin text($h:2.5rem, $w:15rem) { 
     height: $h;
     width: $w;
     text-indent: 5px;

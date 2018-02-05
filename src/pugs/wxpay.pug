@@ -11,7 +11,7 @@ html(lang="en")
         script(src="../framework/jq/jquery-2.2.1.min.js")
         script(src="../javascripts/rem.js") 
         script(src="../javascripts/wxpay.js") 
-    body
+    body.wxpay
      header.wx_header 
       i.wxIcon
       span 微信充值码
@@ -21,14 +21,20 @@ html(lang="en")
         .wx_mb
          button.reload(type="button") 刷新
         img(src="../images/1513232913.png", alt="", srcset="")
+       .wx_btn 
+        button(type="button") 返回 
+        button(type="button") 充值完成 
        .wx_text
-        i
         .wx_text_centent
-         span 长按保存二维码到相册
+         span.wx_timeout 剩余有效时间 &nbsp;
+          b.wx_timeout_h 4
+          |:
+          b.wx_timeout_s 59
+          | &nbsp;秒
          span 打开微信扫一扫
          span 从相册选取二维码-支付
      aside.wx_footer
        i
-       span 您的微信专属充值码有效期为10分钟
+       span 您的微信专属充值码有效期为5分钟
 
          

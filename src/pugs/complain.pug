@@ -1,0 +1,39 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="../stylesheets/main.min.css")
+        script(src="http://code.jquery.com/jquery-2.1.1.min.js")
+        script(src="../javascripts/rem.js")
+        title 投诉建议
+    body
+     .complain_div.complain_div_1
+       h5 请选择投诉原因
+       ul
+        li 提现问题
+         i.iconfont
+        li 充值问题
+        li 平台异常
+        li 对开奖结果有异议
+        li 其他问题
+     .complain_div.complain_div_2
+       h5 请选择投诉原因
+       ul
+        li 充值入口失效问题
+        li 充值未到账问题       
+     .complain_div.complain_div_3
+       h5 投诉建议内容
+       input.complain_input(type="text",placeholder="请输入建议问题...")
+       h5 投诉建议描述
+       textarea.complain_text(contenteditable='true',placeholder="请输入投诉建议内容",maxLength='100')
+       h4 为了您的资金安全,如涉及资金问题，请附上【姓名+注册账号】。
+       button.button(type="button") 提交 
+     .complain_div.complain_div_4
+      img(src="", alt="")
+      h4 投诉建议已提交
+      h5 团队会尽快核实，我们将在2个小双内处理（9:00-20:00）；如有以为请联系
+       a(href='') 在线客服
+      button(type="button") 返回游戏 
+      
+     
